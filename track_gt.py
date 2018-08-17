@@ -7,7 +7,7 @@ dataset_root_folder = '/home/paulo/fpa_benchmark/'
 gt_folder = 'Hand_pose_annotation_v1'
 data_folder = 'video_files'
 subject = 'Subject_1'
-action = 'open_letter'
+action = 'put_tea_bag'
 sequence = '4'
 gt_filepath = '/'.join([dataset_root_folder, gt_folder, subject, action, sequence, 'skeleton.txt'])
 curr_data_folder = '/'.join([dataset_root_folder, data_folder, subject, action, sequence])
@@ -21,7 +21,7 @@ for i in range(99):
         frame_num = '000' + str(i)
     else:
         frame_num = '00' + str(i)
-    joints = gt_skeletons[i].joints
+    joints = gt_skeletons[i, :].reshape((21, 3))
     color_filepath = '/'.join([curr_data_folder, 'color', 'color_' + frame_num + '.jpeg'])
     depth_filepath = '/'.join([curr_data_folder, 'depth', 'depth_' + frame_num + '.png'])
     depth_img = fpa_io.read_depth_img(depth_filepath)

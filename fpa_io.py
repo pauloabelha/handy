@@ -32,6 +32,8 @@ def read_action_joints_sequence(filepath):
     #action = filepath.split('/')[6]
     with open(filepath) as f:
         lines = f.readlines()
+        if len(lines) == 0:
+            return None
         joints_sequence = np.zeros((len(lines), num_joints * 3))
         idx = 0
         for line in lines:
@@ -90,6 +92,10 @@ def create_split_file(dataset_root_folder, gt_folder, data_folder, num_train_seq
                                             subject_dir, action_dir, str(curr_seq_ix),
                                                 'skeleton.txt'])
                     joints_seq = read_action_joints_sequence(seq_gt_filepath)
+                    if joints_seq is None:
+                        print('Found action sequence without ground truth: {}'.
+                              format((subject_dir, action_dir, curr_seq_ix)))
+                        continue
                     dataset_tuple_train.append((subject_dir, action_dir, curr_seq_ix, joints_seq))
                 num_valid_seqs = int(np.floor((num_seqs - num_train_seq) / 2))
                 for i in range(num_valid_seqs):
@@ -98,6 +104,10 @@ def create_split_file(dataset_root_folder, gt_folder, data_folder, num_train_seq
                                                 subject_dir, action_dir, str(curr_seq_ix),
                                                 'skeleton.txt'])
                     joints_seq = read_action_joints_sequence(seq_gt_filepath)
+                    if joints_seq is None:
+                        print('Found action sequence without ground truth: {}'.
+                              format((subject_dir, action_dir, curr_seq_ix)))
+                        continue
                     dataset_tuple_valid.append((subject_dir, action_dir, curr_seq_ix, joints_seq))
                 num_test_seqs = num_seqs - (num_train_seq + num_valid_seqs)
                 for i in range(num_test_seqs):
@@ -106,6 +116,10 @@ def create_split_file(dataset_root_folder, gt_folder, data_folder, num_train_seq
                                                 subject_dir, action_dir, str(curr_seq_ix),
                                                 'skeleton.txt'])
                     joints_seq = read_action_joints_sequence(seq_gt_filepath)
+                    if joints_seq is None:
+                        print('Found action sequence without ground truth: {}'.
+                              format((subject_dir, action_dir, curr_seq_ix)))
+                        continue
                     dataset_tuple_test.append((subject_dir, action_dir, curr_seq_ix, joints_seq))
     dataset_tuples = {
         'train': dataset_tuple_train,
