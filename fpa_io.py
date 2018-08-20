@@ -62,7 +62,7 @@ def create_split_file(dataset_root_folder, gt_folder, data_folder, num_train_seq
     dataset_tuple_test = []
     action_to_idx = {}
     idx_to_action = {}
-    data_path = '/'.join([dataset_root_folder, data_folder])
+    data_path = '/'.join([dataset_root_folder, gt_folder])
     subject_dirs = os.listdir(data_path)
     orig_num_train_seq =num_train_seq
     num_actions = -1
