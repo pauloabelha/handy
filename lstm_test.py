@@ -19,7 +19,7 @@ parser.add_argument('--use_cuda', dest='use_cuda', action='store_true', default=
                     help='Whether to use cuda for training')
 parser.add_argument('-o', dest='log_filepath', default='log_lstm_baseline.txt',
                     help='Output file for logging')
-parser.add_argument('-l', dest='epoch_log', type=int, required=True, default=10,
+parser.add_argument('-l', dest='epoch_log', type=int, default=10,
                     help='Total number of epochs to train')
 parser.add_argument('--gt_folder', dest='gt_folder', default='Hand_pose_annotation_v1',
                     help='Folder with Subject groundtruth')
