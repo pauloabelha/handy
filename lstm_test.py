@@ -88,7 +88,7 @@ lstm_baseline = LSTMBaseline(num_joints=21,
                              use_cuda=args.use_cuda)
 
 if args.use_cuda:
-    lstm_baseline.cuda()
+    lstm_baseline = lstm_baseline.cuda()
 
 optimizer = optim.Adadelta(lstm_baseline.parameters(), rho=0.9,
                            weight_decay=0.005,

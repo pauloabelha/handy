@@ -35,20 +35,23 @@ class LSTMBaseline(nn.Module):
 
         self.init_hidden_states()
 
+    def get_random_tensor(self, dims):
+        ret = torch.randn(1, 1, self.hidden_dim)
+        if self.use_cuda:
+            ret = ret.cuda()
+        return ret
+
     def init_hidden_states(self):
         # Before we've done anything, we dont have any hidden state.
         # Refer to the Pytorch documentation to see exactly
         # why they have this dimensionality.
         # The axes semantics are (num_layers, minibatch_size, hidden_dim)
-        self.hidden1 = (torch.randn(1, 1, self.hidden_dim),
-                   torch.randn(1, 1, self.hidden_dim))
-        self.hidden1 = cudafy(self.hidden1, self.use_cuda)
-        self.hidden2 = (torch.randn(1, 1, self.hidden_dim),
-                   torch.randn(1, 1, self.hidden_dim))
-        self.hidden2 = cudafy(self.hidden2, self.use_cuda)
-        self.hidden3 = (torch.randn(1, 1, self.hidden_dim),
-                   torch.randn(1, 1, self.hidden_dim))
-        self.hidden3 = cudafy(self.hidden3, self.use_cuda)
+        self.hidden1 = (self.get_random_tensor((1, 1, self.hidden_dim)),
+                        self.get_random_tensor((1, 1, self.hidden_dim)))
+        self.hidden2 = (self.get_random_tensor((1, 1, self.hidden_dim)),
+                        self.get_random_tensor((1, 1, self.hidden_dim)))
+        self.hidden3 = (self.get_random_tensor((1, 1, self.hidden_dim)),
+                        self.get_random_tensor((1, 1, self.hidden_dim)))
 
     def forward(self, joints_sequence):
         out, hidden1 = self.lstm1(joints_sequence, self.hidden1)

@@ -157,3 +157,13 @@ Number of training triples: 12
 ---------------- Epoch 2/300 ----------------
 ---------------- Epoch 3/300 ----------------
 ---------------- Epoch 4/300 ----------------
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: False
+Number of epochs: 300
+Actions: ['charge_cell_phone', 'clean_glasses', 'close_juice_bottle', 'close_liquid_soap', 'close_milk', 'close_peanut_butter', 'drink_mug', 'flip_pages', 'flip_sponge', 'give_card']
+Number of training triples: 12
+---------------- Epoch 1/300 ----------------
+---------------- Epoch 2/300 ----------------
+---------------- Epoch 3/300 ----------------
+---------------- Epoch 4/300 ----------------
