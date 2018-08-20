@@ -160,4 +160,4 @@ if train:
 if load_model:
     a = 0
 
-validate_model(lstm_baseline, dataset_tuples, log_filepath=args.log_filepath)
+validate_model(lstm_baseline, dataset_tuples, log_filepath=args.log_filepath, use_cuda=args.use_cuda)
