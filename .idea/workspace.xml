@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99f320e7-acd6-46b0-b154-58c77e65ad74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/log_lstm_baseline.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log_lstm_baseline.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lstm_baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_baseline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lstm_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_test.py" afterDir="false" />
-    </list>
+    <list default="true" id="99f320e7-acd6-46b0-b154-58c77e65ad74" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,37 +33,37 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="23" />
-          <entry key="py" value="11491" />
+          <entry key="py" value="11494" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="11491" />
+          <entry key="Python" value="11494" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lstm_baseline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="46" column="44" lean-forward="true" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
+            <state relative-caret-position="416">
+              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
               <folding>
-                <marker date="1534770231670" expanded="true" signature="1288:1417" ph="..." />
-                <marker date="1534770231670" expanded="true" signature="1446:1455" ph="..." />
+                <marker date="1534770274010" expanded="true" signature="1288:1400" ph="..." />
+                <marker date="1534770274010" expanded="true" signature="1429:1438" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="129" column="52" lean-forward="true" selection-start-line="129" selection-start-column="52" selection-end-line="129" selection-end-column="52" />
+            <state relative-caret-position="490">
+              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -525,23 +521,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_test.py">
+    <entry file="file://$PROJECT_DIR$/lstm_baseline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="129" column="52" lean-forward="true" selection-start-line="129" selection-start-column="52" selection-end-line="129" selection-end-column="52" />
+        <state relative-caret-position="416">
+          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1534770274010" expanded="true" signature="1288:1400" ph="..." />
+            <marker date="1534770274010" expanded="true" signature="1429:1438" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_baseline.py">
+    <entry file="file://$PROJECT_DIR$/lstm_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="46" column="44" lean-forward="true" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
+        <state relative-caret-position="490">
+          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
           <folding>
-            <marker date="1534770231670" expanded="true" signature="1288:1417" ph="..." />
-            <marker date="1534770231670" expanded="true" signature="1446:1455" ph="..." />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>

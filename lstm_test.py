@@ -41,6 +41,9 @@ def validate_model(model, dataset_tuples, use_cuda, log_filepath=None):
         joints_seq = torch.from_numpy(joints_seq).float()
         joints_seq = joints_seq.view(joints_seq.shape[0], 1, -1)
 
+        if args.use_cuda:
+            joints_seq = joints_seq.cuda()
+            
         # feed forward
         model_output = model(joints_seq)
         if use_cuda:
