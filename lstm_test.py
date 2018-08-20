@@ -94,7 +94,11 @@ optimizer = optim.Adadelta(lstm_baseline.parameters(), rho=0.9,
                            weight_decay=0.005,
                            lr=0.05)
 
-myprint('Number of actions: ' + str(dataset_tuples['num_actions']), args.log_filepath)
+myprint('Log filepath: ' + str(args.log_filepath), args.log_filepath)
+myprint('Checkpoint filepath: ' + str(args.checkpoint_filepath), args.log_filepath)
+myprint('Using CUDA: ' + str(args.use_cuda), args.log_filepath)
+myprint('Number of epochs: ' + str(args.num_epochs), args.log_filepath)
+myprint('Actions: ' + str(actions), args.log_filepath)
 myprint('Number of training triples: ' + str(len(dataset_tuples['train'])), args.log_filepath)
 
 losses = []
