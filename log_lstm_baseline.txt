@@ -176,3 +176,21 @@ Number of training triples: 12
 ---------------- Epoch 1/300 ----------------
 ---------------- Epoch 2/300 ----------------
 ---------------- Epoch 3/300 ----------------
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: False
+Number of epochs: 300
+Number of training triples: 523
+---------------- Epoch 1/300 ----------------
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: False
+Number of epochs: 300
+Number of training triples: 522
+---------------- Epoch 1/300 ----------------
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: False
+Number of epochs: 300
+Number of training triples: 524
+---------------- Epoch 1/300 ----------------

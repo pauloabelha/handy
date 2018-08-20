@@ -23,15 +23,27 @@ class LSTMBaseline(nn.Module):
         self.hidden_dim = num_internal_dims
 
         self.lstm1 = cudafy(nn.LSTM(num_dims, num_internal_dims), self.use_cuda)
-        self.fusion1 = cudafy(nn.Linear(num_internal_dims, num_internal_dims), self.use_cuda)
+        self.fusion1 = torch.nn.Sequential(
+            torch.nn.Linear(num_internal_dims, num_internal_dims),
+            torch.nn.ReLU())
+        self.fusion1 = cudafy(self.fusion1, self.use_cuda)
 
         self.lstm2 = cudafy(nn.LSTM(num_internal_dims, num_internal_dims), self.use_cuda)
-        self.fusion2 = cudafy(nn.Linear(num_internal_dims, num_internal_dims), self.use_cuda)
+        self.fusion2 = torch.nn.Sequential(
+            torch.nn.Linear(num_internal_dims, num_internal_dims),
+            torch.nn.ReLU())
+        self.fusion2 = cudafy(self.fusion2, self.use_cuda)
 
         self.lstm3 = cudafy(nn.LSTM(num_internal_dims, num_internal_dims, dropout=0.2), self.use_cuda)
-        self.fusion3 = cudafy(nn.Linear(num_internal_dims, num_internal_dims), self.use_cuda)
+        self.fusion3 = torch.nn.Sequential(
+            torch.nn.Linear(num_internal_dims, num_internal_dims),
+            torch.nn.ReLU())
+        self.fusion3 = cudafy(self.fusion3, self.use_cuda)
 
-        self.funnel_in = cudafy(nn.Linear(num_internal_dims, num_actions), self.use_cuda)
+        self.funnel_in = torch.nn.Sequential(
+            torch.nn.Linear(num_internal_dims, num_actions),
+            torch.nn.ReLU())
+        self.funnel_in = cudafy(self.funnel_in, self.use_cuda)
 
         self.init_hidden_states()
 
