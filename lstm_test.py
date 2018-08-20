@@ -41,9 +41,9 @@ def validate_model(model, dataset_tuples, use_cuda, log_filepath=None):
         joints_seq = torch.from_numpy(joints_seq).float()
         joints_seq = joints_seq.view(joints_seq.shape[0], 1, -1)
 
-        if args.use_cuda:
+        if use_cuda:
             joints_seq = joints_seq.cuda()
-            
+
         # feed forward
         model_output = model(joints_seq)
         if use_cuda:
@@ -82,7 +82,7 @@ actions=['charge_cell_phone', 'clean_glasses',
 
 fpa_io.create_split_file(args.dataset_root_folder, args.gt_folder, '',
                          num_train_seq=2,
-                         actions=['drink_mug'])
+                         actions=None)
 
 dataset_tuples = fpa_io.load_split_file(args.dataset_root_folder)
 
