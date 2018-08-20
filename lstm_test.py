@@ -124,7 +124,7 @@ if train:
             joints_seq = torch.from_numpy(joints_seq).float()
             joints_seq = joints_seq.view(joints_seq.shape[0], 1, -1)
             if args.use_cuda:
-                joints_seq.cuda()
+                joints_seq = joints_seq.cuda()
 
             # feed forward
             model_output = lstm_baseline(joints_seq)
@@ -133,7 +133,7 @@ if train:
             action_idx = dataset_tuples['action_to_idx'][action_name]
             target = torch.tensor([action_idx] * model_output.shape[0], dtype=torch.long)
             if args.use_cuda:
-                target.cuda()
+                target = target.cuda()
             loss = loss_function(model_output, target)
             losses[i].append(loss.item())
             loss.backward()
