@@ -83,10 +83,8 @@ actions=['charge_cell_phone', 'clean_glasses',
 fpa_io.create_split_file(args.dataset_root_folder, args.gt_folder, '',
                          num_train_seq=2,
                          actions=['charge_cell_phone', 'clean_glasses',
-         'close_juice_bottle', 'close_liquid_soap',
-         'close_milk', 'close_peanut_butter',
-         'drink_mug', 'flip_pages',
-         'flip_sponge', 'give_card'])
+                                  'close_juice_bottle', 'close_liquid_soap',
+                                  'close_milk'])
 
 dataset_tuples = fpa_io.load_split_file(args.dataset_root_folder)
 
