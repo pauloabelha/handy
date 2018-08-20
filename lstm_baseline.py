@@ -36,7 +36,7 @@ class LSTMBaseline(nn.Module):
         self.init_hidden_states()
 
     def get_random_tensor(self, dims):
-        ret = torch.randn(1, 1, self.hidden_dim)
+        ret = torch.randn(dims)
         if self.use_cuda:
             ret = ret.cuda()
         return ret
