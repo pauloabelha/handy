@@ -105,6 +105,7 @@
       <find>epoch_log</find>
       <find>num_dims</find>
       <find>read_action_joints_sequence</find>
+      <find>cudafy</find>
     </findStrings>
   </component>
   <component name="Git.Settings">

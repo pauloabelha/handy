@@ -84,7 +84,8 @@ fpa_io.create_split_file(args.dataset_root_folder, args.gt_folder, '',
 dataset_tuples = fpa_io.load_split_file(args.dataset_root_folder)
 
 lstm_baseline = LSTMBaseline(num_joints=21,
-                             num_actions=dataset_tuples['num_actions'])
+                             num_actions=dataset_tuples['num_actions'],
+                             use_cuda=args.use_cuda)
 
 if args.use_cuda:
     lstm_baseline.cuda()
