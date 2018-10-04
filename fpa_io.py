@@ -2,6 +2,7 @@ import numpy as np
 import io_image
 import os
 import pickle
+import util
 
 num_joints = 21
 
@@ -45,8 +46,8 @@ def read_action_joints_sequence(filepath):
             idx += 1
     return joints_sequence
 
-def read_color_img(filepath):
-    color_img = io_image.read_RGB_image(filepath)
+def read_color_img(filepath, img_res=None):
+    color_img = io_image.read_RGB_image(filepath, new_res=img_res)
     return color_img
 
 def read_depth_img(filepath):
@@ -132,6 +133,65 @@ def create_split_file(dataset_root_folder, gt_folder, num_train_seq,
     with open('/'.join([dataset_root_folder, split_filename]), 'wb') as handle:
         pickle.dump(dataset_tuples, handle, protocol=pickle.HIGHEST_PROTOCOL)
     return dataset_tuples
+
+def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_valid,
+                      split_filename='fpa_split_tracking.p'):
+    data_path = '/'.join([dataset_root_folder, gt_folder])
+    subject_dirs = os.listdir(data_path)
+    path_tuples = []
+    for subject_dir in subject_dirs:
+        subject_path = '/'.join([data_path, subject_dir])
+        action_dirs = os.listdir(subject_path)
+        for action_dir in action_dirs:
+            action_path = '/'.join([subject_path, action_dir])
+            seq_dirs = os.listdir(action_path)
+            for seq_dir in seq_dirs:
+                seq_path = '/'.join([action_path, seq_dir]) + '/'
+                color_files = util.list_files_in_dir(seq_path + 'color/')
+                depth_files = util.list_files_in_dir(seq_path + 'depth/')
+                if not len(color_files) == len(color_files):
+                    print('Warning. Skipping: Number of color and depth files is different: {}'.format(seq_path))
+                else:
+                    for color_file in color_files:
+                        color_num = color_file.split('.')[0].split('_')[1]
+                        for depth_file in depth_files:
+                            depth_num = depth_file.split('.')[0].split('_')[1]
+                            if color_num == depth_num:
+                                path_tuples.append((seq_path, color_num))
+                                break
+
+    ixs_randomize = np.random.choice(len(path_tuples), len(path_tuples), replace=False)
+    path_tuples = np.array(path_tuples)
+
+    num_train = int(np.floor(len(path_tuples) * perc_train))
+    num_valid = int(np.floor(len(path_tuples) * perc_valid))
+    path_tuples_randomised = path_tuples[ixs_randomize]
+    path_tuples_train = path_tuples_randomised[0: num_train]
+    path_tuples_valid = path_tuples_randomised[num_train: num_train + num_valid]
+    path_tuples_test = path_tuples_randomised[num_train + num_valid:]
+    file_ixs = np.array(range(len(ixs_randomize)))
+    file_ixs_randomized = file_ixs[ixs_randomize]
+    file_ixs_train = file_ixs_randomized[0: num_train]
+    file_ixs_valid = file_ixs_randomized[num_train: num_train + num_valid]
+    file_ixs_test = file_ixs_randomized[num_train + num_valid:]
+
+    dataset_tuples = {
+        'perc_train': perc_train,
+        'perc_valid': perc_valid,
+        'all_seq': path_tuples,
+        'ixs_random': ixs_randomize,
+        'all_random': path_tuples_randomised,
+        'train': path_tuples_train,
+        'valid': path_tuples_valid,
+        'test': path_tuples_test,
+        'train_ixs': file_ixs_train,
+        'valid_ixs': file_ixs_valid,
+        'text_ixs': file_ixs_test
+    }
+    with open('/'.join([dataset_root_folder, split_filename]), 'wb') as handle:
+        pickle.dump(dataset_tuples, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    return dataset_tuples
+
 
 def load_split_file(dataset_root_folder, split_filename='fpa_split.p'):
     return pickle.load(open('/'.join([dataset_root_folder, split_filename]), "rb"))

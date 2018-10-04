@@ -5,6 +5,7 @@ import fpa_io
 from lstm_baseline import LSTMBaseline
 import numpy as np
 import argparse
+from util import myprint
 
 train = True
 load_model = True
@@ -27,11 +28,7 @@ parser.add_argument('--num_joints', type=int, dest='num_joints', default=21, hel
 
 args = parser.parse_args()
 
-def myprint(msg, filepath=None):
-    print(msg)
-    if not filepath is None:
-        with open(filepath, 'a') as f:
-            f.write(msg + '\n')
+
 
 def validate_model(model, dataset_tuples, use_cuda, log_filepath=None):
     accuracies = {}
