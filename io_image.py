@@ -36,7 +36,7 @@ def get_labels_cropped_heatmaps(labels_colorspace, joint_ixs, crop_coords, heatm
     return labels_heatmaps, labels_colorspace_mapped
 
 def get_crop_coords(joints_uv, img_max_u, img_max_v):
-    pixel_bound = 50
+    pixel_bound = 10
     min_u = min(joints_uv[:, 0]) - pixel_bound
     min_v = min(joints_uv[:, 1]) - pixel_bound
     max_u = max(joints_uv[:, 0]) + pixel_bound

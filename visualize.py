@@ -169,9 +169,10 @@ def plot_fingertips(fingertips_colorspace, handroot=None, fig=None, linewidth=10
     plt.legend(handles=legends)
     return fig
 
-def plot_joints(joints_colorspace, fig=None, show_legend=True, linewidth=4):
+def plot_joints(joints_colorspace_orig, fig=None, show_legend=True, linewidth=4):
     if fig is None:
         fig = plt.figure()
+    joints_colorspace = np.copy(joints_colorspace_orig)
     num_joints = joints_colorspace.shape[0]
     joints_colorspace = conv.numpy_swap_cols(joints_colorspace, 0, 1)
     plt.plot(joints_colorspace[0, 1], joints_colorspace[0, 0], 'ro', color='C0')

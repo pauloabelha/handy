@@ -5,6 +5,7 @@ import visualize as vis
 import camera as cam
 import numpy as np
 import io_image
+import converter as conv
 
 
 class FPADataset(Dataset):
@@ -38,7 +39,7 @@ class FPADataset(Dataset):
         return len(self.dataset_tuples[self.type])
 
 class FPADatasetTracking(Dataset):
-
+    crop_res = (200, 200)
     orig_img_res = (640, 480)
     new_img_res = (640, 480)
     video_folder = 'video_files/'
@@ -50,18 +51,16 @@ class FPADatasetTracking(Dataset):
     dataset_split = None
     
     def __init__(self, root_folder, type,  transform_color=None,
-                 transform_depth=None, img_res=None, split_filename=''):
+                 transform_depth=None, img_res=None, crop_res=None, split_filename=''):
         self.root_folder = root_folder
         self.transform_color = transform_color
         self.transform_depth = transform_depth
         self.split_filename = split_filename
         self.type = type
-        if not img_res is None:
-            self.new_img_res = img_res
-        self.img_res_transf = np.zeros((2,))
-        self.img_res_transf[0] = self.new_img_res[0] / self.orig_img_res[0]
-        self.img_res_transf[1] = self.new_img_res[1] / self.orig_img_res[1]
-        
+        if not crop_res is None:
+            self.crop_res = crop_res
+
+
         if self.split_filename == '':
             fpa_io.create_split_file_tracking(self.root_folder,
                                      self.video_folder,
@@ -85,22 +84,26 @@ class FPADatasetTracking(Dataset):
                         idx_split[0] + 'skeleton.txt'
         joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
 
-        joints_uv = cam.joints_depth2color(joints.reshape((21, 3)), cam.fpa_depth_intrinsics)
-        print(joints_uv)
+        joints_uv = cam.joints_depth2color(joints.reshape((21, 3)), cam.fpa_depth_intrinsics)[:, 0:2]
+        _, crop_coords = io_image.crop_hand_depth(joints_uv, depth_image)
+        crop_coords_numpy = np.zeros((2, 2))
+        crop_coords_numpy[0, 0] = crop_coords[0]
+        crop_coords_numpy[0, 1] = crop_coords[1]
+        crop_coords_numpy[1, 0] = crop_coords[2]
+        crop_coords_numpy[1, 1] = crop_coords[3]
+        corner_heatmap1 = conv.color_space_label_to_heatmap(crop_coords_numpy[0, :],
+                                                          heatmap_res=self.orig_img_res,
+                                                          orig_img_res=self.orig_img_res)
+        #print(np.unravel_index(np.argmax(corner_heatmap1), corner_heatmap1.shape))
+        corner_heatmap2 = conv.color_space_label_to_heatmap(crop_coords_numpy[1, :],
+                                                     heatmap_res=self.orig_img_res,
+                                                     orig_img_res=self.orig_img_res)
 
-        crop_depth, crop_coord = io_image.crop_hand_depth(joints_uv, depth_image)
-        print(crop_coord)
-        crop_depth = crop_depth.astype(float)
-
-        joints_uv[:, 0] -= crop_coord[0]
-        joints_uv[:, 1] -= crop_coord[1]
-        vis.plot_joints_from_colorspace(joints_colorspace=joints_uv,
-                                        data=crop_depth,
-                                        title=depth_filepath)
-        # vis.plot_image(color_image)
-        vis.show()
-
-        return data_image, joints
+        #vis.plot_image_and_heatmap(corner_heatmap1, depth_image)
+        #vis.show()
+        corner_heatmaps = np.stack((corner_heatmap1, corner_heatmap2))
+        corner_heatmaps = torch.from_numpy(corner_heatmaps).float()
+        return data_image, corner_heatmaps
 
     def __len__(self):
         return len(self.dataset_split[self.type])
@@ -119,3 +122,33 @@ def DataLoaderTracking(root_folder, type, transform_color=None, transform_depth=
         dataset,
         batch_size=batch_size,
         shuffle=False)
+
+
+''' OLD, BUT WORKING
+
+crop_depth = crop_depth.astype(float)
+
+        joints_uv[:, 0] -= crop_coords[0]
+        joints_uv[:, 1] -= crop_coords[1]
+        #vis.plot_joints_from_colorspace(joints_colorspace=joints_uv,
+        #                                data=crop_depth,
+        #                                title=depth_filepath)
+        # vis.plot_image(color_image)
+        # vis.show()
+
+        crop_depth_res = crop_depth.shape
+        crop_depth = io_image.change_res_image(crop_depth, self.crop_res)
+        a = (crop_depth.shape[0] / crop_depth_res[0])
+        joints_uv_crop = np.copy(joints_uv)
+        joints_uv_crop[:, 0] = joints_uv_crop[:, 0] * a
+        joints_uv_crop[:, 1] *= (crop_depth.shape[1] / crop_depth_res[1])
+        joints_uv_crop = joints_uv_crop.astype(int)
+        #print(joints_uv_crop)
+        #vis.plot_joints_from_colorspace(joints_colorspace=joints_uv_crop,
+        #                                data=crop_depth,
+        #                                title=depth_filepath)
+        # vis.plot_image(color_image)
+        #vis.show()
+
+
+'''
