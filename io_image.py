@@ -35,21 +35,22 @@ def get_labels_cropped_heatmaps(labels_colorspace, joint_ixs, crop_coords, heatm
         labels_ix += 1
     return labels_heatmaps, labels_colorspace_mapped
 
-def get_crop_coords(joints_uv, image_rgbd):
-    min_u = min(joints_uv[:, 0]) - 10
-    min_v = min(joints_uv[:, 1]) - 10
-    max_u = max(joints_uv[:, 0]) + 10
-    max_v = max(joints_uv[:, 1]) + 10
+def get_crop_coords(joints_uv, img_max_u, img_max_v):
+    pixel_bound = 50
+    min_u = min(joints_uv[:, 0]) - pixel_bound
+    min_v = min(joints_uv[:, 1]) - pixel_bound
+    max_u = max(joints_uv[:, 0]) + pixel_bound
+    max_v = max(joints_uv[:, 1]) + pixel_bound
     u0 = int(max(min_u, 0))
     v0 = int(max(min_v, 0))
-    u1 = int(min(max_u, image_rgbd.shape[1]))
-    v1 = int(min(max_v, image_rgbd.shape[2]))
+    u1 = int(min(max_u, img_max_u))
+    v1 = int(min(max_v, img_max_v))
     # get coords
     coords = [u0, v0, u1, v1]
     return coords
 
 def crop_hand_rgbd(joints_uv, image_rgbd, crop_res):
-    crop_coords = get_crop_coords(joints_uv, image_rgbd)
+    crop_coords = get_crop_coords(joints_uv, image_rgbd.shape[1], image_rgbd.shape[2])
     # crop hand
     crop = image_rgbd[:, crop_coords[0]:crop_coords[2], crop_coords[1]:crop_coords[3]]
     crop = crop.swapaxes(0, 1)
@@ -63,6 +64,12 @@ def crop_hand_rgbd(joints_uv, image_rgbd, crop_res):
     crop_rgbd = crop_rgbd.swapaxes(1, 2)
     crop_rgbd = crop_rgbd.swapaxes(0, 1)
     return crop_rgbd, crop_coords
+
+def crop_hand_depth(joints_uv, depth_image):
+    crop_coords = get_crop_coords(joints_uv, depth_image.shape[0], depth_image.shape[1])
+    # crop hand
+    crop = depth_image[crop_coords[0]:crop_coords[2], crop_coords[1]:crop_coords[3]]
+    return crop, crop_coords
 
 def crop_image_get_labels(data, labels_colorspace, joint_ixs=range(21), crop_res=(128, 128)):
     data, crop_coords = crop_hand_rgbd(labels_colorspace, data, crop_res=crop_res)

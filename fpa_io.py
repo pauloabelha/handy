@@ -68,6 +68,7 @@ def create_split_file(dataset_root_folder, gt_folder, num_train_seq,
     orig_num_train_seq =num_train_seq
     num_actions = -1
     for subject_dir in subject_dirs:
+        print('Splitting dataset: {} of {}'.format(subject_dir, len(subject_dirs)))
         subject_path = '/'.join([data_path, subject_dir])
         action_dirs = os.listdir(subject_path)
         for action_dir in action_dirs:
@@ -139,7 +140,10 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
     data_path = '/'.join([dataset_root_folder, gt_folder])
     subject_dirs = os.listdir(data_path)
     path_tuples = []
+    subject_idx = 0
     for subject_dir in subject_dirs:
+        subject_idx += 1
+        print('Splitting dataset: Subject {} of {}'.format(subject_idx, len(subject_dirs)))
         subject_path = '/'.join([data_path, subject_dir])
         action_dirs = os.listdir(subject_path)
         for action_dir in action_dirs:
@@ -157,7 +161,8 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
                         for depth_file in depth_files:
                             depth_num = depth_file.split('.')[0].split('_')[1]
                             if color_num == depth_num:
-                                path_tuples.append((seq_path, color_num))
+                                curr_subpath = subject_dir + '/' + action_dir + '/' + seq_dir + '/'
+                                path_tuples.append((curr_subpath, color_num))
                                 break
 
     ixs_randomize = np.random.choice(len(path_tuples), len(path_tuples), replace=False)
