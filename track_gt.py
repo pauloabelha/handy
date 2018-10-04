@@ -3,7 +3,7 @@ import visualize
 import camera as cam
 
 
-dataset_root_folder = '/home/paulo/fpa_benchmark/'
+dataset_root_folder = 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/'
 gt_folder = 'Hand_pose_annotation_v1'
 data_folder = 'video_files'
 subject = 'Subject_1'
@@ -28,7 +28,7 @@ for i in range(99):
     joints_uv = cam.joints_depth2color(joints, cam.fpa_depth_intrinsics)
     visualize.plot_joints_from_colorspace(joints_colorspace=joints_uv, data=depth_img,
                                           fig=fig, title='/'.join([subject, action, sequence]))
-    visualize.pause(0.1)
+    visualize.pause(0.001)
     visualize.clear_plot()
 
 visualize.show()

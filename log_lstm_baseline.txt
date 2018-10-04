@@ -502,3 +502,1371 @@ Overall stddev: 0.14139190265868387
 	Saving a checkpoint...
 ---------------- Epoch 11/300 ----------------
 ---------------- Epoch 12/300 ----------------
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: False
+Number of epochs: 300
+Number of training triples: 57
+---------------- Epoch 1/300 ----------------
+---------------- Epoch 2/300 ----------------
+---------------- Epoch 3/300 ----------------
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: True
+Number of epochs: 300
+Number of training triples: 57
+---------------- Epoch 1/300 ----------------
+---------------- Epoch 2/300 ----------------
+---------------- Epoch 3/300 ----------------
+---------------- Epoch 4/300 ----------------
+---------------- Epoch 5/300 ----------------
+---------------- Epoch 6/300 ----------------
+---------------- Epoch 7/300 ----------------
+---------------- Epoch 8/300 ----------------
+---------------- Epoch 9/300 ----------------
+---------------- Epoch 10/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 11/300 ----------------
+---------------- Epoch 12/300 ----------------
+---------------- Epoch 13/300 ----------------
+---------------- Epoch 14/300 ----------------
+---------------- Epoch 15/300 ----------------
+---------------- Epoch 16/300 ----------------
+---------------- Epoch 17/300 ----------------
+---------------- Epoch 18/300 ----------------
+---------------- Epoch 19/300 ----------------
+---------------- Epoch 20/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 21/300 ----------------
+---------------- Epoch 22/300 ----------------
+---------------- Epoch 23/300 ----------------
+---------------- Epoch 24/300 ----------------
+---------------- Epoch 25/300 ----------------
+---------------- Epoch 26/300 ----------------
+---------------- Epoch 27/300 ----------------
+---------------- Epoch 28/300 ----------------
+---------------- Epoch 29/300 ----------------
+---------------- Epoch 30/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 31/300 ----------------
+---------------- Epoch 32/300 ----------------
+---------------- Epoch 33/300 ----------------
+---------------- Epoch 34/300 ----------------
+---------------- Epoch 35/300 ----------------
+---------------- Epoch 36/300 ----------------
+---------------- Epoch 37/300 ----------------
+---------------- Epoch 38/300 ----------------
+---------------- Epoch 39/300 ----------------
+---------------- Epoch 40/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 41/300 ----------------
+---------------- Epoch 42/300 ----------------
+---------------- Epoch 43/300 ----------------
+---------------- Epoch 44/300 ----------------
+---------------- Epoch 45/300 ----------------
+---------------- Epoch 46/300 ----------------
+---------------- Epoch 47/300 ----------------
+---------------- Epoch 48/300 ----------------
+---------------- Epoch 49/300 ----------------
+---------------- Epoch 50/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 51/300 ----------------
+---------------- Epoch 52/300 ----------------
+---------------- Epoch 53/300 ----------------
+---------------- Epoch 54/300 ----------------
+---------------- Epoch 55/300 ----------------
+---------------- Epoch 56/300 ----------------
+---------------- Epoch 57/300 ----------------
+---------------- Epoch 58/300 ----------------
+---------------- Epoch 59/300 ----------------
+---------------- Epoch 60/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 61/300 ----------------
+---------------- Epoch 62/300 ----------------
+---------------- Epoch 63/300 ----------------
+---------------- Epoch 64/300 ----------------
+---------------- Epoch 65/300 ----------------
+---------------- Epoch 66/300 ----------------
+---------------- Epoch 67/300 ----------------
+---------------- Epoch 68/300 ----------------
+---------------- Epoch 69/300 ----------------
+---------------- Epoch 70/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 71/300 ----------------
+---------------- Epoch 72/300 ----------------
+---------------- Epoch 73/300 ----------------
+---------------- Epoch 74/300 ----------------
+---------------- Epoch 75/300 ----------------
+---------------- Epoch 76/300 ----------------
+---------------- Epoch 77/300 ----------------
+---------------- Epoch 78/300 ----------------
+---------------- Epoch 79/300 ----------------
+---------------- Epoch 80/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 81/300 ----------------
+---------------- Epoch 82/300 ----------------
+---------------- Epoch 83/300 ----------------
+---------------- Epoch 84/300 ----------------
+---------------- Epoch 85/300 ----------------
+---------------- Epoch 86/300 ----------------
+---------------- Epoch 87/300 ----------------
+---------------- Epoch 88/300 ----------------
+---------------- Epoch 89/300 ----------------
+---------------- Epoch 90/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 91/300 ----------------
+---------------- Epoch 92/300 ----------------
+---------------- Epoch 93/300 ----------------
+---------------- Epoch 94/300 ----------------
+---------------- Epoch 95/300 ----------------
+---------------- Epoch 96/300 ----------------
+---------------- Epoch 97/300 ----------------
+---------------- Epoch 98/300 ----------------
+---------------- Epoch 99/300 ----------------
+---------------- Epoch 100/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 101/300 ----------------
+---------------- Epoch 102/300 ----------------
+---------------- Epoch 103/300 ----------------
+---------------- Epoch 104/300 ----------------
+---------------- Epoch 105/300 ----------------
+---------------- Epoch 106/300 ----------------
+---------------- Epoch 107/300 ----------------
+---------------- Epoch 108/300 ----------------
+---------------- Epoch 109/300 ----------------
+---------------- Epoch 110/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 111/300 ----------------
+---------------- Epoch 112/300 ----------------
+---------------- Epoch 113/300 ----------------
+---------------- Epoch 114/300 ----------------
+---------------- Epoch 115/300 ----------------
+---------------- Epoch 116/300 ----------------
+---------------- Epoch 117/300 ----------------
+---------------- Epoch 118/300 ----------------
+---------------- Epoch 119/300 ----------------
+---------------- Epoch 120/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 121/300 ----------------
+---------------- Epoch 122/300 ----------------
+---------------- Epoch 123/300 ----------------
+---------------- Epoch 124/300 ----------------
+---------------- Epoch 125/300 ----------------
+---------------- Epoch 126/300 ----------------
+---------------- Epoch 127/300 ----------------
+---------------- Epoch 128/300 ----------------
+---------------- Epoch 129/300 ----------------
+---------------- Epoch 130/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 131/300 ----------------
+---------------- Epoch 132/300 ----------------
+---------------- Epoch 133/300 ----------------
+---------------- Epoch 134/300 ----------------
+---------------- Epoch 135/300 ----------------
+---------------- Epoch 136/300 ----------------
+---------------- Epoch 137/300 ----------------
+---------------- Epoch 138/300 ----------------
+---------------- Epoch 139/300 ----------------
+---------------- Epoch 140/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 141/300 ----------------
+---------------- Epoch 142/300 ----------------
+---------------- Epoch 143/300 ----------------
+---------------- Epoch 144/300 ----------------
+---------------- Epoch 145/300 ----------------
+---------------- Epoch 146/300 ----------------
+---------------- Epoch 147/300 ----------------
+---------------- Epoch 148/300 ----------------
+---------------- Epoch 149/300 ----------------
+---------------- Epoch 150/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 151/300 ----------------
+---------------- Epoch 152/300 ----------------
+---------------- Epoch 153/300 ----------------
+---------------- Epoch 154/300 ----------------
+---------------- Epoch 155/300 ----------------
+---------------- Epoch 156/300 ----------------
+---------------- Epoch 157/300 ----------------
+---------------- Epoch 158/300 ----------------
+---------------- Epoch 159/300 ----------------
+---------------- Epoch 160/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 161/300 ----------------
+---------------- Epoch 162/300 ----------------
+---------------- Epoch 163/300 ----------------
+---------------- Epoch 164/300 ----------------
+---------------- Epoch 165/300 ----------------
+---------------- Epoch 166/300 ----------------
+---------------- Epoch 167/300 ----------------
+---------------- Epoch 168/300 ----------------
+---------------- Epoch 169/300 ----------------
+---------------- Epoch 170/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 171/300 ----------------
+---------------- Epoch 172/300 ----------------
+---------------- Epoch 173/300 ----------------
+---------------- Epoch 174/300 ----------------
+---------------- Epoch 175/300 ----------------
+---------------- Epoch 176/300 ----------------
+---------------- Epoch 177/300 ----------------
+---------------- Epoch 178/300 ----------------
+---------------- Epoch 179/300 ----------------
+---------------- Epoch 180/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 181/300 ----------------
+---------------- Epoch 182/300 ----------------
+---------------- Epoch 183/300 ----------------
+---------------- Epoch 184/300 ----------------
+---------------- Epoch 185/300 ----------------
+---------------- Epoch 186/300 ----------------
+---------------- Epoch 187/300 ----------------
+---------------- Epoch 188/300 ----------------
+---------------- Epoch 189/300 ----------------
+---------------- Epoch 190/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 191/300 ----------------
+---------------- Epoch 192/300 ----------------
+---------------- Epoch 193/300 ----------------
+---------------- Epoch 194/300 ----------------
+---------------- Epoch 195/300 ----------------
+---------------- Epoch 196/300 ----------------
+---------------- Epoch 197/300 ----------------
+---------------- Epoch 198/300 ----------------
+---------------- Epoch 199/300 ----------------
+---------------- Epoch 200/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 201/300 ----------------
+---------------- Epoch 202/300 ----------------
+---------------- Epoch 203/300 ----------------
+---------------- Epoch 204/300 ----------------
+---------------- Epoch 205/300 ----------------
+---------------- Epoch 206/300 ----------------
+---------------- Epoch 207/300 ----------------
+---------------- Epoch 208/300 ----------------
+---------------- Epoch 209/300 ----------------
+---------------- Epoch 210/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 211/300 ----------------
+---------------- Epoch 212/300 ----------------
+---------------- Epoch 213/300 ----------------
+---------------- Epoch 214/300 ----------------
+---------------- Epoch 215/300 ----------------
+---------------- Epoch 216/300 ----------------
+---------------- Epoch 217/300 ----------------
+---------------- Epoch 218/300 ----------------
+---------------- Epoch 219/300 ----------------
+---------------- Epoch 220/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 221/300 ----------------
+---------------- Epoch 222/300 ----------------
+---------------- Epoch 223/300 ----------------
+---------------- Epoch 224/300 ----------------
+---------------- Epoch 225/300 ----------------
+---------------- Epoch 226/300 ----------------
+---------------- Epoch 227/300 ----------------
+---------------- Epoch 228/300 ----------------
+---------------- Epoch 229/300 ----------------
+---------------- Epoch 230/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 231/300 ----------------
+---------------- Epoch 232/300 ----------------
+---------------- Epoch 233/300 ----------------
+---------------- Epoch 234/300 ----------------
+---------------- Epoch 235/300 ----------------
+---------------- Epoch 236/300 ----------------
+---------------- Epoch 237/300 ----------------
+---------------- Epoch 238/300 ----------------
+---------------- Epoch 239/300 ----------------
+---------------- Epoch 240/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 241/300 ----------------
+---------------- Epoch 242/300 ----------------
+---------------- Epoch 243/300 ----------------
+---------------- Epoch 244/300 ----------------
+---------------- Epoch 245/300 ----------------
+---------------- Epoch 246/300 ----------------
+---------------- Epoch 247/300 ----------------
+---------------- Epoch 248/300 ----------------
+---------------- Epoch 249/300 ----------------
+---------------- Epoch 250/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 251/300 ----------------
+---------------- Epoch 252/300 ----------------
+---------------- Epoch 253/300 ----------------
+---------------- Epoch 254/300 ----------------
+---------------- Epoch 255/300 ----------------
+---------------- Epoch 256/300 ----------------
+---------------- Epoch 257/300 ----------------
+---------------- Epoch 258/300 ----------------
+---------------- Epoch 259/300 ----------------
+---------------- Epoch 260/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 261/300 ----------------
+---------------- Epoch 262/300 ----------------
+---------------- Epoch 263/300 ----------------
+---------------- Epoch 264/300 ----------------
+---------------- Epoch 265/300 ----------------
+---------------- Epoch 266/300 ----------------
+---------------- Epoch 267/300 ----------------
+---------------- Epoch 268/300 ----------------
+---------------- Epoch 269/300 ----------------
+---------------- Epoch 270/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 271/300 ----------------
+---------------- Epoch 272/300 ----------------
+---------------- Epoch 273/300 ----------------
+---------------- Epoch 274/300 ----------------
+---------------- Epoch 275/300 ----------------
+---------------- Epoch 276/300 ----------------
+---------------- Epoch 277/300 ----------------
+---------------- Epoch 278/300 ----------------
+---------------- Epoch 279/300 ----------------
+---------------- Epoch 280/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 1.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 0.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 1.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 0.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 1.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 0.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 1.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 0.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 1.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 0.0
+('Subject_5', 'close_liquid_soap', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 6) : 0.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 1.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 0.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.1875
+Overall stddev: 0.3903123748998999
+	Saving a checkpoint...
+---------------- Epoch 281/300 ----------------
+---------------- Epoch 282/300 ----------------
+---------------- Epoch 283/300 ----------------
+---------------- Epoch 284/300 ----------------
+---------------- Epoch 285/300 ----------------
+---------------- Epoch 286/300 ----------------
+---------------- Epoch 287/300 ----------------
+---------------- Epoch 288/300 ----------------
+---------------- Epoch 289/300 ----------------
+---------------- Epoch 290/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+	Saving a checkpoint...
+---------------- Epoch 291/300 ----------------
+---------------- Epoch 292/300 ----------------
+---------------- Epoch 293/300 ----------------
+---------------- Epoch 294/300 ----------------
+---------------- Epoch 295/300 ----------------
+---------------- Epoch 296/300 ----------------
+---------------- Epoch 297/300 ----------------
+---------------- Epoch 298/300 ----------------
+---------------- Epoch 299/300 ----------------
+('Subject_1', 'charge_cell_phone', 1) : 0.0
+('Subject_1', 'clean_glasses', 4) : 0.0
+('Subject_1', 'close_juice_bottle', 4) : 0.0
+('Subject_1', 'close_liquid_soap', 4) : 1.0
+('Subject_1', 'close_milk', 1) : 0.0
+('Subject_2', 'charge_cell_phone', 1) : 0.0
+('Subject_2', 'clean_glasses', 4) : 0.0
+('Subject_2', 'close_juice_bottle', 3) : 0.0
+('Subject_2', 'close_liquid_soap', 2) : 1.0
+('Subject_2', 'close_milk', 3) : 0.0
+('Subject_3', 'charge_cell_phone', 3) : 0.0
+('Subject_3', 'clean_glasses', 3) : 0.0
+('Subject_3', 'close_juice_bottle', 2) : 0.0
+('Subject_3', 'close_liquid_soap', 4) : 1.0
+('Subject_3', 'close_milk', 2) : 0.0
+('Subject_4', 'charge_cell_phone', 2) : 0.0
+('Subject_4', 'clean_glasses', 3) : 0.0
+('Subject_4', 'close_juice_bottle', 1) : 0.0
+('Subject_4', 'close_liquid_soap', 3) : 1.0
+('Subject_4', 'close_milk', 2) : 0.0
+('Subject_5', 'charge_cell_phone', 2) : 0.0
+('Subject_5', 'clean_glasses', 3) : 0.0
+('Subject_5', 'close_juice_bottle', 2) : 0.0
+('Subject_5', 'close_liquid_soap', 4) : 1.0
+('Subject_5', 'close_liquid_soap', 2) : 1.0
+('Subject_5', 'close_liquid_soap', 6) : 1.0
+('Subject_5', 'close_milk', 1) : 0.0
+('Subject_6', 'charge_cell_phone', 3) : 0.0
+('Subject_6', 'clean_glasses', 4) : 0.0
+('Subject_6', 'close_juice_bottle', 2) : 0.0
+('Subject_6', 'close_liquid_soap', 2) : 1.0
+('Subject_6', 'close_milk', 1) : 0.0
+Overall mean: 0.25
+Overall stddev: 0.4330127018922193
+The end.
+Log filepath: log_lstm_baseline.txt
+Checkpoint filepath: lstm_baseline.pth.tar
+Using CUDA: True
+Number of epochs: 300
+Number of training triples: 58
+---------------- Epoch 1/300 ----------------

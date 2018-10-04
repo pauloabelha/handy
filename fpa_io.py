@@ -53,7 +53,7 @@ def read_depth_img(filepath):
     depth_img = io_image.read_RGB_image(filepath)
     return depth_img
 
-def create_split_file(dataset_root_folder, gt_folder, data_folder, num_train_seq,
+def create_split_file(dataset_root_folder, gt_folder, num_train_seq,
                       split_filename='fpa_split.p', actions=None):
     if num_train_seq >= 3:
         raise 1

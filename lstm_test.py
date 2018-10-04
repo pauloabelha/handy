@@ -10,12 +10,12 @@ train = True
 load_model = True
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
-parser.add_argument('-r', dest='dataset_root_folder', default='', required=True, help='Root folder for dataset')
+parser.add_argument('-r', dest='dataset_root_folder', required=True, help='Root folder for dataset')
 parser.add_argument('-e', dest='num_epochs', type=int, required=True,
                     help='Total number of epochs to train')
 parser.add_argument('-f', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
                     help='Checkpoint file path')
-parser.add_argument('--use_cuda', dest='use_cuda', action='store_true', default=False,
+parser.add_argument('--use-cuda', dest='use_cuda', action='store_true', default=False,
                     help='Whether to use cuda for training')
 parser.add_argument('-o', dest='log_filepath', default='log_lstm_baseline.txt',
                     help='Output file for logging')
@@ -80,7 +80,7 @@ actions=['charge_cell_phone', 'clean_glasses',
          'drink_mug', 'flip_pages',
          'flip_sponge', 'give_card']
 
-fpa_io.create_split_file(args.dataset_root_folder, args.gt_folder, '',
+fpa_io.create_split_file(args.dataset_root_folder, args.gt_folder,
                          num_train_seq=2,
                          actions=['charge_cell_phone', 'clean_glasses',
                                   'close_juice_bottle', 'close_liquid_soap',
