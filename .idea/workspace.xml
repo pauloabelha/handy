@@ -80,8 +80,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_fpa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="384">
+              <caret line="108" column="28" lean-forward="true" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -156,8 +168,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="9" />
+    <option name="x" value="-8" />
+    <option name="y" value="419" />
     <option name="width" value="1696" />
     <option name="height" value="1026" />
   </component>
@@ -169,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,7 +193,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,9 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -455,7 +464,6 @@
           <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <marker date="1538644969085" expanded="true" signature="303:304" ph="..." />
           </folding>
         </state>
       </provider>
@@ -481,9 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="96" column="70" lean-forward="true" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -522,9 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -565,19 +567,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        <state relative-caret-position="260">
+          <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1538663067369" expanded="true" signature="4231:4240" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_fpa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="384">
+          <caret line="108" column="28" lean-forward="true" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
