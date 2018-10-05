@@ -2,10 +2,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 import numpy as np
-from magic import cudafy
+from util import cudafy
 
-def _print_layer_output_shape(layer_name, output_shape):
-    print("Layer " + layer_name + " output shape: " + str(output_shape))
 
 def HALNetConvBlock(kernel_size, stride, filters, in_channels, padding=0):
     return nn.Sequential(
@@ -131,7 +129,9 @@ def parse_model_param(params_dict, key, default_value):
 
 class HALNet(nn.Module):
 
-    cross_entropy = False
+    num_channels = 1
+    cross_entropy = True
+    num_heatmaps = 2
     joint_ixs = None
     use_cuda = None
     WEIGHT_LOSS_INTERMED1 = 0.5
@@ -145,10 +145,10 @@ class HALNet(nn.Module):
         self.joint_ixs = parse_model_param(params_dict, 'joint_ixs', default_value="Mandatory")
         self.use_cuda = parse_model_param(params_dict, 'use_cuda', default_value=False)
         self.num_joints = len(self.joint_ixs)
-        self.cross_entropy = parse_model_param(params_dict, 'cross_entropy', default_value=False)
+        self.cross_entropy = parse_model_param(params_dict, 'cross_entropy', default_value=True)
         # build network
         self.conv1 = cudafy(HALNetConvBlock(kernel_size=7, stride=1, filters=64,
-                                     in_channels=4, padding=3), self.use_cuda)
+                                     in_channels=self.num_channels, padding=3), self.use_cuda)
         self.mp1 = cudafy(nn.MaxPool2d(kernel_size=3, stride=2, padding=1), self.use_cuda)
         self.res2a = cudafy(HALNetResBlockConv(stride=1, filters1=64, filters2=256,
                                         padding_right1=1), self.use_cuda)

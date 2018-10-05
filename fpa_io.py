@@ -143,7 +143,7 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
     subject_idx = 0
     for subject_dir in subject_dirs:
         subject_idx += 1
-        print('Splitting dataset: Subject {} of {}'.format(subject_idx, len(subject_dirs)))
+        print('Splitting dataset: Subject {} of {} ; {}'.format(subject_idx, len(subject_dirs), subject_dir))
         subject_path = '/'.join([data_path, subject_dir])
         action_dirs = os.listdir(subject_path)
         for action_dir in action_dirs:
@@ -153,15 +153,22 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
                 seq_path = '/'.join([action_path, seq_dir]) + '/'
                 color_files = util.list_files_in_dir(seq_path + 'color/')
                 depth_files = util.list_files_in_dir(seq_path + 'depth/')
+
+                # TODO : check that skeleton.txt eist in respective folder
+                curr_subpath = subject_dir + '/' + action_dir + '/' + seq_dir + '/'
+                skeleton_filepath = dataset_root_folder + 'Hand_pose_annotation_v1/' + curr_subpath + 'Skeleton.txt'
+                if not os.path.isfile(skeleton_filepath):
+                    print('WARNING. Could not find skeleton ground truth for: {}'.format(skeleton_filepath))
+                    continue
+
                 if not len(color_files) == len(color_files):
-                    print('Warning. Skipping: Number of color and depth files is different: {}'.format(seq_path))
+                    print('WARNING. Skipping: Number of color and depth files is different: {}'.format(seq_path))
                 else:
                     for color_file in color_files:
                         color_num = color_file.split('.')[0].split('_')[1]
                         for depth_file in depth_files:
                             depth_num = depth_file.split('.')[0].split('_')[1]
                             if color_num == depth_num:
-                                curr_subpath = subject_dir + '/' + action_dir + '/' + seq_dir + '/'
                                 path_tuples.append((curr_subpath, color_num))
                                 break
 

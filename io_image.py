@@ -50,7 +50,7 @@ def get_crop_coords(joints_uv, img_max_u, img_max_v):
     return coords
 
 def crop_hand_rgbd(joints_uv, image_rgbd, crop_res):
-    crop_coords = get_crop_coords(joints_uv, image_rgbd.shape[1], image_rgbd.shape[2])
+    crop_coords = get_crop_coords(joints_uv, image_rgbd.shape[1] - 1, image_rgbd.shape[2] - 1)
     # crop hand
     crop = image_rgbd[:, crop_coords[0]:crop_coords[2], crop_coords[1]:crop_coords[3]]
     crop = crop.swapaxes(0, 1)
@@ -66,7 +66,7 @@ def crop_hand_rgbd(joints_uv, image_rgbd, crop_res):
     return crop_rgbd, crop_coords
 
 def crop_hand_depth(joints_uv, depth_image):
-    crop_coords = get_crop_coords(joints_uv, depth_image.shape[0], depth_image.shape[1])
+    crop_coords = get_crop_coords(joints_uv, depth_image.shape[0] - 1, depth_image.shape[1] - 1)
     # crop hand
     crop = depth_image[crop_coords[0]:crop_coords[2], crop_coords[1]:crop_coords[3]]
     return crop, crop_coords

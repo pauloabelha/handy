@@ -72,25 +72,32 @@ class FPADatasetTracking(Dataset):
     def __getitem__(self, idx):
         idx_split = self.dataset_split[self.type][idx]
         file_num = idx_split[1]
-        depth_filepath = self.root_folder + self.video_folder + idx_split[0] +\
-                         self.depth_folder + 'depth_' +\
+
+        depth_filepath = self.root_folder + self.video_folder + idx_split[0] + \
+                         self.depth_folder + 'depth_' + \
                          file_num + '.' + self.depth_fileext
         depth_image = fpa_io.read_depth_img(depth_filepath)
+
+        joints_filepath = self.root_folder + self.pose_folder + \
+                          idx_split[0] + 'skeleton.txt'
+        joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
+
+        joints_uv = cam.joints_depth2color(joints.reshape((21, 3)), cam.fpa_depth_intrinsics)[:, 0:2]
+        joints_uv[:, 0] = np.clip(joints_uv[:, 0], a_min=0, a_max=depth_image.shape[0] - 1)
+        joints_uv[:, 1] = np.clip(joints_uv[:, 1], a_min=0, a_max=depth_image.shape[1] - 1)
+
         data_image = depth_image.reshape((depth_image.shape[0],
                                            depth_image.shape[1],
                                            1))
         data_image = self.transform_depth(data_image).float()
-        joints_filepath = self.root_folder + self.pose_folder +\
-                        idx_split[0] + 'skeleton.txt'
-        joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
 
-        joints_uv = cam.joints_depth2color(joints.reshape((21, 3)), cam.fpa_depth_intrinsics)[:, 0:2]
         _, crop_coords = io_image.crop_hand_depth(joints_uv, depth_image)
         crop_coords_numpy = np.zeros((2, 2))
         crop_coords_numpy[0, 0] = crop_coords[0]
         crop_coords_numpy[0, 1] = crop_coords[1]
         crop_coords_numpy[1, 0] = crop_coords[2]
         crop_coords_numpy[1, 1] = crop_coords[3]
+
         corner_heatmap1 = conv.color_space_label_to_heatmap(crop_coords_numpy[0, :],
                                                           heatmap_res=self.orig_img_res,
                                                           orig_img_res=self.orig_img_res)
@@ -99,8 +106,6 @@ class FPADatasetTracking(Dataset):
                                                      heatmap_res=self.orig_img_res,
                                                      orig_img_res=self.orig_img_res)
 
-        #vis.plot_image_and_heatmap(corner_heatmap1, depth_image)
-        #vis.show()
         corner_heatmaps = np.stack((corner_heatmap1, corner_heatmap2))
         corner_heatmaps = torch.from_numpy(corner_heatmaps).float()
         return data_image, corner_heatmaps
