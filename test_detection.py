@@ -6,6 +6,7 @@ import losses as my_losses
 import trainer
 import visualize as vis
 import numpy as np
+from scipy.spatial.distance import cdist
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
 parser.add_argument('-r', dest='dataset_root_folder', required=True, help='Root folder for dataset')
@@ -56,6 +57,8 @@ losses = []
 for i in range(len(train_loader.dataset)):
     losses.append([])
 
+losses_pixel = []
+
 for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
     train_vars['batch_idx'] = batch_idx
     train_vars['curr_iter'] = batch_idx + 1
@@ -72,20 +75,31 @@ for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
                                            model.WEIGHT_LOSS_INTERMED2, model.WEIGHT_LOSS_INTERMED3,
                                            model.WEIGHT_LOSS_MAIN, train_vars['iter_size'])
 
-    heatmaps = output[3].detach().cpu().numpy()[0, :, :, :]
-    pixel_idxs = np.zeros((2, 2))
-    pixel_idxs[0, :] = np.unravel_index(np.argmax(heatmaps[0]), (640, 480))
-    print(pixel_idxs[0, :])
-    pixel_idxs[1, :] = np.unravel_index(np.argmax(heatmaps[1]), (640, 480))
-    print(pixel_idxs[1, :])
-    fig = vis.plot_image(data.cpu().numpy()[0, 0, :, :])
-    vis.plot_bound_box(pixel_idxs, fig=fig)
-    vis.show()
-    del heatmaps
+    out_heatmaps = output[3].detach().cpu().numpy()[0, :, :, :]
+    output_bbox = np.zeros((2, 2))
+    output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
+    output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
+    del out_heatmaps
+    del output
+
+    label_heatmaps_numpy = label_heatmaps.detach().cpu().numpy()[0, :, :, :]
+    label_bbox = np.zeros((2, 2))
+    label_bbox[0, :] = np.unravel_index(np.argmax(label_heatmaps_numpy[0]), (640, 480))
+    label_bbox[1, :] = np.unravel_index(np.argmax(label_heatmaps_numpy[1]), (640, 480))
+    del label_heatmaps_numpy
+    del label_heatmaps
+
+    loss_pixel = cdist(label_bbox, output_bbox, 'euclidean')
+    loss_pixel = (loss_pixel[0, 0] + loss_pixel[1, 1])/2
+    losses_pixel.append(loss_pixel)
+
+    #fig = vis.plot_image(data.cpu().numpy()[0, 0, :, :])
+    #vis.plot_bound_box(output_bbox, fig=fig)
+    #vis.show()
+    #del heatmaps
 
     train_vars['total_loss'] = loss.item()
-    print(loss.item())
-    train_vars['losses'].append(train_vars['total_loss'])
-    if train_vars['total_loss'] < train_vars['best_loss']:
-        train_vars['best_loss'] = train_vars['total_loss']
 
+    print('Loss (pixel): {}'.format(loss_pixel))
+    print('\tMean loss (pixel): {}'.format(np.mean(losses_pixel)))
+    print('\tStddev loss (pixel): {}'.format(np.std(losses_pixel)))

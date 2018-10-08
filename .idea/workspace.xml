@@ -48,18 +48,21 @@
     <session id="-819491902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="6591" />
+          <entry key="py" value="7080" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6591" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="7080" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_fpa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="69" selection-start-line="69" selection-end-line="72" selection-end-column="21" />
+            <state relative-caret-position="-104">
+              <caret line="97" column="81" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="81" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -92,11 +95,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_detection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+            <state relative-caret-position="704">
+              <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
-                <marker date="1538992221281" expanded="true" signature="838:875" ph="..." />
+                <marker date="1539002460638" expanded="true" signature="879:916" ph="..." />
               </folding>
             </state>
           </provider>
@@ -358,7 +361,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969843" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -366,7 +368,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.367713" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.36995515" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36995515" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -398,11 +400,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$USER_HOME$/muellericcv2017/trainer.py</url>
           <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_detection.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="148" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -601,16 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_fpa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="69" selection-start-line="69" selection-end-line="72" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/track_gt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -638,13 +625,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/train_fpa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-104">
+          <caret line="97" column="81" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_detection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+        <state relative-caret-position="704">
+          <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
-            <marker date="1538992221281" expanded="true" signature="838:875" ph="..." />
+            <marker date="1539002460638" expanded="true" signature="879:916" ph="..." />
           </folding>
         </state>
       </provider>
