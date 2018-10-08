@@ -23,9 +23,9 @@ def load_checkpoint(filename, model_class, use_cuda=False):
     model_state_dict = torch_file['model_state_dict']
     train_vars = torch_file['train_vars']
     params_dict = {}
-    params_dict['heatmap_ixs'] = train_vars['heatmap_ixs']
-    params_dict['use_cuda'] = train_vars['use_cuda']
-    params_dict['cross_entropy'] = train_vars['cross_entropy']
+    params_dict['joint_ixs'] = range(2)
+    params_dict['use_cuda'] = use_cuda
+    params_dict['cross_entropy'] = True
     if not use_cuda:
         params_dict['use_cuda'] = False
     model = model_class(params_dict)

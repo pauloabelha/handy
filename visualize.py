@@ -289,7 +289,7 @@ def plot_bound_box_from_coords(x0, y0, x1, y1, fig=None, linewidth=3):
 def plot_bound_box(bound_box, fig=None, linewidth=3):
     if fig is None:
         fig = plt.figure()
-    plot_bound_box_from_coords(bound_box[0], bound_box[1], bound_box[2], bound_box[3],
+    plot_bound_box_from_coords(bound_box[0, 0], bound_box[0, 1], bound_box[1, 0], bound_box[1, 1],
                    fig=fig, linewidth=linewidth)
     return fig
 

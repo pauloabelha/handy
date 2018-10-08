@@ -61,6 +61,7 @@ model_params_dict = {
 model = HALNet(model_params_dict)
 if args.use_cuda:
     model = model.cuda()
+model.train()
 
 optimizer = optim.Adadelta(model.parameters(),
                            rho=args.momentum,
