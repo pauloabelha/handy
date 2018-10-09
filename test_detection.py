@@ -35,7 +35,8 @@ train_loader = fpa_dataset.DataLoaderTracking(root_folder=args.dataset_root_fold
                                       batch_size=args.batch_size,
                                       split_filename=args.split_filename,)
 
-print('Length of dataset: {}'.format(len(train_loader.dataset)))
+len_dataset = len(train_loader.dataset)
+print('Length of dataset: {}'.format(len_dataset))
 
 train_vars = {
         'iter_size': 1,
@@ -59,6 +60,20 @@ for i in range(len(train_loader.dataset)):
 
 losses_pixel = []
 
+def calculate_pixel_loss(out_heatmaps, label_heatmaps):
+    output_bbox = np.zeros((2, 2))
+    output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
+    output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
+
+    label_heatmaps_numpy = label_heatmaps.detach().cpu().numpy()[0, :, :, :]
+    label_bbox = np.zeros((2, 2))
+    label_bbox[0, :] = np.unravel_index(np.argmax(label_heatmaps_numpy[0]), (640, 480))
+    label_bbox[1, :] = np.unravel_index(np.argmax(label_heatmaps_numpy[1]), (640, 480))
+
+    loss_pixel = cdist(label_bbox, output_bbox, 'euclidean')
+    loss_pixel = (loss_pixel[0, 0] + loss_pixel[1, 1]) / 2
+    return loss_pixel, output_bbox, label_bbox
+
 for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
     train_vars['batch_idx'] = batch_idx
     train_vars['curr_iter'] = batch_idx + 1
@@ -75,31 +90,31 @@ for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
                                            model.WEIGHT_LOSS_INTERMED2, model.WEIGHT_LOSS_INTERMED3,
                                            model.WEIGHT_LOSS_MAIN, train_vars['iter_size'])
 
-    out_heatmaps = output[3].detach().cpu().numpy()[0, :, :, :]
-    output_bbox = np.zeros((2, 2))
-    output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
-    output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
-    del out_heatmaps
-    del output
-
-    label_heatmaps_numpy = label_heatmaps.detach().cpu().numpy()[0, :, :, :]
-    label_bbox = np.zeros((2, 2))
-    label_bbox[0, :] = np.unravel_index(np.argmax(label_heatmaps_numpy[0]), (640, 480))
-    label_bbox[1, :] = np.unravel_index(np.argmax(label_heatmaps_numpy[1]), (640, 480))
-    del label_heatmaps_numpy
-    del label_heatmaps
-
-    loss_pixel = cdist(label_bbox, output_bbox, 'euclidean')
-    loss_pixel = (loss_pixel[0, 0] + loss_pixel[1, 1])/2
+    loss_pixel, label_bbox, out_bbox = calculate_pixel_loss(
+        output[3].detach().cpu().numpy()[0, :, :, :], label_heatmaps)
     losses_pixel.append(loss_pixel)
 
-    #fig = vis.plot_image(data.cpu().numpy()[0, 0, :, :])
-    #vis.plot_bound_box(output_bbox, fig=fig)
-    #vis.show()
+    fig = vis.plot_image(data.cpu().numpy()[0, 0, :, :])
+    vis.plot_bound_box(label_bbox, fig=fig, color='blue')
+    vis.plot_bound_box(out_bbox, fig=fig, color='red')
+    vis.show()
     #del heatmaps
 
     train_vars['total_loss'] = loss.item()
 
+    print('Batch {} / {}'.format(batch_idx, len_dataset))
     print('Loss (pixel): {}'.format(loss_pixel))
     print('\tMean loss (pixel): {}'.format(np.mean(losses_pixel)))
     print('\tStddev loss (pixel): {}'.format(np.std(losses_pixel)))
+
+    '''
+    if batch_idx % 1000 == 0:
+        losses_pixel_np = np.array(losses_pixel)
+        a = np.sum((losses_pixel_np < 5.0)) / len(losses_pixel)
+        b = np.sum((losses_pixel_np < 10.0)) / len(losses_pixel)
+        vis.plot_histogram(losses_pixel, n_bins=100)
+        vis.show()
+        a = 0
+    '''
+
+

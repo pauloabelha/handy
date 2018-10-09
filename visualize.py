@@ -277,22 +277,31 @@ def plot_image_and_heatmap(heatmap, data, title=''):
     heatmap = heatmap.swapaxes(0, 1)
     plt.imshow(255 * heatmap, alpha=0.6, cmap='hot')
 
-def plot_bound_box_from_coords(x0, y0, x1, y1, fig=None, linewidth=3):
+def plot_bound_box_from_coords(x0, y0, x1, y1, color='blue', fig=None, linewidth=3):
     if fig is None:
         fig = plt.figure()
-    plt.plot((x0, x0), (y0, y1), 'k-', linewidth=linewidth, color='C0')
-    plt.plot((x0, x1), (y1, y1), 'k-', linewidth=linewidth, color='C0')
-    plt.plot((x1, x1), (y1, y0), 'k-', linewidth=linewidth, color='C0')
-    plt.plot((x1, x0), (y0, y0), 'k-', linewidth=linewidth, color='C0')
+    if color == 'blue':
+        color = 'C0'
+    plt.plot((x0, x0), (y0, y1), 'k-', linewidth=linewidth, color=color)
+    plt.plot((x0, x1), (y1, y1), 'k-', linewidth=linewidth, color=color)
+    plt.plot((x1, x1), (y1, y0), 'k-', linewidth=linewidth, color=color)
+    plt.plot((x1, x0), (y0, y0), 'k-', linewidth=linewidth, color=color)
     return fig
 
-def plot_bound_box(bound_box, fig=None, linewidth=3):
+def plot_bound_box(bound_box, color='blue', fig=None, linewidth=3):
     if fig is None:
         fig = plt.figure()
-    plot_bound_box_from_coords(bound_box[0, 0], bound_box[0, 1], bound_box[1, 0], bound_box[1, 1],
-                   fig=fig, linewidth=linewidth)
+    plot_bound_box_from_coords(bound_box[0, 0], bound_box[0, 1],
+                               bound_box[1, 0], bound_box[1, 1],
+                               fig=fig, linewidth=linewidth,
+                               color=color)
     return fig
 
+def plot_histogram(values, n_bins=None):
+    if n_bins is None:
+        plt.hist(values)
+    else:
+        plt.hist(values, bins=n_bins)
 
 def plot_line(values, fig=None, fontsize=22, linewidth=3, tickwidth=3, xlabel='', ylabel='', title=''):
     if fig is None:
