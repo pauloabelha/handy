@@ -48,7 +48,7 @@
     <session id="-819491902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.opened" value="2" />
@@ -56,24 +56,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7785" />
+          <entry key="dummy" value="6" />
+          <entry key="py" value="8171" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="7785" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="8171" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="65" />
+          <entry key="py" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="65" />
+          <entry key="Python" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -84,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_fpa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1740">
-              <caret line="97" column="81" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="81" />
+            <state relative-caret-position="291">
+              <caret line="103" column="50" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="103" selection-end-column="50" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -94,29 +95,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_detection.py">
+        <entry file="file://$PROJECT_DIR$/train_autoencoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="100" column="17" lean-forward="true" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-                <marker date="1539087701917" expanded="true" signature="879:916" ph="..." />
-                <marker date="1539087701917" expanded="true" signature="2324:2974" ph="..." />
-              </folding>
+            <state relative-caret-position="100">
+              <caret line="5" selection-start-line="5" selection-end-line="6" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/autoencoder.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualize.py">
+        <entry file="file://$PROJECT_DIR$/../VQ-VAE/main2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="287" column="71" selection-start-line="287" selection-start-column="71" selection-end-line="287" selection-end-column="71" />
+            <state relative-caret-position="160">
+              <caret line="140" column="29" lean-forward="true" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -132,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>converter</find>
       <find>synthhands_handler</find>
       <find>depth</find>
       <find>create</find>
@@ -160,6 +150,9 @@
       <find>conv</find>
       <find>heatmap</find>
       <find>bound</find>
+      <find>batch</find>
+      <find>train_lo</find>
+      <find>train_loader</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
@@ -188,6 +181,8 @@
         <option value="$PROJECT_DIR$/visualize.py" />
         <option value="$PROJECT_DIR$/test_detection.py" />
         <option value="$PROJECT_DIR$/autoencoder.py" />
+        <option value="$PROJECT_DIR$/train_autoencoder.py" />
+        <option value="$PROJECT_DIR$/../VQ-VAE/main2.py" />
       </list>
     </option>
   </component>
@@ -220,7 +215,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VQ-VAE" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
@@ -240,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_detection">
+  <component name="RunManager" selected="Python.train_autoencoder">
     <configuration name="lstm_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -255,27 +250,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm_test.py" />
       <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -e 300 -l 10 --use-cuda" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="handy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -325,6 +299,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train_autoencoder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="handy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_autoencoder.py" />
+      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -e 300 -l 10 --use-cuda --split-filename fpa_split_tracking.p" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train_fpa" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -349,17 +344,17 @@
     <list>
       <item itemvalue="Python.track_gt" />
       <item itemvalue="Python.lstm_test" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.train_fpa" />
       <item itemvalue="Python.test_detection" />
+      <item itemvalue="Python.train_autoencoder" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.train_autoencoder" />
         <item itemvalue="Python.test_detection" />
         <item itemvalue="Python.train_fpa" />
         <item itemvalue="Python.track_gt" />
         <item itemvalue="Python.lstm_test" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -378,15 +373,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969843" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969843" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.30381167" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.36995515" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27130044" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -518,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../VQ-VAE/main2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../VQ-VAE/ycb_loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -635,16 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_fpa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="97" column="81" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visualize.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -664,8 +641,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/autoencoder.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/../VQ-VAE/auto_encoder2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="108" column="12" selection-start-line="108" selection-start-column="6" selection-end-line="108" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_fpa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="103" column="50" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="103" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../VQ-VAE/nearest_embed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_autoencoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" selection-start-line="5" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../VQ-VAE/main2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="140" column="29" lean-forward="true" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

@@ -49,14 +49,17 @@ class FPADatasetTracking(Dataset):
     color_fileext = 'jpeg'
     depth_fileext = 'png'
     dataset_split = None
+    for_autoencoding = False
     
     def __init__(self, root_folder, type,  transform_color=None,
-                 transform_depth=None, img_res=None, crop_res=None, split_filename=''):
+                 transform_depth=None, img_res=None, crop_res=None, split_filename='',
+                 for_autoencoding=False):
         self.root_folder = root_folder
         self.transform_color = transform_color
         self.transform_depth = transform_depth
         self.split_filename = split_filename
         self.type = type
+        self.for_autoencoding = for_autoencoding
         if not crop_res is None:
             self.crop_res = crop_res
 
@@ -86,11 +89,10 @@ class FPADatasetTracking(Dataset):
         joints_uv[:, 0] = np.clip(joints_uv[:, 0], a_min=0, a_max=depth_image.shape[0] - 1)
         joints_uv[:, 1] = np.clip(joints_uv[:, 1], a_min=0, a_max=depth_image.shape[1] - 1)
 
-        data_image = depth_image.reshape((depth_image.shape[0],
-                                           depth_image.shape[1],
-                                           1))
+        data_image = depth_image.reshape((depth_image.shape[0], depth_image.shape[1], 1)).astype(float)
         data_image = self.transform_depth(data_image).float()
-
+        if self.for_autoencoding:
+            return data_image, data_image
         _, crop_coords = io_image.crop_hand_depth(joints_uv, depth_image)
         crop_coords_numpy = np.zeros((2, 2))
         crop_coords_numpy[0, 0] = crop_coords[0]
@@ -116,13 +118,14 @@ class FPADatasetTracking(Dataset):
 
 
 def DataLoaderTracking(root_folder, type, transform_color=None, transform_depth=None, batch_size=4,
-               img_res=None, split_filename=''):
+               img_res=None, split_filename='', for_autoencoding=False):
     dataset = FPADatasetTracking(root_folder,
                          type,
                          transform_color=transform_color,
                                  transform_depth=transform_depth,
                          img_res=img_res,
-                         split_filename=split_filename)
+                         split_filename=split_filename,
+                                 for_autoencoding=for_autoencoding)
     return torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size,
