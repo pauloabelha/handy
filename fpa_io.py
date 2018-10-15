@@ -141,6 +141,11 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
     subject_dirs = os.listdir(data_path)
     path_tuples = []
     subject_idx = 0
+    num_frames = 0
+    num_frames_with_milk = 0
+    num_frames_with_salt = 0
+    num_frames_with_juice = 0
+    num_frames_with_soap = 0
     for subject_dir in subject_dirs:
         subject_idx += 1
         print('Splitting dataset: Subject {} of {} ; {}'.format(subject_idx, len(subject_dirs), subject_dir))
@@ -153,6 +158,18 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
                 seq_path = '/'.join([action_path, seq_dir]) + '/'
                 color_files = util.list_files_in_dir(seq_path + 'color/')
                 depth_files = util.list_files_in_dir(seq_path + 'depth/')
+
+                num_frames += len(color_files)
+                if "milk" in action_dir:
+                    num_frames_with_milk += len(color_files)
+                if "salt" in action_dir:
+                    num_frames_with_salt += len(color_files)
+                if "juice" in action_dir:
+                    num_frames_with_juice += len(color_files)
+                if "soap" in action_dir:
+                    num_frames_with_soap += len(color_files)
+
+
 
                 # TODO : check that skeleton.txt eist in respective folder
                 curr_subpath = subject_dir + '/' + action_dir + '/' + seq_dir + '/'
@@ -171,6 +188,18 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
                             if color_num == depth_num:
                                 path_tuples.append((curr_subpath, color_num))
                                 break
+
+    prop_milk = num_frames_with_milk / num_frames
+    prop_salt = num_frames_with_salt / num_frames
+    prop_juice = num_frames_with_juice / num_frames
+    prop_soap = num_frames_with_soap / num_frames
+    num_frames_obj_pose = num_frames_with_milk + num_frames_with_salt + num_frames_with_juice + num_frames_with_soap
+    prop_obj_pose = num_frames_obj_pose /num_frames
+    print("Number of frames with milk: {}/{} = {}".format(num_frames_with_milk, num_frames, prop_milk))
+    print("Number of frames with salt: {}/{} = {}".format(num_frames_with_salt, num_frames, prop_salt))
+    print("Number of frames with juice: {}/{} = {}".format(num_frames_with_juice, num_frames, prop_juice))
+    print("Number of frames with soap: {}/{} = {}".format(num_frames_with_soap, num_frames, prop_soap))
+    print("Number of frames with object pose: {}/{} = {}".format(num_frames_obj_pose, num_frames, prop_obj_pose))
 
     ixs_randomize = np.random.choice(len(path_tuples), len(path_tuples), replace=False)
     path_tuples = np.array(path_tuples)

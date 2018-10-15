@@ -42,7 +42,7 @@ class FPADatasetTracking(Dataset):
     crop_res = (200, 200)
     orig_img_res = (640, 480)
     new_img_res = (640, 480)
-    video_folder = 'video_files/'
+    video_folder = 'Video_files/'
     pose_folder = 'Hand_pose_annotation_v1/'
     color_folder = 'color/'
     depth_folder = 'depth/'
