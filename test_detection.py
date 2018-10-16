@@ -30,7 +30,7 @@ transform_color = transforms.Compose([transforms.ToTensor(),
 transform_depth = transforms.Compose([transforms.ToTensor()])
 
 train_loader = fpa_dataset.DataLoaderTracking(root_folder=args.dataset_root_folder,
-                                      type='test', transform_color=transform_color,
+                                      type='test', input_type='depth', transform_color=transform_color,
                                               transform_depth=transform_depth,
                                       batch_size=args.batch_size,
                                       split_filename=args.split_filename,)
