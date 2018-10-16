@@ -20,11 +20,11 @@ class JORNet_light(HALNet):
     def __init__(self, params_dict):
         super(JORNet_light, self).__init__(params_dict)
 
-        self.num_joints = 69 # hand and object
+        self.num_joints = 66 # hand and object
         self.out_poses1 = cudafy(
-            nn.Linear(in_features=1228800, out_features=1000), self.use_cuda)
+            nn.Linear(in_features=160000, out_features=1000), self.use_cuda)
         self.out_poses2 = cudafy(
-            nn.Linear(in_features=1000, out_features=69), self.use_cuda)
+            nn.Linear(in_features=1000, out_features=self.num_joints), self.use_cuda)
 
     def forward(self, x):
         _, _, _, conv4fout = self.forward_common_net(x)
@@ -32,5 +32,4 @@ class JORNet_light(HALNet):
         out_poses = conv4fout.view(-1, innerprod1_size)
         out_poses = self.out_poses1(out_poses)
         out_poses = self.out_poses2(out_poses)
-
         return out_poses

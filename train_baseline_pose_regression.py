@@ -78,8 +78,8 @@ train_vars = {
     'iter_size': 1,
     'total_loss': 0,
     'verbose': True,
-    'checkpoint_filenamebase': 'checkpoint',
-    'checkpoint_filename': 'checkpoint.pth.tar',
+    'checkpoint_filenamebase': 'checkpoint_pose',
+    'checkpoint_filename': 'checkpoint_pose.pth.tar',
     'tot_iter': len(train_loader),
     'num_batches': len(train_loader),
     'curr_iter': 0,
@@ -111,10 +111,7 @@ for epoch_idx in range(args.num_epochs - 1):
         # detaching it from its history on the last instance.
         output = model(depth_img_torch)
 
-        loss = my_losses.calculate_loss_HALNet(loss_func,
-                                               output, label_heatmaps, model.joint_ixs, model.WEIGHT_LOSS_INTERMED1,
-                                               model.WEIGHT_LOSS_INTERMED2, model.WEIGHT_LOSS_INTERMED3,
-                                               model.WEIGHT_LOSS_MAIN, train_vars['iter_size'])
+        loss = my_losses.euclidean_loss(output, hand_obj_pose)
         loss.backward()
         train_vars['total_loss'] = loss.item()
         train_vars['losses'].append(train_vars['total_loss'])
@@ -125,3 +122,4 @@ for epoch_idx in range(args.num_epochs - 1):
 
         if batch_idx % args.log_interval == 0:
             trainer.print_log_info(model, optimizer, epoch,  train_vars)
+    trainer.print_log_info(model, optimizer, epoch, train_vars)

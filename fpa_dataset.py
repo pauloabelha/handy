@@ -87,7 +87,7 @@ class FPADataset(Dataset):
         subpath, file_num = self.get_subpath_and_file_num(idx)
         depth_img_numpy = self.read_depth_img(subpath, file_num)
         depth_img_torch = self.conv_depth_img_with_torch_transform(depth_img_numpy, transform)
-        return depth_img_torch
+        return depth_img_torch, depth_img_numpy
 
     def get_hand_joints(self, idx):
         subpath, file_num = self.get_subpath_and_file_num(idx)
@@ -100,6 +100,30 @@ class FPADataset(Dataset):
         obj_pose_filepath = self.root_folder + self.obj_pose_folder + \
                             subpath + 'object_pose.txt'
         return fpa_io.read_obj_poses(obj_pose_filepath)[int(file_num)]
+
+    def get_cropped_depth_img(self, depth_img, hand_joints, pixel_bound=10):
+        joints_uv = cam.joints_depth2color(hand_joints.reshape((21, 3)),
+                                           cam.fpa_depth_intrinsics)[:, 0:2]
+        joints_uv[:, 0] = np.clip(joints_uv[:, 0], a_min=0,
+                                  a_max=depth_img.shape[0] - 1)
+        joints_uv[:, 1] = np.clip(joints_uv[:, 1], a_min=0,
+                                  a_max=depth_img.shape[1] - 1)
+
+        data_image = depth_img.reshape((depth_img.shape[0],
+                                        depth_img.shape[1], 1)).astype(float)
+        data_image = self.transform_depth(data_image).float()
+        if self.for_autoencoding:
+            return data_image, data_image
+        cropped_img, crop_coords = io_image.crop_hand_depth(joints_uv,
+                                                            depth_img,
+                                                            pixel_bound=pixel_bound)
+        return cropped_img, crop_coords
+
+    def conv_hand_joints_to_rel(self, hand_joints):
+        hand_joints = hand_joints.reshape((21, 3))
+        hand_root = hand_joints[0, :]
+        hand_joints = hand_joints[1:, :] - hand_root
+        return hand_root, hand_joints.reshape((60,))
 
     def __getitem__(self, idx):
         return None
@@ -141,17 +165,9 @@ class FPADatasetTracking(FPADataset):
 
         joints_filepath = self.root_folder + self.hand_pose_folder + \
                           subpath + 'skeleton.txt'
-        joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
+        hand_joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
 
-        joints_uv = cam.joints_depth2color(joints.reshape((21, 3)), cam.fpa_depth_intrinsics)[:, 0:2]
-        joints_uv[:, 0] = np.clip(joints_uv[:, 0], a_min=0, a_max=depth_image.shape[0] - 1)
-        joints_uv[:, 1] = np.clip(joints_uv[:, 1], a_min=0, a_max=depth_image.shape[1] - 1)
-
-        data_image = depth_image.reshape((depth_image.shape[0], depth_image.shape[1], 1)).astype(float)
-        data_image = self.transform_depth(data_image).float()
-        if self.for_autoencoding:
-            return data_image, data_image
-        _, crop_coords = io_image.crop_hand_depth(joints_uv, depth_image)
+        _, crop_coords = self.get_cropped_depth_img(depth_image, hand_joints)
         crop_coords_numpy = np.zeros((2, 2))
         crop_coords_numpy[0, 0] = crop_coords[0]
         crop_coords_numpy[0, 1] = crop_coords[1]
@@ -193,66 +209,53 @@ class FPADatasetPoseRegression(FPADataset):
                 self.root_folder, self.split_filename)
 
     def __getitem__(self, idx):
-        depth_img_torch = self.get_depth_img_with_torch_transform(idx, self.transform_depth)
+        idx = 17
+
         hand_joints = self.get_hand_joints(idx)
-        obj_pose = self.get_obj_pose(idx)
-        hand_obj_pose = np.concatenate((hand_joints, obj_pose), 0)
+        hand_root, hand_joints_rel = self.conv_hand_joints_to_rel(hand_joints)
+        obj_pose_rel = self.get_obj_pose(idx)
+        obj_pose_rel[0:3] = obj_pose_rel[0:3] - hand_root
+        hand_obj_pose = np.concatenate((hand_joints_rel, obj_pose_rel), 0)
+        hand_obj_pose = torch.from_numpy(hand_obj_pose).float()
+
+        subpath, file_num = self.get_subpath_and_file_num(idx)
+        depth_img_numpy = self.read_depth_img(subpath, file_num)
+        cropped_depth_img, crop_coords = self.get_cropped_depth_img(depth_img_numpy,
+                                                                    hand_joints,
+                                                                    pixel_bound=100)
+        cropped_depth_img = io_image.change_res_image(cropped_depth_img, new_res=(200, 200))
+        depth_img_torch = self.conv_depth_img_with_torch_transform(cropped_depth_img, self.transform_depth)
+
         return depth_img_torch, hand_obj_pose
 
-def DataLoaderTracking(root_folder, type, input_type, transform_color=None, transform_depth=None, batch_size=4,
-               img_res=None, split_filename='', for_autoencoding=False):
-    dataset = FPADatasetTracking(root_folder,
-                         type, input_type,
-                         transform_color=transform_color,
+def DataLoaderTracking(root_folder, type, input_type,
+                                 transform_color=None, transform_depth=None,
+                                 batch_size=4, img_res=None, split_filename='',
+                                 for_autoencoding=False):
+    dataset = FPADatasetTracking(root_folder, type, input_type,
+                                 transform_color=transform_color,
                                  transform_depth=transform_depth,
-                         img_res=img_res,
-                         split_filename=split_filename,
+                                 img_res=img_res,
+                                 split_filename=split_filename,
                                  for_autoencoding=for_autoencoding)
     return torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size,
         shuffle=False)
 
-def DataLoaderPoseRegression(root_folder, type, input_type, transform_color=None, transform_depth=None, batch_size=4,
-               img_res=None, split_filename='', for_autoencoding=False):
+def DataLoaderPoseRegression(root_folder, type, input_type,
+                             transform_color=None, transform_depth=None,
+                             batch_size=4, img_res=None, split_filename='',
+                             for_autoencoding=False):
     dataset = FPADatasetPoseRegression(root_folder,
-                         type, input_type,
-                         transform_color=transform_color,
-                                 transform_depth=transform_depth,
-                         img_res=img_res,
-                         split_filename=split_filename,
-                                 for_autoencoding=for_autoencoding)
+                                       type, input_type,
+                                       transform_color=transform_color,
+                                       transform_depth=transform_depth,
+                                       img_res=img_res,
+                                       split_filename=split_filename,
+                                       for_autoencoding=for_autoencoding)
     return torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size,
         shuffle=False)
 
-
-''' OLD, BUT WORKING
-
-crop_depth = crop_depth.astype(float)
-
-        joints_uv[:, 0] -= crop_coords[0]
-        joints_uv[:, 1] -= crop_coords[1]
-        #vis.plot_joints_from_colorspace(joints_colorspace=joints_uv,
-        #                                data=crop_depth,
-        #                                title=depth_filepath)
-        # vis.plot_image(color_image)
-        # vis.show()
-
-        crop_depth_res = crop_depth.shape
-        crop_depth = io_image.change_res_image(crop_depth, self.crop_res)
-        a = (crop_depth.shape[0] / crop_depth_res[0])
-        joints_uv_crop = np.copy(joints_uv)
-        joints_uv_crop[:, 0] = joints_uv_crop[:, 0] * a
-        joints_uv_crop[:, 1] *= (crop_depth.shape[1] / crop_depth_res[1])
-        joints_uv_crop = joints_uv_crop.astype(int)
-        #print(joints_uv_crop)
-        #vis.plot_joints_from_colorspace(joints_colorspace=joints_uv_crop,
-        #                                data=crop_depth,
-        #                                title=depth_filepath)
-        # vis.plot_image(color_image)
-        #vis.show()
-
-
-'''

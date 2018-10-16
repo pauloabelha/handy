@@ -49,8 +49,7 @@ def calculate_loss_HALNet_prior(loss_func, output, target_heatmaps, target_prior
     loss = loss_halnet + loss_prior
     return loss, loss_prior
 
-def calculate_loss_JORNet_only_joints(loss_func, output, target_heatmaps, target_joints, joint_ixs,
-                          weights_heatmaps_loss, weights_joints_loss, iter_size):
+def calculate_loss_JORNet_only_joints(output, target_joints):
     loss_joints = 0
     for loss_ix in range(3):
         loss_joints_sub = euclidean_loss(output[loss_ix + 4], target_joints)

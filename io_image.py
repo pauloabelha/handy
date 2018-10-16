@@ -35,8 +35,7 @@ def get_labels_cropped_heatmaps(labels_colorspace, joint_ixs, crop_coords, heatm
         labels_ix += 1
     return labels_heatmaps, labels_colorspace_mapped
 
-def get_crop_coords(joints_uv, img_max_u, img_max_v):
-    pixel_bound = 10
+def get_crop_coords(joints_uv, img_max_u, img_max_v, pixel_bound=10):
     min_u = min(joints_uv[:, 0]) - pixel_bound
     min_v = min(joints_uv[:, 1]) - pixel_bound
     max_u = max(joints_uv[:, 0]) + pixel_bound
@@ -65,8 +64,8 @@ def crop_hand_rgbd(joints_uv, image_rgbd, crop_res):
     crop_rgbd = crop_rgbd.swapaxes(0, 1)
     return crop_rgbd, crop_coords
 
-def crop_hand_depth(joints_uv, depth_image):
-    crop_coords = get_crop_coords(joints_uv, depth_image.shape[0] - 1, depth_image.shape[1] - 1)
+def crop_hand_depth(joints_uv, depth_image, pixel_bound=10):
+    crop_coords = get_crop_coords(joints_uv, depth_image.shape[0] - 1, depth_image.shape[1] - 1, pixel_bound=pixel_bound)
     # crop hand
     crop = depth_image[crop_coords[0]:crop_coords[2], crop_coords[1]:crop_coords[3]]
     return crop, crop_coords
