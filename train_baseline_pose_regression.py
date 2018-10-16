@@ -6,7 +6,7 @@ import argparse
 import fpa_dataset
 from lstm_baseline import LSTMBaseline
 from util import myprint
-from hand_detection_net import HALNet
+from JORNet_light import JORNet_light
 import losses as my_losses
 import trainer
 
@@ -60,7 +60,7 @@ model_params_dict = {
     'joint_ixs': range(2)
 }
 
-model = HALNet(model_params_dict)
+model = JORNet_light(model_params_dict)
 if args.use_cuda:
     model = model.cuda()
 model.train()
@@ -95,21 +95,21 @@ for epoch_idx in range(args.num_epochs - 1):
     epoch = epoch_idx + 1
     train_vars['curr_epoch_iter'] = epoch
     continue_batch_end_ix = -1
-    for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
+    for batch_idx, (depth_img_torch, hand_obj_pose) in enumerate(train_loader):
         if batch_idx < continue_batch_end_ix:
             print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
             continue
         train_vars['batch_idx'] = batch_idx
         train_vars['curr_iter'] = batch_idx + 1
         if args.use_cuda:
-            data = data.cuda()
-            label_heatmaps = label_heatmaps.cuda()
+            depth_img_torch = depth_img_torch.cuda()
+            hand_obj_pose = hand_obj_pose.cuda()
         # zero out torch gradients
         optimizer.zero_grad()
 
         # clear out the hidden state of the LSTM,
         # detaching it from its history on the last instance.
-        output = model(data)
+        output = model(depth_img_torch)
 
         loss = my_losses.calculate_loss_HALNet(loss_func,
                                                output, label_heatmaps, model.joint_ixs, model.WEIGHT_LOSS_INTERMED1,

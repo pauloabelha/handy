@@ -4,7 +4,7 @@ import torch.nn as nn
 from util import cudafy
 import numpy as np
 
-class JORNet(HALNet_class):
+class JORNet_light(HALNet_class):
     innerprod1_size = 256 * 16 * 16
     crop_res = (128, 128)
     #innerprod1_size = 65536
@@ -18,7 +18,7 @@ class JORNet(HALNet_class):
             self.use_cuda)
 
     def __init__(self, params_dict):
-        super(JORNet, self).__init__(params_dict)
+        super(JORNet_light, self).__init__(params_dict)
 
         self.num_joints = 20
         self.main_loss_conv = cudafy(HALNet.HALNetConvBlock(

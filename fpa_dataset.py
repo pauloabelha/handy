@@ -43,7 +43,8 @@ class FPADataset(Dataset):
     orig_img_res = (640, 480)
     new_img_res = (640, 480)
     video_folder = 'Video_files/'
-    pose_folder = 'Hand_pose_annotation_v1/'
+    hand_pose_folder = 'Hand_pose_annotation_v1/'
+    obj_pose_folder = 'Object_6D_pose_annotation_v1/'
     color_folder = 'color/'
     depth_folder = 'depth/'
     color_fileext = 'jpeg'
@@ -88,10 +89,17 @@ class FPADataset(Dataset):
         depth_img_torch = self.conv_depth_img_with_torch_transform(depth_img_numpy, transform)
         return depth_img_torch
 
-    def get_hand_joint(self, subpath, file_num):
-        joints_filepath = self.root_folder + self.pose_folder + \
+    def get_hand_joints(self, idx):
+        subpath, file_num = self.get_subpath_and_file_num(idx)
+        joints_filepath = self.root_folder + self.hand_pose_folder + \
                           subpath + 'skeleton.txt'
         return fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
+
+    def get_obj_pose(self, idx):
+        subpath, file_num = self.get_subpath_and_file_num(idx)
+        obj_pose_filepath = self.root_folder + self.obj_pose_folder + \
+                            subpath + 'object_pose.txt'
+        return fpa_io.read_obj_poses(obj_pose_filepath)[int(file_num)]
 
     def __getitem__(self, idx):
         return None
@@ -116,7 +124,7 @@ class FPADatasetTracking(FPADataset):
             self.crop_res = crop_res
 
         if self.split_filename == '':
-            fpa_io.create_split_file_tracking(self.root_folder,
+            fpa_io.create_split_file(self.root_folder,
                                               self.video_folder,
                                               perc_train=0.7, perc_valid=0.15)
         else:
@@ -131,7 +139,7 @@ class FPADatasetTracking(FPADataset):
                          file_num + '.' + self.depth_fileext
         depth_image = fpa_io.read_depth_img(depth_filepath)
 
-        joints_filepath = self.root_folder + self.pose_folder + \
+        joints_filepath = self.root_folder + self.hand_pose_folder + \
                           subpath + 'skeleton.txt'
         joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
 
@@ -176,18 +184,20 @@ class FPADatasetPoseRegression(FPADataset):
                                                  split_filename=split_filename,
                                                  for_autoencoding=for_autoencoding)
         if self.split_filename == '':
-            fpa_io.create_split_obj_pose(self.root_folder,
-                                              self.video_folder,
-                                              perc_train=0.7, perc_valid=0.15)
+            fpa_io.create_split_file(self.root_folder,self.video_folder,
+                                     perc_train=0.7, perc_valid=0.15,
+                                     only_with_obj_pose=True,
+                                     split_filename="fpa_split_obj_pose.p")
         else:
             self.dataset_split = fpa_io.load_split_file(
                 self.root_folder, self.split_filename)
 
     def __getitem__(self, idx):
-        subpath, file_num = self.get_subpath_and_file_num(idx)
         depth_img_torch = self.get_depth_img_with_torch_transform(idx, self.transform_depth)
-        hand_joints = self.get_hand_joint(subpath, file_num)
-        a = 0
+        hand_joints = self.get_hand_joints(idx)
+        obj_pose = self.get_obj_pose(idx)
+        hand_obj_pose = np.concatenate((hand_joints, obj_pose), 0)
+        return depth_img_torch, hand_obj_pose
 
 def DataLoaderTracking(root_folder, type, input_type, transform_color=None, transform_depth=None, batch_size=4,
                img_res=None, split_filename='', for_autoencoding=False):

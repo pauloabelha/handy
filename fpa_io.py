@@ -3,6 +3,7 @@ import io_image
 import os
 import pickle
 import util
+from eulerangles import euler2mat, mat2euler
 
 num_joints = 21
 
@@ -29,6 +30,26 @@ def conv_joints_to_canonical(joints_fpa):
 
     return joints
 
+def read_obj_poses(filepath):
+    with open(filepath) as f:
+        lines = f.readlines()
+        if len(lines) == 0:
+            return None
+        joints_sequence = np.zeros((len(lines), num_joints * 3))
+        i = -1
+        obj_poses = np.zeros((len(lines), 6))
+        for line in lines:
+            i += 1
+            line_split = line.split(' ')
+            frame_num = line_split[0]
+            obj_mtx = np.array([float(x) for x in line_split[1:-1]]).reshape((4, 4)).T
+            obj_transl = obj_mtx[0:3, 3]
+            obj_rot_mtx = obj_mtx[0:3, 0:3]
+            obj_euler_angles = np.array(mat2euler(obj_rot_mtx))
+            obj_poses[i, 0:3] = obj_transl
+            obj_poses[i, 3:] = obj_euler_angles
+        return obj_poses
+
 def read_action_joints_sequence(filepath):
     #action = filepath.split('/')[6]
     with open(filepath) as f:
@@ -54,7 +75,9 @@ def read_depth_img(filepath):
     depth_img = io_image.read_RGB_image(filepath)
     return depth_img
 
-def create_split_file(dataset_root_folder, gt_folder, num_train_seq,
+
+
+def create_split_file_old(dataset_root_folder, gt_folder, num_train_seq,
                       split_filename='fpa_split.p', actions=None):
     if num_train_seq >= 3:
         raise 1
@@ -135,8 +158,10 @@ def create_split_file(dataset_root_folder, gt_folder, num_train_seq,
         pickle.dump(dataset_tuples, handle, protocol=pickle.HIGHEST_PROTOCOL)
     return dataset_tuples
 
-def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_valid,
-                      split_filename='fpa_split_tracking.p'):
+def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
+                      split_filename='fpa_split_tracking.p',
+                      only_with_obj_pose=False):
+    objs_with_pose_annotation = ['juice', 'milk', 'salt', 'soap']
     data_path = '/'.join([dataset_root_folder, gt_folder])
     subject_dirs = os.listdir(data_path)
     path_tuples = []
@@ -154,24 +179,21 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
         for action_dir in action_dirs:
             action_path = '/'.join([subject_path, action_dir])
             seq_dirs = os.listdir(action_path)
+
+            curr_action_has_obj_pose_annotation = False
+            if only_with_obj_pose:
+                for obj_name in objs_with_pose_annotation:
+                    if obj_name in action_dir:
+                        curr_action_has_obj_pose_annotation = True
+                        break
+            if only_with_obj_pose and not curr_action_has_obj_pose_annotation:
+                continue
             for seq_dir in seq_dirs:
                 seq_path = '/'.join([action_path, seq_dir]) + '/'
                 color_files = util.list_files_in_dir(seq_path + 'color/')
                 depth_files = util.list_files_in_dir(seq_path + 'depth/')
 
-                num_frames += len(color_files)
-                if "milk" in action_dir:
-                    num_frames_with_milk += len(color_files)
-                if "salt" in action_dir:
-                    num_frames_with_salt += len(color_files)
-                if "juice" in action_dir:
-                    num_frames_with_juice += len(color_files)
-                if "soap" in action_dir:
-                    num_frames_with_soap += len(color_files)
-
-
-
-                # TODO : check that skeleton.txt eist in respective folder
+                # TODO : check that skeleton.txt exist in respective folder
                 curr_subpath = subject_dir + '/' + action_dir + '/' + seq_dir + '/'
                 skeleton_filepath = dataset_root_folder + 'Hand_pose_annotation_v1/' + curr_subpath + 'Skeleton.txt'
                 if not os.path.isfile(skeleton_filepath):
@@ -188,18 +210,6 @@ def create_split_file_tracking(dataset_root_folder, gt_folder, perc_train, perc_
                             if color_num == depth_num:
                                 path_tuples.append((curr_subpath, color_num))
                                 break
-
-    prop_milk = num_frames_with_milk / num_frames
-    prop_salt = num_frames_with_salt / num_frames
-    prop_juice = num_frames_with_juice / num_frames
-    prop_soap = num_frames_with_soap / num_frames
-    num_frames_obj_pose = num_frames_with_milk + num_frames_with_salt + num_frames_with_juice + num_frames_with_soap
-    prop_obj_pose = num_frames_obj_pose /num_frames
-    print("Number of frames with milk: {}/{} = {}".format(num_frames_with_milk, num_frames, prop_milk))
-    print("Number of frames with salt: {}/{} = {}".format(num_frames_with_salt, num_frames, prop_salt))
-    print("Number of frames with juice: {}/{} = {}".format(num_frames_with_juice, num_frames, prop_juice))
-    print("Number of frames with soap: {}/{} = {}".format(num_frames_with_soap, num_frames, prop_soap))
-    print("Number of frames with object pose: {}/{} = {}".format(num_frames_obj_pose, num_frames, prop_obj_pose))
 
     ixs_randomize = np.random.choice(len(path_tuples), len(path_tuples), replace=False)
     path_tuples = np.array(path_tuples)
