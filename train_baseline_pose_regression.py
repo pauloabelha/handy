@@ -46,7 +46,7 @@ transform_color = transforms.Compose([transforms.ToTensor(),
 
 transform_depth = transforms.Compose([transforms.ToTensor()])
 
-train_loader = fpa_dataset.DataLoaderTracking(root_folder=args.dataset_root_folder,
+train_loader = fpa_dataset.DataLoaderPoseRegression(root_folder=args.dataset_root_folder,
                                               type='train',
                                               input_type="rgbd",
                                               transform_color=transform_color,
