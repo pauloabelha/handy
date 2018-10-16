@@ -42,6 +42,7 @@ for action in actions:
         fig = visualize.create_fig()
         seq_str = str(seq+1)
         curr_data_folder = '/'.join([dataset_root_folder, data_folder, subject, action, seq_str])
+        depth_imgs = []
         for i in range(99):
             if i < 10:
                 frame_num = '000' + str(i)
@@ -52,9 +53,12 @@ for action in actions:
             depth_filepath = '/'.join([curr_data_folder, 'depth', 'depth_' + frame_num + '.png'])
             try:
                 depth_img = fpa_io.read_depth_img(depth_filepath)
+                depth_imgs.append(depth_img)
             except FileNotFoundError as e:
-                visualize.close_fig(fig)
                 break
+        frame_idx = 0
+        for depth_img in depth_imgs:
+            frame_idx += 1
             depth_img = depth_img.reshape((1, 1, depth_img.shape[0], depth_img.shape[1]))
             depth_img = torch.from_numpy(depth_img).float()
             if args.use_cuda:
@@ -66,7 +70,7 @@ for action in actions:
             output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
             output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
 
-            title = "Subj: " + subject + ", Action: " + action + ", Seq: " + seq_str + ", Frame: " + str(i)
+            title = "Subj: " + subject + ", Action: " + action + ", Seq: " + seq_str + ", Frame: " + str(frame_idx)
             visualize.plot_image(depth_img.cpu().numpy()[0, 0, :, :], fig=fig, title=title)
             visualize.plot_bound_box(output_bbox, fig=fig, color='red')
 
