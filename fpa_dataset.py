@@ -50,8 +50,9 @@ class FPADatasetTracking(Dataset):
     depth_fileext = 'png'
     dataset_split = None
     for_autoencoding = False
+    input_type = ""
     
-    def __init__(self, root_folder, type,  transform_color=None,
+    def __init__(self, root_folder, type, input_type,  transform_color=None,
                  transform_depth=None, img_res=None, crop_res=None, split_filename='',
                  for_autoencoding=False):
         self.root_folder = root_folder
@@ -60,6 +61,7 @@ class FPADatasetTracking(Dataset):
         self.split_filename = split_filename
         self.type = type
         self.for_autoencoding = for_autoencoding
+        self.input_type = input_type
         if not crop_res is None:
             self.crop_res = crop_res
 
@@ -117,10 +119,10 @@ class FPADatasetTracking(Dataset):
 
 
 
-def DataLoaderTracking(root_folder, type, transform_color=None, transform_depth=None, batch_size=4,
+def DataLoaderTracking(root_folder, type, input_type, transform_color=None, transform_depth=None, batch_size=4,
                img_res=None, split_filename='', for_autoencoding=False):
     dataset = FPADatasetTracking(root_folder,
-                         type,
+                         type, input_type,
                          transform_color=transform_color,
                                  transform_depth=transform_depth,
                          img_res=img_res,

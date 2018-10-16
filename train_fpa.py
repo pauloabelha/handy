@@ -47,10 +47,12 @@ transform_color = transforms.Compose([transforms.ToTensor(),
 transform_depth = transforms.Compose([transforms.ToTensor()])
 
 train_loader = fpa_dataset.DataLoaderTracking(root_folder=args.dataset_root_folder,
-                                      type='train', transform_color=transform_color,
+                                              type='train',
+                                              input_type="rgbd",
+                                              transform_color=transform_color,
                                               transform_depth=transform_depth,
-                                      batch_size=args.batch_size,
-                                      split_filename=args.split_filename,)
+                                              batch_size=args.batch_size,
+                                              split_filename=args.split_filename,)
 
 print('Length of dataset: {}'.format(len(train_loader.dataset)))
 
