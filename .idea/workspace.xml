@@ -59,14 +59,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="py" value="11989" />
+          <entry key="py" value="12020" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="11989" />
+          <entry key="Python" value="12020" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -120,12 +120,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="199" column="45" lean-forward="true" selection-start-line="199" selection-start-column="45" selection-end-line="199" selection-end-column="45" />
+            <state relative-caret-position="434">
+              <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1539697385811" expanded="true" signature="1232:4018" ph="..." />
-                <marker date="1539697385811" expanded="true" signature="2180:2337" ph="..." />
+                <marker date="1539701273035" expanded="true" signature="1232:4018" ph="..." />
+                <marker date="1539701273035" expanded="true" signature="2180:2337" ph="..." />
+                <marker date="1539701273035" expanded="true" signature="9302:9307" ph="..." />
               </folding>
             </state>
           </provider>
@@ -230,9 +231,9 @@
         <option value="$PROJECT_DIR$/JORNet.py" />
         <option value="$PROJECT_DIR$/eulerangles.py" />
         <option value="$PROJECT_DIR$/fpa_io.py" />
-        <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/JORNet_light.py" />
         <option value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
+        <option value="$PROJECT_DIR$/fpa_dataset.py" />
       </list>
     </option>
   </component>
@@ -806,12 +807,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="199" column="45" lean-forward="true" selection-start-line="199" selection-start-column="45" selection-end-line="199" selection-end-column="45" />
+        <state relative-caret-position="434">
+          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1539697385811" expanded="true" signature="1232:4018" ph="..." />
-            <marker date="1539697385811" expanded="true" signature="2180:2337" ph="..." />
+            <marker date="1539701273035" expanded="true" signature="1232:4018" ph="..." />
+            <marker date="1539701273035" expanded="true" signature="2180:2337" ph="..." />
+            <marker date="1539701273035" expanded="true" signature="9302:9307" ph="..." />
           </folding>
         </state>
       </provider>
