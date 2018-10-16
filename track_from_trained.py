@@ -21,50 +21,58 @@ dataset_root_folder = 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/'
 gt_folder = 'Hand_pose_annotation_v1'
 data_folder = 'video_files'
 subject = 'Subject_1'
-action = 'put_tea_bag'
-sequence = '4'
-gt_filepath = '/'.join([dataset_root_folder, gt_folder, subject, action, sequence, 'skeleton.txt'])
-curr_data_folder = '/'.join([dataset_root_folder, data_folder, subject, action, sequence])
+actions = ['charge_cell_phone',
+           'clean_glasses',
+           'close_juice_bottle',
+           'close_liquid_soap',
+           'close_milk',
+           'close_peanut_butter',
+           'drink_mug',
+           'flip_pages']
+sequence = '1'
 
 model, _, _, _ = trainer.load_checkpoint(args.checkpoint_filename, HALNet, use_cuda=True)
 if args.use_cuda:
     model.cuda()
 
-gt_skeletons = fpa_io.read_action_joints_sequence(gt_filepath)
+fig = None
+for action in actions:
+    for seq in range(3):
+        visualize.close_fig(fig)
+        fig = visualize.create_fig()
+        seq_str = str(seq+1)
+        curr_data_folder = '/'.join([dataset_root_folder, data_folder, subject, action, seq_str])
+        for i in range(99):
+            if i < 10:
+                frame_num = '000' + str(i)
+            else:
+                frame_num = '00' + str(i)
 
-fig = visualize.create_fig()
-for i in range(99):
-    if i < 10:
-        frame_num = '000' + str(i)
-    else:
-        frame_num = '00' + str(i)
+            color_filepath = '/'.join([curr_data_folder, 'color', 'color_' + frame_num + '.jpeg'])
+            depth_filepath = '/'.join([curr_data_folder, 'depth', 'depth_' + frame_num + '.png'])
+            try:
+                depth_img = fpa_io.read_depth_img(depth_filepath)
+            except FileNotFoundError as e:
+                visualize.close_fig(fig)
+                break
+            depth_img = depth_img.reshape((1, 1, depth_img.shape[0], depth_img.shape[1]))
+            depth_img = torch.from_numpy(depth_img).float()
+            if args.use_cuda:
+                depth_img = depth_img.cuda()
 
-    color_filepath = '/'.join([curr_data_folder, 'color', 'color_' + frame_num + '.jpeg'])
-    depth_filepath = '/'.join([curr_data_folder, 'depth', 'depth_' + frame_num + '.png'])
-    depth_img = fpa_io.read_depth_img(depth_filepath)
-    depth_img = depth_img.reshape((1, 1, depth_img.shape[0], depth_img.shape[1]))
-    depth_img = torch.from_numpy(depth_img).float()
-    if args.use_cuda:
-        depth_img = depth_img.cuda()
+            output = model(depth_img)
+            output_bbox = np.zeros((2, 2))
+            out_heatmaps = output[3].detach().cpu().numpy()[0, :, :, :]
+            output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
+            output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
 
-    output = model(depth_img)
-    output_bbox = np.zeros((2, 2))
-    out_heatmaps = output[3].detach().cpu().numpy()[0, :, :, :]
-    output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
-    output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
+            title = "Subj: " + subject + ", Action: " + action + ", Seq: " + seq_str + ", Frame: " + str(i)
+            visualize.plot_image(depth_img.cpu().numpy()[0, 0, :, :], fig=fig, title=title)
+            visualize.plot_bound_box(output_bbox, fig=fig, color='red')
 
-    visualize.plot_image(depth_img.cpu().numpy()[0, 0, :, :], fig=fig)
-    visualize.plot_bound_box(output_bbox, fig=fig, color='red')
+            visualize.pause(0.001)
+            visualize.clear_plot()
 
-    visualize.pause(0.001)
-    visualize.clear_plot()
-
-    #joints_uv = cam.joints_depth2color(joints, cam.fpa_depth_intrinsics)
-    #visualize.plot_joints_from_colorspace(joints_colorspace=joints_uv, data=depth_img,
-    #                                           fig=fig, title='/'.join([subject, action, sequence]))
-    #visualize.pause(0.001)
-    #visualize.clear_plot()
-
-visualize.show()
+    visualize.show()
 
 

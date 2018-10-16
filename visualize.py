@@ -396,3 +396,9 @@ def pause(pause_lapse):
 
 def clear_plot():
     plt.clf()
+
+def close_fig(fig=None):
+    if fig is None:
+        plt.close()
+    else:
+        plt.close(fig)
