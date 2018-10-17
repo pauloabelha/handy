@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/fpa_dataset.py" description="        return len(self.dataset_split" line="132" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="99f320e7-acd6-46b0-b154-58c77e65ad74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -59,24 +62,24 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="py" value="12747" />
+          <entry key="py" value="13664" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="12747" />
+          <entry key="Python" value="13664" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="115" />
+          <entry key="py" value="124" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="115" />
+          <entry key="Python" value="124" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -85,12 +88,29 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JORNet_light.py">
+        <entry file="file://$PROJECT_DIR$/fpa_io.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+            <state relative-caret-position="389">
+              <caret line="249" selection-start-line="249" selection-end-line="249" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1539781109049" expanded="true" signature="845:1562" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+                <marker date="1539781526400" expanded="true" signature="1232:5348" ph="..." />
+                <marker date="1539781526400" expanded="true" signature="2225:2382" ph="..." />
+                <marker date="1539781526400" expanded="true" signature="5219:5225" ph="..." />
+                <marker date="1539781526400" expanded="true" signature="11026:11031" ph="..." />
               </folding>
             </state>
           </provider>
@@ -99,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+            <state relative-caret-position="321">
+              <caret line="102" column="81" selection-start-line="102" selection-start-column="81" selection-end-line="102" selection-end-column="81" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -109,10 +129,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trainer.py">
+        <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-28">
-              <caret line="238" column="89" selection-start-line="238" selection-start-column="72" selection-end-line="238" selection-end-column="89" />
+            <state relative-caret-position="424">
+              <caret line="97" selection-start-line="97" selection-end-line="97" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,9 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>num_dims</find>
-      <find>read_action_joints_sequence</find>
-      <find>cudafy</find>
       <find>_idx</find>
       <find>load_split</find>
       <find>truth</find>
@@ -158,9 +178,13 @@
       <find>get_depth_img_with_torch_transform</find>
       <find>conv_hand_joints_to_rel</find>
       <find>img_res</find>
+      <find>model</find>
+      <find>train_loade</find>
+      <find>split</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
+      <replace>test_loade</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -178,7 +202,6 @@
         <option value="$PROJECT_DIR$/util.py" />
         <option value="$PROJECT_DIR$/hand_detection_net.py" />
         <option value="$PROJECT_DIR$/converter.py" />
-        <option value="$PROJECT_DIR$/trainer.py" />
         <option value="$PROJECT_DIR$/autoencoder.py" />
         <option value="$PROJECT_DIR$/train_autoencoder.py" />
         <option value="$PROJECT_DIR$/../VQ-VAE/main2.py" />
@@ -190,10 +213,12 @@
         <option value="$PROJECT_DIR$/HALNet.py" />
         <option value="$PROJECT_DIR$/JORNet.py" />
         <option value="$PROJECT_DIR$/eulerangles.py" />
-        <option value="$PROJECT_DIR$/fpa_io.py" />
         <option value="$PROJECT_DIR$/io_image.py" />
         <option value="$PROJECT_DIR$/losses.py" />
         <option value="$PROJECT_DIR$/JORNet_light.py" />
+        <option value="$PROJECT_DIR$/trainer.py" />
+        <option value="$PROJECT_DIR$/test_baseline_pose_regression.py" />
+        <option value="$PROJECT_DIR$/fpa_io.py" />
         <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
       </list>
@@ -250,6 +275,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.train_baseline_pose_regression">
+    <configuration name="test_baseline_pose_regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="handy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_baseline_pose_regression.py" />
+      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -c checkpoint_pose.pth.tar --use-cuda --split-filename fpa_split_obj_pose.p" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_detection" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -334,41 +380,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_fpa" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="handy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\handy\train_hand_detection.py" />
-      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -e 300 -l 10 --use-cuda --split-filename fpa_split_tracking.p" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.track_gt" />
-      <item itemvalue="Python.train_fpa" />
       <item itemvalue="Python.test_detection" />
       <item itemvalue="Python.track_from_trained" />
       <item itemvalue="Python.train_baseline_pose_regression" />
+      <item itemvalue="Python.test_baseline_pose_regression" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.train_baseline_pose_regression" />
+        <item itemvalue="Python.test_baseline_pose_regression" />
         <item itemvalue="Python.track_from_trained" />
         <item itemvalue="Python.track_gt" />
         <item itemvalue="Python.test_detection" />
-        <item itemvalue="Python.train_fpa" />
       </list>
     </recent_temporary>
   </component>
@@ -394,7 +419,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35650223" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38452914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37668163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -427,6 +452,11 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$USER_HOME$/muellericcv2017/trainer.py</url>
           <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_baseline_pose_regression.py</url>
+          <line>97</line>
+          <option name="timeStamp" value="176" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -473,7 +503,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/envs/handy_env/lib/python3.7/site-packages/torch/nn/modules/container.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/split_dataset.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/synthhands_handler.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/dataset_handler.py" />
@@ -625,17 +654,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JORNet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="20" column="49" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -650,17 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1539696877410" expanded="true" signature="845:1562" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -743,20 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="228" selection-start-line="228" selection-end-line="228" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-            <marker date="1539703057308" expanded="true" signature="1232:5303" ph="..." />
-            <marker date="1539703057308" expanded="true" signature="2180:2337" ph="..." />
-            <marker date="1539703057308" expanded="true" signature="5174:5180" ph="..." />
-            <marker date="1539703057308" expanded="true" signature="10787:10792" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JORNet_light.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -767,17 +767,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test_detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" selection-start-line="10" selection-end-line="18" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <marker date="1539687419965" expanded="true" signature="879:916" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="238" column="89" selection-start-line="238" selection-start-column="72" selection-end-line="238" selection-end-column="89" />
+        <state relative-caret-position="420">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="249" selection-start-line="249" selection-end-line="249" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1539781109049" expanded="true" signature="845:1562" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1539781526400" expanded="true" signature="1232:5348" ph="..." />
+            <marker date="1539781526400" expanded="true" signature="2225:2382" ph="..." />
+            <marker date="1539781526400" expanded="true" signature="5219:5225" ph="..." />
+            <marker date="1539781526400" expanded="true" signature="11026:11031" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+        <state relative-caret-position="321">
+          <caret line="102" column="81" selection-start-line="102" selection-start-column="81" selection-end-line="102" selection-end-column="81" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

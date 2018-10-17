@@ -246,11 +246,18 @@ def print_log_info(model, optimizer, epoch, train_vars, save_best=True, save_a_c
     if save_a_checkpoint:
         print_verbose("Saving checkpoints:", verbose)
         print_verbose("-------------------------------------------------------------------------------------------",  verbose)
-        checkpoint_model_dict = {
-            'model_state_dict': model.state_dict(),
-            'optimizer_state_dict': optimizer.state_dict(),
-            'train_vars': train_vars,
-        }
+        if optimizer is None:
+            checkpoint_model_dict = {
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': None,
+                'train_vars': train_vars,
+            }
+        else:
+            checkpoint_model_dict = {
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'train_vars': train_vars,
+            }
         save_checkpoint(checkpoint_model_dict, filename=vars['checkpoint_filenamebase'] + '.pth.tar')
 
     msg = ''

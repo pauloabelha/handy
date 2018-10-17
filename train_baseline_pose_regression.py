@@ -56,6 +56,7 @@ train_loader = fpa_dataset.DataLoaderPoseRegression(root_folder=args.dataset_roo
 
 print('Length of dataset: {}'.format(len(train_loader.dataset)))
 
+print('Creating model...')
 model_params_dict = {
     'joint_ixs': range(2)
 }
@@ -65,6 +66,7 @@ if args.use_cuda:
     model = model.cuda()
 model.train()
 
+print('Creating optimizer...')
 optimizer = optim.Adadelta(model.parameters(),
                            rho=args.momentum,
                            weight_decay=args.weight_decay,
@@ -99,6 +101,9 @@ for epoch_idx in range(args.num_epochs - 1):
         if batch_idx < continue_batch_end_ix:
             print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
             continue
+        if batch_idx < args.log_interval:
+            print('Training... Logging every {} batch iterations: {}/{}'.
+                  format(args.log_interval, batch_idx, args.log_interval))
         train_vars['batch_idx'] = batch_idx
         train_vars['curr_iter'] = batch_idx + 1
         if args.use_cuda:
@@ -120,6 +125,6 @@ for epoch_idx in range(args.num_epochs - 1):
 
         optimizer.step()
 
-        if batch_idx % args.log_interval == 0:
+        if batch_idx > 0 and batch_idx % args.log_interval == 0:
             trainer.print_log_info(model, optimizer, epoch,  train_vars)
     trainer.print_log_info(model, optimizer, epoch, train_vars)

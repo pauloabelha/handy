@@ -63,6 +63,7 @@ class FPADataset(Dataset):
         self.type = type
         self.for_autoencoding = for_autoencoding
         self.input_type = input_type
+        self.split_filename = split_filename
 
 
     def get_subpath_and_file_num(self, idx):
@@ -189,8 +190,10 @@ class FPADatasetTracking(FPADataset):
 
 class FPADatasetPoseRegression(FPADataset):
 
-    def __init__(self, root_folder, type, input_type, transform_color=None,
-                 transform_depth=None, img_res=None, crop_res=None, split_filename='',
+    default_split_filename = 'fpa_split_obj_pose.p'
+
+    def __init__(self, root_folder, type, input_type, split_filename = '',
+                 transform_color=None, transform_depth=None, img_res=None, crop_res=None,
                  for_autoencoding=False):
         super(FPADatasetPoseRegression, self).__init__(root_folder, type,
                                                  input_type,
@@ -199,18 +202,16 @@ class FPADatasetPoseRegression(FPADataset):
                                                  img_res=img_res,
                                                  split_filename=split_filename,
                                                  for_autoencoding=for_autoencoding)
-        if self.split_filename == '':
-            fpa_io.create_split_file(self.root_folder,self.video_folder,
+        if split_filename == '':
+            fpa_io.create_split_file(self.root_folder, self.video_folder,
                                      perc_train=0.7, perc_valid=0.15,
                                      only_with_obj_pose=True,
-                                     split_filename="fpa_split_obj_pose.p")
-        else:
-            self.dataset_split = fpa_io.load_split_file(
+                                     split_filename=self.default_split_filename)
+            self.split_filename = self.default_split_filename
+        self.dataset_split = fpa_io.load_split_file(
                 self.root_folder, self.split_filename)
 
     def __getitem__(self, idx):
-        idx = 17
-
         hand_joints = self.get_hand_joints(idx)
         hand_root, hand_joints_rel = self.conv_hand_joints_to_rel(hand_joints)
         obj_pose_rel = self.get_obj_pose(idx)
@@ -226,7 +227,10 @@ class FPADatasetPoseRegression(FPADataset):
         cropped_depth_img = io_image.change_res_image(cropped_depth_img, new_res=(200, 200))
         depth_img_torch = self.conv_depth_img_with_torch_transform(cropped_depth_img, self.transform_depth)
 
-        return depth_img_torch, hand_obj_pose
+        if self.type == "train":
+            return depth_img_torch, hand_obj_pose
+        else:
+            return depth_img_torch, hand_obj_pose, hand_root
 
 def DataLoaderTracking(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,

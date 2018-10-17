@@ -195,6 +195,12 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
 
                 # TODO : check that skeleton.txt exist in respective folder
                 curr_subpath = subject_dir + '/' + action_dir + '/' + seq_dir + '/'
+
+                obj_pose_filepath = dataset_root_folder + 'Object_6D_pose_annotation_v1/' + curr_subpath + 'object_pose.txt'
+                if only_with_obj_pose and not os.path.isfile(obj_pose_filepath):
+                    print('WARNING. Could not find obj pose annotation ground truth for: {}'.format(obj_pose_filepath))
+                    continue
+
                 skeleton_filepath = dataset_root_folder + 'Hand_pose_annotation_v1/' + curr_subpath + 'Skeleton.txt'
                 if not os.path.isfile(skeleton_filepath):
                     print('WARNING. Could not find skeleton ground truth for: {}'.format(skeleton_filepath))
