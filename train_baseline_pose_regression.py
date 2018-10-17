@@ -16,7 +16,7 @@ parser.add_argument('-r', dest='dataset_root_folder', required=True, help='Root 
 parser.add_argument('--split-filename', default='', help='Dataset split filename')
 parser.add_argument('-e', dest='num_epochs', type=int, required=True,
                     help='Total number of epochs to train')
-parser.add_argument('--log-interval', dest='log_interval', type=int, default=100,
+parser.add_argument('-l', dest='log_interval', type=int, default=100,
                     help='Intervalwith which to log')
 parser.add_argument('-f', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
                     help='Checkpoint file path')
@@ -24,8 +24,6 @@ parser.add_argument('--use-cuda', dest='use_cuda', action='store_true', default=
                     help='Whether to use cuda for training')
 parser.add_argument('-o', dest='log_filepath', default='log_lstm_baseline.txt',
                     help='Output file for logging')
-parser.add_argument('-l', dest='epoch_log', type=int, default=10,
-                    help='Total number of epochs to train')
 parser.add_argument('--momentum', dest='momentum', type=float, default=0.9,
                     help='Momentum for AdaDelta')
 parser.add_argument('--wieght-decay', dest='weight_decay', type=float, default=0.005,

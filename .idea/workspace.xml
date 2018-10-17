@@ -62,14 +62,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="py" value="13664" />
+          <entry key="py" value="13800" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="13664" />
+          <entry key="Python" value="13800" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -87,40 +87,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_io.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="249" selection-start-line="249" selection-end-line="249" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <marker date="1539781109049" expanded="true" signature="845:1562" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-                <marker date="1539781526400" expanded="true" signature="1232:5348" ph="..." />
-                <marker date="1539781526400" expanded="true" signature="2225:2382" ph="..." />
-                <marker date="1539781526400" expanded="true" signature="5219:5225" ph="..." />
-                <marker date="1539781526400" expanded="true" signature="11026:11031" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="102" column="81" selection-start-line="102" selection-start-column="81" selection-end-line="102" selection-end-column="81" />
+            <state relative-caret-position="41">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -372,7 +343,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
-      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -e 10 -l 10 --use-cuda --split-filename fpa_split_obj_pose.p" />
+      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -l 500 -e 10 --use-cuda --split-filename fpa_split_obj_pose.p" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -419,8 +390,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38452914" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37668163" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38452914" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37668163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -457,6 +428,11 @@
           <url>file://$PROJECT_DIR$/test_baseline_pose_regression.py</url>
           <line>97</line>
           <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_baseline_pose_regression.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="191" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -795,20 +771,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="249" selection-start-line="249" selection-end-line="249" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1539781109049" expanded="true" signature="845:1562" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
+        <state relative-caret-position="147">
           <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -820,10 +785,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="249" selection-start-line="249" selection-end-line="249" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1539781109049" expanded="true" signature="845:1562" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="102" column="81" selection-start-line="102" selection-start-column="81" selection-end-line="102" selection-end-column="81" />
+        <state relative-caret-position="41">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
