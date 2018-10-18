@@ -79,11 +79,11 @@ for i in range(99):
                             'color_{:04d}.jpeg'.format(int(frame_num)))
     print('Loading image from {}'.format(img_path))
     img = Image.open(img_path)
-    img_numpy = np.array(img).T
-    obj_pixels = np.array(verts_proj).astype(int)
-    img_numpy[:, obj_pixels[:, 0], obj_pixels[:, 1]] = 0
-    vis.plot_image(img_numpy)
-    vis.show()
+    #img_numpy = np.array(img).T
+    #obj_pixels = np.array(verts_proj).astype(int)
+    #img_numpy[:, obj_pixels[:, 0], obj_pixels[:, 1]] = 0
+    #vis.plot_image(img_numpy)
+    #vis.show()
 
     ax = plt.gca()
     ax.imshow(img, alpha=0.5)
