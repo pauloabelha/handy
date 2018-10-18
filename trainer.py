@@ -282,9 +282,13 @@ def print_log_info(model, optimizer, epoch, train_vars, save_best=True, save_a_c
     msg += print_verbose("Current loss: " + str(total_loss), verbose) + "\n"
     msg += print_verbose("Best loss: " + str(vars['best_loss']), verbose) + "\n"
     msg += print_verbose("Mean total loss: " + str(np.mean(vars['losses'])), verbose) + "\n"
+    msg += print_verbose("Stddev total loss: " + str(np.std(vars['losses'])), verbose) + "\n"
     msg += print_verbose("Mean loss for last " + str(train_vars['log_interval']) +
                          " iterations (average total loss): " + str(
         np.mean(vars['losses'][-train_vars['log_interval']:])), verbose) + "\n"
+    msg += print_verbose("Stddev loss for last " + str(train_vars['log_interval']) +
+                         " iterations (average total loss): " + str(
+        np.std(vars['losses'][-train_vars['log_interval']:])), verbose) + "\n"
 
     msg += print_verbose("-------------------------------------------------------------------------------------------",
                          verbose) + "\n"

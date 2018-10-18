@@ -99,7 +99,7 @@ for epoch_idx in range(args.num_epochs - 1):
         if batch_idx < continue_batch_end_ix:
             print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
             continue
-        if batch_idx < args.log_interval:
+        if epoch_idx == 0 and batch_idx < args.log_interval:
             print('Training... Logging every {} batch iterations: {}/{}'.
                   format(args.log_interval, batch_idx, args.log_interval))
         train_vars['batch_idx'] = batch_idx

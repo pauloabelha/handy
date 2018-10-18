@@ -1,16 +1,12 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
 from torchvision import transforms
 import argparse
 import fpa_dataset
-from lstm_baseline import LSTMBaseline
-from util import myprint
 from JORNet_light import JORNet_light
 import losses as my_losses
 import trainer
 import numpy as np
 import visualize as vis
+import camera as cam
 
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
@@ -32,7 +28,7 @@ transform_color = transforms.Compose([transforms.ToTensor(),
 transform_depth = transforms.Compose([transforms.ToTensor()])
 
 test_loader = fpa_dataset.DataLoaderPoseRegression(root_folder=args.dataset_root_folder,
-                                              type='train',
+                                              type='test',
                                               input_type="depth",
                                               transform_color=transform_color,
                                               transform_depth=transform_depth,
@@ -45,6 +41,7 @@ model_params_dict = {
     'joint_ixs': range(2)
 }
 
+print('Loading model from checkpoint: {}'.format(args.checkpoint_filename))
 model, _, _, _ = trainer.load_checkpoint(args.checkpoint_filename, JORNet_light, use_cuda=True)
 if args.use_cuda:
     model.cuda()
@@ -71,6 +68,17 @@ train_vars = {
     'tot_epoch': 1,
 }
 
+def get_avg_3D_error(out_numpy, gt_numpy):
+    assert len(out_numpy.shape) == len(gt_numpy.shape) and \
+           out_numpy.shape[0] == gt_numpy.shape[0] and \
+           out_numpy.shape[1] == gt_numpy.shape[1]
+    avg_3D_error_sub = np.abs(out_numpy - gt_numpy)
+    avg_3D_error = np.zeros((avg_3D_error_sub.shape[0]))
+    for j in range(out_numpy.shape[1]):
+        avg_3D_error += np.power(avg_3D_error_sub[:, j], 2)
+    return np.sum(np.sqrt(avg_3D_error)) / avg_3D_error.shape[0]
+
+print('Ready to train')
 epoch = 1
 train_vars['curr_epoch_iter'] = epoch
 continue_batch_end_ix = -1
@@ -78,6 +86,13 @@ for batch_idx, (depth_img_torch, hand_obj_pose, hand_root) in enumerate(test_loa
     if batch_idx < continue_batch_end_ix:
         print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
         continue
+    if batch_idx < args.log_interval:
+        print('Training... Logging every {} batch iterations: {}/{}'.
+              format(args.log_interval, batch_idx, args.log_interval))
+
+    hand_obj_pose_numpy = hand_obj_pose.detach().cpu().numpy()
+    hand_root_numpy = hand_root.detach().cpu().numpy()
+
     train_vars['batch_idx'] = batch_idx
     train_vars['curr_iter'] = batch_idx + 1
     if args.use_cuda:
@@ -85,18 +100,47 @@ for batch_idx, (depth_img_torch, hand_obj_pose, hand_root) in enumerate(test_loa
         hand_obj_pose = hand_obj_pose.cuda()
 
     output = model(depth_img_torch)
-
-    hand_pose_abs = np.zeros((21, 3))
     output_numpy = output.detach().cpu().numpy()
-    hand_pose_rel = output_numpy[0, 0:60].reshape((20, 3))
-    hand_pose_abs[0, :] = hand_root.detach().cpu().numpy()
-    hand_pose_abs[1:, :] = hand_pose_abs[0, :] + hand_pose_rel
 
-    #vis.plot_3D_joints(hand_pose_abs)
+    out_obj_pose_abs = output_numpy[0, 60:].reshape((6,))
+    out_obj_pose_abs[0:3] = hand_root_numpy + out_obj_pose_abs[0:3]
+
+    gt_obj_pose_abs = hand_obj_pose_numpy[0, 60:].reshape((6,))
+    gt_obj_pose_abs[0:3] = hand_root_numpy + gt_obj_pose_abs[0:3]
+
+    obj_transl_avg_3D_error = get_avg_3D_error(out_obj_pose_abs[0:3].reshape((1, 3)),
+                                               gt_obj_pose_abs[0:3].reshape((1, 3)))
+
+    obj_angle_avg_error = get_avg_3D_error(out_obj_pose_abs[3:].reshape((1, 3)),
+                                               gt_obj_pose_abs[3:].reshape((1, 3)))
+
+
+    out_hand_pose_abs = np.zeros((21, 3))
+    hand_pose_rel = output_numpy[0, 0:60].reshape((20, 3))
+    out_hand_pose_abs[0, :] = hand_root_numpy
+    out_hand_pose_abs[1:, :] = out_hand_pose_abs[0, :] + hand_pose_rel
+    out_hand_pose_uv = cam.joints_depth2color(out_hand_pose_abs, cam.fpa_depth_intrinsics)[:, 0:2]
+
+    gt_hand_pose_abs = np.zeros((21, 3))
+    gt_hand_pose_abs[0, :] = hand_root_numpy
+    gt_hand_pose_rel = hand_obj_pose_numpy
+    gt_hand_pose_rel = gt_hand_pose_rel[0, 0:60].reshape((20, 3))
+    gt_hand_pose_abs[1:, :] = gt_hand_pose_abs[0, :] + gt_hand_pose_rel
+    gt_hand_pose_uv = cam.joints_depth2color(gt_hand_pose_abs, cam.fpa_depth_intrinsics)[:, 0:2]
+
+    #fig = vis.plot_joints(gt_hand_pose_uv)
+    #vis.plot_joints(out_hand_pose_uv, fig=fig)
     #vis.show()
 
-    loss = my_losses.euclidean_loss(output, hand_obj_pose)
-    train_vars['total_loss'] = loss.item()
+    #fig, ax = vis.plot_3D_joints(gt_hand_pose_abs, color='C0')
+    #vis.plot_3D_joints(out_hand_pose_abs, fig=fig, ax=ax)
+    #vis.show()
+
+    # get hand joint 3D error (mm)
+    hand_joints_3d_error = get_avg_3D_error(out_hand_pose_abs, gt_hand_pose_abs)
+
+    #loss = my_losses.euclidean_loss(output, hand_obj_pose)
+    train_vars['total_loss'] = obj_angle_avg_error
     train_vars['losses'].append(train_vars['total_loss'])
     if train_vars['total_loss'] < train_vars['best_loss']:
         train_vars['best_loss'] = train_vars['total_loss']
