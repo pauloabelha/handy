@@ -59,6 +59,7 @@ for i in range(99):
 
     # Load object transform
     obj_transf = get_obj_transform(subject, action, seq, frame_num, obj_gt_root)
+    print(obj_transf)
     # Get object vertices
     obj_verts = objs_info[obj_name]['verts'] * 1000
     # Apply transform to object
