@@ -6,6 +6,7 @@ from PIL import Image
 import fpa_cam
 import numpy as np
 import visualize as vis
+import pickle
 
 # Loading utilities
 def load_objects(obj_root, obj_names):
@@ -80,11 +81,23 @@ for i in range(99):
                             'color_{:04d}.jpeg'.format(int(frame_num)))
     print('Loading image from {}'.format(img_path))
     img = Image.open(img_path)
-    #img_numpy = np.array(img).T
-    #obj_pixels = np.array(verts_proj).astype(int)
-    #img_numpy[:, obj_pixels[:, 0], obj_pixels[:, 1]] = 0
-    #vis.plot_image(img_numpy)
-    #vis.show()
+
+    img2_path = 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/gen_objs/' \
+                'Subject_1/close_juice_bottle/1/' \
+                '2_depth.csv'
+    img2_depth_array = np.loadtxt(open(img2_path, "rb"), delimiter=",")
+    print(np.max(img2_depth_array.reshape((640 * 480,))))
+    print(np.min(img2_depth_array.reshape((640 * 480,))))
+    print(np.mean(img2_depth_array.reshape((640 * 480,))))
+    print(np.std(img2_depth_array.reshape((640 * 480,))))
+
+    img2_path2 = 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/gen_objs/' \
+                'Subject_1/close_juice_bottle/1/' \
+                '2_mask.jpg'
+    img = Image.open(img2_path2)
+    img_numpy = np.array(img).T
+    vis.plot_image(img_numpy)
+    vis.show()
 
     ax = plt.gca()
     ax.imshow(img, alpha=0.5)
