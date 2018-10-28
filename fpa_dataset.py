@@ -130,7 +130,10 @@ class FPADataset(Dataset):
         return None
 
     def __len__(self):
-        return len(self.dataset_split[self.type])
+        if (self.dataset_split):
+            return len(self.dataset_split[self.type])
+        else:
+            return 0
 
 class FPADatasetTracking(FPADataset):
 
@@ -231,6 +234,56 @@ class FPADatasetPoseRegression(FPADataset):
             return depth_img_torch, hand_obj_pose
         else:
             return depth_img_torch, hand_obj_pose, hand_root
+
+class FPADatasetReconstruction(FPADataset):
+
+    def __init__(self, root_folder, type, input_type, split_filename = '',
+                 transform_color=None, transform_depth=None, img_res=None, crop_res=None,
+                 for_autoencoding=False):
+
+        super(FPADatasetReconstruction, self).__init__(root_folder, type,
+                                                 input_type,
+                                                 transform_color=transform_color,
+                                                 transform_depth=transform_depth,
+                                                 img_res=img_res,
+                                                 split_filename=split_filename,
+                                                 for_autoencoding=for_autoencoding)
+
+    def __getitem__(self, idx):
+        hand_joints = self.get_hand_joints(idx)
+        hand_root, hand_joints_rel = self.conv_hand_joints_to_rel(hand_joints)
+        obj_pose_rel = self.get_obj_pose(idx)
+        obj_pose_rel[0:3] = obj_pose_rel[0:3] - hand_root
+        hand_obj_pose = np.concatenate((hand_joints_rel, obj_pose_rel), 0)
+        hand_obj_pose = torch.from_numpy(hand_obj_pose).float()
+
+        subpath, file_num = self.get_subpath_and_file_num(idx)
+        depth_img_numpy = self.read_depth_img(subpath, file_num)
+        cropped_depth_img, crop_coords = self.get_cropped_depth_img(depth_img_numpy,
+                                                                    hand_joints,
+                                                                    pixel_bound=100)
+        cropped_depth_img = io_image.change_res_image(cropped_depth_img, new_res=(200, 200))
+        depth_img_torch = self.conv_depth_img_with_torch_transform(cropped_depth_img, self.transform_depth)
+
+        if self.type == "train":
+            return depth_img_torch, hand_obj_pose
+        else:
+            return depth_img_torch, hand_obj_pose, hand_root
+
+def DataLoaderReconstruction(root_folder, type, input_type,
+                                 transform_color=None, transform_depth=None,
+                                 batch_size=4, img_res=None, split_filename='',
+                                 for_autoencoding=False):
+    dataset = FPADatasetReconstruction(root_folder, type, input_type,
+                                 transform_color=transform_color,
+                                 transform_depth=transform_depth,
+                                 img_res=img_res,
+                                 split_filename=split_filename,
+                                 for_autoencoding=for_autoencoding)
+    return torch.utils.data.DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=False)
 
 def DataLoaderTracking(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
