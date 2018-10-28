@@ -8,7 +8,7 @@ hand_gt_folder = "Hand_pose_annotation_v1/"
 subject = 'Subject_1'
 action = 'close_juice_bottle'
 seq = '1/'
-frame = 0
+frame = 21
 
 unreal_bone_lengths_filepath = dataset_root + 'bonelengths/' + 'UnrealMaleRightHands.txt'
 unreal_bone_lengths = genfromtxt(unreal_bone_lengths_filepath, delimiter=',')
@@ -37,11 +37,11 @@ for finger_idx in range(5):
         curr_bone_prop = bone_prop[parent_joint_idx - 1]
         hand_joints_unreal[parent_joint_idx, :] *= curr_bone_prop
         parent_joint_transl = hand_joints_unreal[parent_joint_idx, :] - parent_joint_before
-        print(parent_joint_transl)
+        print(str(parent_joint_transl) + " " + str(curr_bone_prop) + " " + str(1/curr_bone_prop))
         for k in range(3 - j):
             joint2_idx = parent_joint_idx + k + 1
             hand_joints_unreal[joint2_idx, :] += parent_joint_transl
-            print(str(parent_joint_idx) + " " + str(joint2_idx) + " " + str(curr_bone_prop))
+            print(str(parent_joint_idx) + " " + str(joint2_idx))
             a = 0
 
 fig, ax = vis.plot_3D_joints(hand_joints)
