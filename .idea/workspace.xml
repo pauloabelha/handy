@@ -63,24 +63,24 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="40" />
-          <entry key="py" value="17697" />
+          <entry key="py" value="18043" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="17697" />
+          <entry key="Python" value="18043" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="146" />
+          <entry key="py" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="146" />
+          <entry key="Python" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -88,18 +88,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fpa_obj.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="258" lean-forward="true" selection-start-line="258" selection-end-line="258" />
+            <state relative-caret-position="175">
+              <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1540728066460" expanded="true" signature="1232:5420" ph="..." />
-                <marker date="1540728066460" expanded="true" signature="2225:2382" ph="..." />
-                <marker date="1540728066460" expanded="true" signature="5219:5225" ph="..." />
-                <marker date="1540728066460" expanded="true" signature="10874:12756" ph="..." />
-                <marker date="1540728066460" expanded="true" signature="13795:13800" ph="..." />
+                <marker date="1540732504085" expanded="true" signature="1232:5420" ph="..." />
+                <marker date="1540732504085" expanded="true" signature="2225:2382" ph="..." />
+                <marker date="1540732504085" expanded="true" signature="5219:5225" ph="..." />
+                <marker date="1540732504085" expanded="true" signature="10908:13179" ph="..." />
+                <marker date="1540732504085" expanded="true" signature="14218:14223" ph="..." />
               </folding>
             </state>
           </provider>
@@ -108,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_vqvae_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+            <state relative-caret-position="407">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -401,8 +413,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3441704" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35538116" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3441704" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.35538116" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -434,6 +446,11 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$USER_HOME$/muellericcv2017/trainer.py</url>
           <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/fpa_dataset.py</url>
+          <line>274</line>
+          <option name="timeStamp" value="104" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -710,13 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -759,16 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_obj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_cam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -805,25 +805,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_vqvae_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        <state relative-caret-position="407">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_obj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="258" lean-forward="true" selection-start-line="258" selection-end-line="258" />
+        <state relative-caret-position="175">
+          <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1540728066460" expanded="true" signature="1232:5420" ph="..." />
-            <marker date="1540728066460" expanded="true" signature="2225:2382" ph="..." />
-            <marker date="1540728066460" expanded="true" signature="5219:5225" ph="..." />
-            <marker date="1540728066460" expanded="true" signature="10874:12756" ph="..." />
-            <marker date="1540728066460" expanded="true" signature="13795:13800" ph="..." />
+            <marker date="1540732504085" expanded="true" signature="1232:5420" ph="..." />
+            <marker date="1540732504085" expanded="true" signature="2225:2382" ph="..." />
+            <marker date="1540732504085" expanded="true" signature="5219:5225" ph="..." />
+            <marker date="1540732504085" expanded="true" signature="10908:13179" ph="..." />
+            <marker date="1540732504085" expanded="true" signature="14218:14223" ph="..." />
           </folding>
         </state>
       </provider>

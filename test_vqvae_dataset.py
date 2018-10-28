@@ -33,3 +33,5 @@ train_loader = fpa_dataset.DataLoaderReconstruction(root_folder=args.dataset_roo
                                               split_filename=args.split_filename,)
 
 print('Length of dataset: {}'.format(len(train_loader.dataset)))
+
+a = train_loader.dataset[0]

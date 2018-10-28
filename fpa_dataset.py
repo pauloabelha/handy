@@ -237,6 +237,8 @@ class FPADatasetPoseRegression(FPADataset):
 
 class FPADatasetReconstruction(FPADataset):
 
+    gen_obj_folder = 'gen_objs/'
+
     def __init__(self, root_folder, type, input_type, split_filename = '',
                  transform_color=None, transform_depth=None, img_res=None, crop_res=None,
                  for_autoencoding=False):
@@ -248,27 +250,32 @@ class FPADatasetReconstruction(FPADataset):
                                                  img_res=img_res,
                                                  split_filename=split_filename,
                                                  for_autoencoding=for_autoencoding)
+        self.dataset_split = fpa_io.load_split_file(
+            self.root_folder, self.split_filename)
 
     def __getitem__(self, idx):
-        hand_joints = self.get_hand_joints(idx)
-        hand_root, hand_joints_rel = self.conv_hand_joints_to_rel(hand_joints)
-        obj_pose_rel = self.get_obj_pose(idx)
-        obj_pose_rel[0:3] = obj_pose_rel[0:3] - hand_root
-        hand_obj_pose = np.concatenate((hand_joints_rel, obj_pose_rel), 0)
-        hand_obj_pose = torch.from_numpy(hand_obj_pose).float()
-
         subpath, file_num = self.get_subpath_and_file_num(idx)
-        depth_img_numpy = self.read_depth_img(subpath, file_num)
-        cropped_depth_img, crop_coords = self.get_cropped_depth_img(depth_img_numpy,
-                                                                    hand_joints,
-                                                                    pixel_bound=100)
-        cropped_depth_img = io_image.change_res_image(cropped_depth_img, new_res=(200, 200))
-        depth_img_torch = self.conv_depth_img_with_torch_transform(cropped_depth_img, self.transform_depth)
+        depth_img = self.read_depth_img(subpath, file_num)
 
-        if self.type == "train":
-            return depth_img_torch, hand_obj_pose
-        else:
-            return depth_img_torch, hand_obj_pose, hand_root
+
+        #depth_obj_img_path = self.root_folder + self.gen_obj_folder + subpath + \
+        #                str(int(file_num)) + '_depth.jpg'
+        #depth_obj_img = fpa_io.read_depth_img(depth_obj_img_path)
+
+        depth_obj_csv_path = self.root_folder + self.gen_obj_folder + subpath + \
+                             str(int(file_num)) + '_depth.csv'
+        img2_depth_array = np.loadtxt(open(depth_obj_csv_path, "rb"), delimiter=",")
+        depth_obj_img = img2_depth_array.T
+
+        #vis.plot_image(depth_obj_img)
+        #vis.show()
+        #vis.plot_image(depth_img)
+        #vis.show()
+
+        depth_img_torch = self.conv_depth_img_with_torch_transform(depth_img, self.transform_depth)
+        depth_obj_img_torch = self.conv_depth_img_with_torch_transform(depth_obj_img, self.transform_depth)
+
+        return depth_img_torch, depth_obj_img_torch
 
 def DataLoaderReconstruction(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
