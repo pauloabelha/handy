@@ -51,26 +51,26 @@
     <session id="-819491902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.0" value="4" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="40" />
-          <entry key="py" value="18043" />
+          <entry key="py" value="18091" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="18043" />
+          <entry key="Python" value="18091" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -91,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_obj.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+            <state relative-caret-position="804">
+              <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -100,28 +100,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+            <state relative-caret-position="473">
+              <caret line="314" column="55" selection-start-line="314" selection-start-column="45" selection-end-line="314" selection-end-column="55" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1540732504085" expanded="true" signature="1232:5420" ph="..." />
-                <marker date="1540732504085" expanded="true" signature="2225:2382" ph="..." />
-                <marker date="1540732504085" expanded="true" signature="5219:5225" ph="..." />
-                <marker date="1540732504085" expanded="true" signature="10908:13179" ph="..." />
-                <marker date="1540732504085" expanded="true" signature="14218:14223" ph="..." />
+                <marker date="1540732649116" expanded="true" signature="1232:5420" ph="..." />
+                <marker date="1540732649116" expanded="true" signature="2225:2382" ph="..." />
+                <marker date="1540732649116" expanded="true" signature="5219:5225" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_vqvae_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="560">
+              <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="64" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -140,7 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>transform</find>
       <find>conv_joints_to_canonical</find>
       <find>crop</find>
       <find>io_image</find>
@@ -170,6 +167,7 @@
       <find>pour</find>
       <find>depth</find>
       <find>pickle</find>
+      <find>input_type</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
@@ -232,6 +230,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,11 +242,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hand_pose_action/load_example.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
@@ -414,7 +412,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3441704" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.35538116" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35538116" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -446,11 +444,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$USER_HOME$/muellericcv2017/trainer.py</url>
           <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/fpa_dataset.py</url>
-          <line>274</line>
-          <option name="timeStamp" value="104" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -606,9 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="20" column="49" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,9 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-20">
           <caret line="146" column="23" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -696,9 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,10 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="249" selection-start-line="249" selection-end-line="249" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1539781109049" expanded="true" signature="845:1562" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,19 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="82" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_vqvae_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,27 +787,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="314" column="55" selection-start-line="314" selection-start-column="45" selection-end-line="314" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1540732649116" expanded="true" signature="1232:5420" ph="..." />
+            <marker date="1540732649116" expanded="true" signature="2225:2382" ph="..." />
+            <marker date="1540732649116" expanded="true" signature="5219:5225" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_obj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+        <state relative-caret-position="804">
+          <caret line="82" column="30" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+    <entry file="file://$PROJECT_DIR$/test_vqvae_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+        <state relative-caret-position="560">
+          <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="64" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1540732504085" expanded="true" signature="1232:5420" ph="..." />
-            <marker date="1540732504085" expanded="true" signature="2225:2382" ph="..." />
-            <marker date="1540732504085" expanded="true" signature="5219:5225" ph="..." />
-            <marker date="1540732504085" expanded="true" signature="10908:13179" ph="..." />
-            <marker date="1540732504085" expanded="true" signature="14218:14223" ph="..." />
           </folding>
         </state>
       </provider>

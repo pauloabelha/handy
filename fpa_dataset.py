@@ -239,6 +239,8 @@ class FPADatasetReconstruction(FPADataset):
 
     gen_obj_folder = 'gen_objs/'
 
+    normalise_const_max_depth = 2000
+
     def __init__(self, root_folder, type, input_type, split_filename = '',
                  transform_color=None, transform_depth=None, img_res=None, crop_res=None,
                  for_autoencoding=False):
@@ -255,7 +257,7 @@ class FPADatasetReconstruction(FPADataset):
 
     def __getitem__(self, idx):
         subpath, file_num = self.get_subpath_and_file_num(idx)
-        depth_img = self.read_depth_img(subpath, file_num)
+        depth_img = self.read_depth_img(subpath, file_num).astype(float)
 
 
         #depth_obj_img_path = self.root_folder + self.gen_obj_folder + subpath + \
@@ -272,8 +274,13 @@ class FPADatasetReconstruction(FPADataset):
         #vis.plot_image(depth_img)
         #vis.show()
 
-        depth_img_torch = self.conv_depth_img_with_torch_transform(depth_img, self.transform_depth)
-        depth_obj_img_torch = self.conv_depth_img_with_torch_transform(depth_obj_img, self.transform_depth)
+        depth_img /= self.normalise_const_max_depth
+        depth_obj_img /= self.normalise_const_max_depth
+
+        depth_img = depth_img.reshape((1, depth_img.shape[0], depth_img.shape[1]))
+        depth_img_torch = torch.from_numpy(depth_img).float()
+        depth_obj_img = depth_obj_img.reshape((1, depth_obj_img.shape[0], depth_obj_img.shape[1]))
+        depth_obj_img_torch = torch.from_numpy(depth_obj_img).float()
 
         return depth_img_torch, depth_obj_img_torch
 
