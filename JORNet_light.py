@@ -20,7 +20,10 @@ class JORNet_light(HALNet):
     def __init__(self, params_dict):
         super(JORNet_light, self).__init__(params_dict)
 
-        self.num_joints = 66 # hand and object
+        if params_dict['hand_only']:
+            self.num_joints = 60  # hand
+        else:
+            self.num_joints = 66  # hand and object
         self.out_poses1 = cudafy(
             nn.Linear(in_features=160000, out_features=1000), self.use_cuda)
         self.out_poses2 = cudafy(

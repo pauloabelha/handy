@@ -20,6 +20,8 @@ args = parser.parse_args()
 args.batch_size = 1
 args.log_interval = 500
 
+args.fpa_subj_split = True
+
 transform_color = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize(
                                     (0.5, 0.5, 0.5, 0.5),
@@ -33,7 +35,8 @@ test_loader = fpa_dataset.DataLoaderPoseRegression(root_folder=args.dataset_root
                                               transform_color=transform_color,
                                               transform_depth=transform_depth,
                                               batch_size=args.batch_size,
-                                              split_filename=args.split_filename,)
+                                              split_filename=args.split_filename,
+                                              fpa_subj_split=args.fpa_subj_split)
 
 print('Length of dataset: {}'.format(len(test_loader.dataset)))
 
@@ -42,7 +45,7 @@ model_params_dict = {
 }
 
 print('Loading model from checkpoint: {}'.format(args.checkpoint_filename))
-model, _, _, _ = trainer.load_checkpoint(args.checkpoint_filename, JORNet_light, use_cuda=True)
+model, _, _, _ = trainer.load_checkpoint(args.checkpoint_filename, JORNet_light, use_cuda=True, fpa_subj=args.fpa_subj_split)
 if args.use_cuda:
     model.cuda()
 
@@ -82,13 +85,20 @@ print('Ready to train')
 epoch = 1
 train_vars['curr_epoch_iter'] = epoch
 continue_batch_end_ix = -1
+train_vars['hand_joints_3d_error'] = []
+
+log_interval = int(args.log_interval/2)
+
 for batch_idx, (depth_img_torch, hand_obj_pose, hand_root) in enumerate(test_loader):
     if batch_idx < continue_batch_end_ix:
         print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
         continue
-    if batch_idx < args.log_interval:
+    if batch_idx % log_interval == 0:
         print('Training... Logging every {} batch iterations: {}/{}'.
-              format(args.log_interval, batch_idx, args.log_interval))
+              format(log_interval, batch_idx, len(test_loader.dataset)))
+        if batch_idx > 10:
+            print('Average hand joint 3D error: {}'.format(np.mean(np.array(train_vars['hand_joints_3d_error']))))
+            print('Stddev hand joint 3D error: {}'.format(np.std(np.array(train_vars['hand_joints_3d_error']))))
 
     hand_obj_pose_numpy = hand_obj_pose.detach().cpu().numpy()
     hand_root_numpy = hand_root.detach().cpu().numpy()
@@ -102,17 +112,18 @@ for batch_idx, (depth_img_torch, hand_obj_pose, hand_root) in enumerate(test_loa
     output = model(depth_img_torch)
     output_numpy = output.detach().cpu().numpy()
 
-    out_obj_pose_abs = output_numpy[0, 60:].reshape((6,))
-    out_obj_pose_abs[0:3] = hand_root_numpy + out_obj_pose_abs[0:3]
+    if not args.fpa_subj_split:
+        out_obj_pose_abs = output_numpy[0, 60:].reshape((6,))
+        out_obj_pose_abs[0:3] = hand_root_numpy + out_obj_pose_abs[0:3]
 
-    gt_obj_pose_abs = hand_obj_pose_numpy[0, 60:].reshape((6,))
-    gt_obj_pose_abs[0:3] = hand_root_numpy + gt_obj_pose_abs[0:3]
+        gt_obj_pose_abs = hand_obj_pose_numpy[0, 60:].reshape((6,))
+        gt_obj_pose_abs[0:3] = hand_root_numpy + gt_obj_pose_abs[0:3]
 
-    obj_transl_avg_3D_error = get_avg_3D_error(out_obj_pose_abs[0:3].reshape((1, 3)),
-                                               gt_obj_pose_abs[0:3].reshape((1, 3)))
+        obj_transl_avg_3D_error = get_avg_3D_error(out_obj_pose_abs[0:3].reshape((1, 3)),
+                                                   gt_obj_pose_abs[0:3].reshape((1, 3)))
 
-    obj_angle_avg_error = get_avg_3D_error(out_obj_pose_abs[3:].reshape((1, 3)),
-                                               gt_obj_pose_abs[3:].reshape((1, 3)))
+        obj_angle_avg_error = get_avg_3D_error(out_obj_pose_abs[3:].reshape((1, 3)),
+                                                   gt_obj_pose_abs[3:].reshape((1, 3)))
 
 
     out_hand_pose_abs = np.zeros((21, 3))
@@ -139,12 +150,25 @@ for batch_idx, (depth_img_torch, hand_obj_pose, hand_root) in enumerate(test_loa
     # get hand joint 3D error (mm)
     hand_joints_3d_error = get_avg_3D_error(out_hand_pose_abs, gt_hand_pose_abs)
 
-    #loss = my_losses.euclidean_loss(output, hand_obj_pose)
-    train_vars['total_loss'] = obj_angle_avg_error
+    loss = my_losses.euclidean_loss(output, hand_obj_pose)
+    train_vars['hand_joints_3d_error'].append(hand_joints_3d_error)
+
+
+
+    train_vars['total_loss'] = loss.item()
     train_vars['losses'].append(train_vars['total_loss'])
     if train_vars['total_loss'] < train_vars['best_loss']:
         train_vars['best_loss'] = train_vars['total_loss']
 
-    if batch_idx > 0 and batch_idx % args.log_interval == 0:
-        trainer.print_log_info(model, None, epoch,  train_vars)
-trainer.print_log_info(model, None, epoch, train_vars)
+    #if batch_idx > 0 and batch_idx % args.log_interval == 0:
+    #    trainer.print_log_info(model, None, epoch,  train_vars)
+
+#trainer.print_log_info(model, None, epoch, train_vars)
+
+hand_error_per_slot = np.zeros((81, ))
+hand_3d_error_array = np.array(train_vars['hand_joints_3d_error'])
+num_errors = hand_3d_error_array.shape[0]
+for i in range(hand_error_per_slot.shape[0]):
+    hand_error_per_slot[i] = np.sum(hand_3d_error_array < i) / num_errors
+for i in range(hand_error_per_slot.shape[0]):
+    print('{}'.format(hand_error_per_slot[i]))

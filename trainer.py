@@ -8,7 +8,7 @@ import os
 from random import randint
 import datetime
 
-def load_checkpoint(filename, model_class, use_cuda=False):
+def load_checkpoint(filename, model_class, use_cuda=False, fpa_subj=False):
     torch_file = torch.load(filename, map_location=lambda storage, loc: storage)
     '''
     if use_cuda:
@@ -28,6 +28,8 @@ def load_checkpoint(filename, model_class, use_cuda=False):
     params_dict['cross_entropy'] = True
     if not use_cuda:
         params_dict['use_cuda'] = False
+    if fpa_subj:
+        params_dict['hand_only'] = True
     model = model_class(params_dict)
     model.load_state_dict(model_state_dict)
     if use_cuda:

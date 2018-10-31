@@ -6,6 +6,9 @@ import camera as cam
 import numpy as np
 import io_image
 import converter as conv
+from torchvision import transforms
+import torch.nn.functional as F
+from torch.autograd import Variable
 
 
 class FPADataset(Dataset):
@@ -39,6 +42,7 @@ class FPADataset(Dataset):
         return len(self.dataset_tuples[self.type])
 
 class FPADataset(Dataset):
+    pixel_bound = 100
     crop_res = (200, 200)
     orig_img_res = (640, 480)
     new_img_res = (640, 480)
@@ -102,7 +106,7 @@ class FPADataset(Dataset):
                             subpath + 'object_pose.txt'
         return fpa_io.read_obj_poses(obj_pose_filepath)[int(file_num)]
 
-    def get_cropped_depth_img(self, depth_img, hand_joints, pixel_bound=10):
+    def get_cropped_depth_img(self, depth_img, hand_joints):
         joints_uv = cam.joints_depth2color(hand_joints.reshape((21, 3)),
                                            cam.fpa_depth_intrinsics)[:, 0:2]
         joints_uv[:, 0] = np.clip(joints_uv[:, 0], a_min=0,
@@ -112,12 +116,13 @@ class FPADataset(Dataset):
 
         data_image = depth_img.reshape((depth_img.shape[0],
                                         depth_img.shape[1], 1)).astype(float)
-        data_image = self.transform_depth(data_image).float()
-        if self.for_autoencoding:
-            return data_image, data_image
+        #data_image = self.transform_depth(data_image).float()
+        #if self.for_autoencoding:
+        #    return data_image, data_image
+
         cropped_img, crop_coords = io_image.crop_hand_depth(joints_uv,
                                                             depth_img,
-                                                            pixel_bound=pixel_bound)
+                                                            pixel_bound=self.pixel_bound)
         return cropped_img, crop_coords
 
     def conv_hand_joints_to_rel(self, hand_joints):
@@ -193,11 +198,14 @@ class FPADatasetTracking(FPADataset):
 
 class FPADatasetPoseRegression(FPADataset):
 
+    pixel_bound = 100
+
     default_split_filename = 'fpa_split_obj_pose.p'
 
     def __init__(self, root_folder, type, input_type, split_filename = '',
                  transform_color=None, transform_depth=None, img_res=None, crop_res=None,
-                 for_autoencoding=False):
+                 for_autoencoding=False,
+                 fpa_subj_split=False):
         super(FPADatasetPoseRegression, self).__init__(root_folder, type,
                                                  input_type,
                                                  transform_color=transform_color,
@@ -205,11 +213,19 @@ class FPADatasetPoseRegression(FPADataset):
                                                  img_res=img_res,
                                                  split_filename=split_filename,
                                                  for_autoencoding=for_autoencoding)
+        self.fpa_subj_split = fpa_subj_split
         if split_filename == '':
-            fpa_io.create_split_file(self.root_folder, self.video_folder,
-                                     perc_train=0.7, perc_valid=0.15,
-                                     only_with_obj_pose=True,
-                                     split_filename=self.default_split_filename)
+            if fpa_subj_split:
+                fpa_io.create_split_file(self.root_folder, self.video_folder,
+                                         perc_train=0.7, perc_valid=0.15,
+                                         only_with_obj_pose=False,
+                                         fpa_subj=fpa_subj_split,
+                                         split_filename='fpa_split_subj.p')
+            else:
+                fpa_io.create_split_file(self.root_folder, self.video_folder,
+                                         perc_train=0.7, perc_valid=0.15,
+                                         only_with_obj_pose=True,
+                                         split_filename=self.default_split_filename)
             self.split_filename = self.default_split_filename
         self.dataset_split = fpa_io.load_split_file(
                 self.root_folder, self.split_filename)
@@ -217,16 +233,20 @@ class FPADatasetPoseRegression(FPADataset):
     def __getitem__(self, idx):
         hand_joints = self.get_hand_joints(idx)
         hand_root, hand_joints_rel = self.conv_hand_joints_to_rel(hand_joints)
-        obj_pose_rel = self.get_obj_pose(idx)
-        obj_pose_rel[0:3] = obj_pose_rel[0:3] - hand_root
-        hand_obj_pose = np.concatenate((hand_joints_rel, obj_pose_rel), 0)
+
+        if self.fpa_subj_split:
+            hand_obj_pose = hand_joints_rel
+        else:
+            obj_pose_rel = self.get_obj_pose(idx)
+            obj_pose_rel[0:3] = obj_pose_rel[0:3] - hand_root
+            hand_obj_pose = np.concatenate((hand_joints_rel, obj_pose_rel), 0)
+
         hand_obj_pose = torch.from_numpy(hand_obj_pose).float()
 
         subpath, file_num = self.get_subpath_and_file_num(idx)
         depth_img_numpy = self.read_depth_img(subpath, file_num)
         cropped_depth_img, crop_coords = self.get_cropped_depth_img(depth_img_numpy,
-                                                                    hand_joints,
-                                                                    pixel_bound=100)
+                                                                    hand_joints)
         cropped_depth_img = io_image.change_res_image(cropped_depth_img, new_res=(200, 200))
         depth_img_torch = self.conv_depth_img_with_torch_transform(cropped_depth_img, self.transform_depth)
 
@@ -241,6 +261,9 @@ class FPADatasetReconstruction(FPADataset):
 
     normalise_const_max_depth = 2000
 
+    def resize2d(self, img, size):
+        return (F.adaptive_avg_pool2d(Variable(img, volatile=True), size)).data
+
     def __init__(self, root_folder, type, input_type, split_filename = '',
                  transform_color=None, transform_depth=None, img_res=None, crop_res=None,
                  for_autoencoding=False):
@@ -254,11 +277,11 @@ class FPADatasetReconstruction(FPADataset):
                                                  for_autoencoding=for_autoencoding)
         self.dataset_split = fpa_io.load_split_file(
             self.root_folder, self.split_filename)
+        self.pixel_bound = 100
 
     def __getitem__(self, idx):
         subpath, file_num = self.get_subpath_and_file_num(idx)
         depth_img = self.read_depth_img(subpath, file_num).astype(float)
-
 
         #depth_obj_img_path = self.root_folder + self.gen_obj_folder + subpath + \
         #                str(int(file_num)) + '_depth.jpg'
@@ -269,18 +292,27 @@ class FPADatasetReconstruction(FPADataset):
         img2_depth_array = np.loadtxt(open(depth_obj_csv_path, "rb"), delimiter=",")
         depth_obj_img = img2_depth_array.T
 
-        #vis.plot_image(depth_obj_img)
-        #vis.show()
-        #vis.plot_image(depth_img)
-        #vis.show()
+        joints_filepath = self.root_folder + self.hand_pose_folder + \
+                          subpath + 'skeleton.txt'
+        hand_joints = fpa_io.read_action_joints_sequence(joints_filepath)[int(file_num)]
+        depth_img, _ = self.get_cropped_depth_img(depth_img, hand_joints)
+        depth_obj_img, _ = self.get_cropped_depth_img(depth_obj_img, hand_joints)
 
         depth_img /= self.normalise_const_max_depth
         depth_obj_img /= self.normalise_const_max_depth
 
+        #vis.plot_image(depth_img)
+        #vis.show()
+        #vis.plot_image(depth_obj_img)
+        #vis.show()
+
         depth_img = depth_img.reshape((1, depth_img.shape[0], depth_img.shape[1]))
         depth_img_torch = torch.from_numpy(depth_img).float()
+        depth_img_torch = self.resize2d(depth_img_torch, self.crop_res)
+
         depth_obj_img = depth_obj_img.reshape((1, depth_obj_img.shape[0], depth_obj_img.shape[1]))
         depth_obj_img_torch = torch.from_numpy(depth_obj_img).float()
+        depth_obj_img_torch = self.resize2d(depth_obj_img_torch, self.crop_res)
 
         return depth_img_torch, depth_obj_img_torch
 
@@ -317,14 +349,16 @@ def DataLoaderTracking(root_folder, type, input_type,
 def DataLoaderPoseRegression(root_folder, type, input_type,
                              transform_color=None, transform_depth=None,
                              batch_size=4, img_res=None, split_filename='',
-                             for_autoencoding=False):
+                             for_autoencoding=False,
+                             fpa_subj_split=False):
     dataset = FPADatasetPoseRegression(root_folder,
                                        type, input_type,
                                        transform_color=transform_color,
                                        transform_depth=transform_depth,
                                        img_res=img_res,
                                        split_filename=split_filename,
-                                       for_autoencoding=for_autoencoding)
+                                       for_autoencoding=for_autoencoding,
+                             fpa_subj_split=fpa_subj_split)
     return torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size,

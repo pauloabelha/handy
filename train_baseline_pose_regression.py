@@ -16,7 +16,7 @@ parser.add_argument('-r', dest='dataset_root_folder', required=True, help='Root 
 parser.add_argument('--split-filename', default='', help='Dataset split filename')
 parser.add_argument('-e', dest='num_epochs', type=int, required=True,
                     help='Total number of epochs to train')
-parser.add_argument('-l', dest='log_interval', type=int, default=100,
+parser.add_argument('-l', dest='log_interval', type=int, default=1000,
                     help='Intervalwith which to log')
 parser.add_argument('-f', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
                     help='Checkpoint file path')
@@ -36,6 +36,7 @@ parser.add_argument('--gt_folder', dest='gt_folder', default='Hand_pose_annotati
 parser.add_argument('--num_joints', type=int, dest='num_joints', default=21, help='Number of joints')
 
 args = parser.parse_args()
+args.fpa_subj_split = True
 
 transform_color = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize(
@@ -50,13 +51,15 @@ train_loader = fpa_dataset.DataLoaderPoseRegression(root_folder=args.dataset_roo
                                               transform_color=transform_color,
                                               transform_depth=transform_depth,
                                               batch_size=args.batch_size,
-                                              split_filename=args.split_filename,)
+                                              split_filename=args.split_filename,
+                                                    fpa_subj_split=args.fpa_subj_split)
 
 print('Length of dataset: {}'.format(len(train_loader.dataset)))
 
 print('Creating model...')
 model_params_dict = {
-    'joint_ixs': range(2)
+    'joint_ixs': range(2),
+    'hand_only': args.fpa_subj_split
 }
 
 model = JORNet_light(model_params_dict)
@@ -78,8 +81,8 @@ train_vars = {
     'iter_size': 1,
     'total_loss': 0,
     'verbose': True,
-    'checkpoint_filenamebase': 'checkpoint_pose',
-    'checkpoint_filename': 'checkpoint_pose.pth.tar',
+    'checkpoint_filenamebase': 'checkpoint_pose_subj',
+    'checkpoint_filename': 'checkpoint_pose_subj.pth.tar',
     'tot_iter': len(train_loader),
     'num_batches': len(train_loader),
     'curr_iter': 0,
@@ -100,8 +103,9 @@ for epoch_idx in range(args.num_epochs - 1):
             print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
             continue
         if epoch_idx == 0 and batch_idx < args.log_interval:
-            print('Training... Logging every {} batch iterations: {}/{}'.
-                  format(args.log_interval, batch_idx, args.log_interval))
+            if batch_idx % (int(args.log_interval / 10)) == 0:
+                print('Pre-log batch iterations. Logging after them, at every {} batch iterations: {}/{}'.
+                      format(args.log_interval, batch_idx, args.log_interval))
         train_vars['batch_idx'] = batch_idx
         train_vars['curr_iter'] = batch_idx + 1
         if args.use_cuda:
