@@ -203,7 +203,7 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
                     print('WARNING. Could not find obj pose annotation ground truth for: {}'.format(obj_pose_filepath))
                     continue
 
-                skeleton_filepath = dataset_root_folder + 'Hand_pose_annotation_v1/' + curr_subpath + 'Skeleton.txt'
+                skeleton_filepath = dataset_root_folder + 'Hand_pose_annotation_v1/' + curr_subpath + 'skeleton.txt'
                 if not os.path.isfile(skeleton_filepath):
                     print('WARNING. Could not find skeleton ground truth for: {}'.format(skeleton_filepath))
                     continue
