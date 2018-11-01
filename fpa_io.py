@@ -301,6 +301,7 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
     dataset_tuples = {
         'fpa_subj_split': fpa_subj_split,
         'fpa_obj_split': fpa_obj_split,
+        'path_tuples': path_tuples,
         'perc_train': perc_train,
         'perc_valid': perc_valid,
         'perc_test': perc_test,

@@ -30,14 +30,14 @@ parser.add_argument('--wieght-decay', dest='weight_decay', type=float, default=0
                     help='Weight decay for AdaDelta')
 parser.add_argument('--lr', dest='lr', type=float, default=0.05,
                     help='Learning rate for AdaDelta')
+parser.add_argument('--fpa-subj-split', type=bool, default=False, help='Whether to use the FPA paper cross-subject split')
+parser.add_argument('--fpa-obj-split', type=bool, default=False, help='Whether to use the FPA paper cross-object split')
 parser.add_argument('--batch-size', type=int, default=4, help='Batch size')
 parser.add_argument('--gt_folder', dest='gt_folder', default='Hand_pose_annotation_v1',
                     help='Folder with Subject groundtruth')
 parser.add_argument('--num_joints', type=int, dest='num_joints', default=21, help='Number of joints')
 
 args = parser.parse_args()
-args.fpa_subj_split = False
-args.fpa_obj_split = True
 
 transform_color = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize(
