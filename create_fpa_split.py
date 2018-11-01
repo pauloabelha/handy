@@ -19,15 +19,13 @@ if args.all:
                          perc_train=0.7, perc_valid=0.15,
                          only_with_obj_pose=False,
                          fpa_subj_split=True,
-                         fpa_obj_split=False,
-                         split_filename='fpa_split.p')
+                         fpa_obj_split=False)
     fpa_io.create_split_file(args.dataset_root_folder,
                              args.video_folder,
                              perc_train=0.7, perc_valid=0.15,
                              only_with_obj_pose=False,
                              fpa_subj_split=False,
-                             fpa_obj_split=True,
-                             split_filename='fpa_split.p')
+                             fpa_obj_split=True)
     fpa_io.create_split_file(args.dataset_root_folder,
                              args.video_folder,
                              perc_train=0.7, perc_valid=0.15,
