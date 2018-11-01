@@ -58,8 +58,8 @@ train_vars = {
     'iter_size': 1,
     'total_loss': 0,
     'verbose': True,
-    'checkpoint_filenamebase': 'checkpoint_test_pose',
-    'checkpoint_filename': 'checkpoint_test_pose.pth.tar',
+    'checkpoint_filenamebase': 'checkpoint_test_fpa_subj',
+    'checkpoint_filename': 'checkpoint_test_fpa_subj.pth.tar',
     'tot_iter': len(test_loader),
     'num_batches': len(test_loader),
     'curr_iter': 0,
@@ -81,7 +81,7 @@ def get_avg_3D_error(out_numpy, gt_numpy):
         avg_3D_error += np.power(avg_3D_error_sub[:, j], 2)
     return np.sum(np.sqrt(avg_3D_error)) / avg_3D_error.shape[0]
 
-print('Ready to train')
+print('Ready to test!')
 epoch = 1
 train_vars['curr_epoch_iter'] = epoch
 continue_batch_end_ix = -1
@@ -94,7 +94,7 @@ for batch_idx, (depth_img_torch, hand_obj_pose, hand_root) in enumerate(test_loa
         print('Continuing... {}/{}'.format(batch_idx, continue_batch_end_ix))
         continue
     if batch_idx % log_interval == 0:
-        print('Training... Logging every {} batch iterations: {}/{}'.
+        print('Testing... Logging every {} batch iterations: {}/{}'.
               format(log_interval, batch_idx, len(test_loader.dataset)))
         if batch_idx > 10:
             print('Average hand joint 3D error: {}'.format(np.mean(np.array(train_vars['hand_joints_3d_error']))))
