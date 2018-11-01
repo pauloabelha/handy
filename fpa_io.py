@@ -161,8 +161,17 @@ def create_split_file_old(dataset_root_folder, gt_folder, num_train_seq,
 def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
                       split_filename='fpa_split_tracking.p',
                       only_with_obj_pose=False,
-                           fpa_subj=True):
-    train_subjects = ['Subject_1', 'Subject_3', 'Subject_4']
+                           fpa_subj_split=False,
+                      fpa_obj_split=False):
+    if fpa_subj_split and fpa_obj_split:
+        raise 1
+    if fpa_subj_split:
+        print('Performing the FPA paper cross subjet split')
+    if fpa_obj_split:
+        print('Performing the FPA paper cross object split')
+    train_subjs_split = ['Subject_1', 'Subject_3', 'Subject_4']
+    test_objs_split = ['peanut', 'fork', 'milk', 'tea', 'soap', 'spray', 'flash', 'paper', 'letter',
+                        'calculator', 'phone', 'coin', 'card', 'wine']
     objs_with_pose_annotation = ['juice', 'milk', 'salt', 'soap']
     data_path = '/'.join([dataset_root_folder, gt_folder])
     subject_dirs = os.listdir(data_path)
@@ -219,6 +228,7 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
                                 path_tuples.append((curr_subpath, color_num))
                                 break
 
+    print('Performing split per se')
     ixs_randomize = np.random.choice(len(path_tuples), len(path_tuples), replace=False)
     path_tuples = np.array(path_tuples)
     path_tuples_randomised = path_tuples[ixs_randomize]
@@ -228,10 +238,11 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
     num_train = 0
     num_valid = 0
     num_test = 0
-    if fpa_subj:
+    if fpa_subj_split:
+        split_filename = 'fpa_subj_split.p'
         for path_tuple in path_tuples:
             subject = path_tuple[0].split('/')[0]
-            if subject in train_subjects:
+            if subject in train_subjs_split:
                 path_tuples_train.append(path_tuple)
                 num_train += 1
             else:
@@ -245,12 +256,41 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
         path_tuples_test = np.array(path_tuples_test)
         ixs_randomize_test = np.random.choice(num_test, num_test, replace=False)
         path_tuples_test = path_tuples_test[ixs_randomize_test]
+        perc_train = num_train / (num_train + num_test)
+        perc_valid = 0
+        perc_test = num_test / (num_train + num_test)
+    elif fpa_obj_split:
+        split_filename = 'fpa_obj_split.p'
+        for path_tuple in path_tuples:
+            action = path_tuple[0].split('/')[1]
+            found_obj = False
+            for test_obj_split in test_objs_split:
+                if test_obj_split in action:
+                    path_tuples_test.append(path_tuple)
+                    num_test += 1
+                    found_obj = True
+                    break
+            if not found_obj:
+                path_tuples_train.append(path_tuple)
+                num_train += 1
+        print('Num train: {}'.format(num_train))
+        print('Num test: {}'.format(num_test))
+        ixs_randomize_train = np.random.choice(num_train, num_train, replace=False)
+        path_tuples_train = np.array(path_tuples_train)
+        path_tuples_train = path_tuples_train[ixs_randomize_train]
+        path_tuples_test = np.array(path_tuples_test)
+        ixs_randomize_test = np.random.choice(num_test, num_test, replace=False)
+        path_tuples_test = path_tuples_test[ixs_randomize_test]
+        perc_train = num_train / (num_train + num_test)
+        perc_valid = 0
+        perc_test = num_test / (num_train + num_test)
     else:
         num_train = int(np.floor(len(path_tuples) * perc_train))
         num_valid = int(np.floor(len(path_tuples) * perc_valid))
         path_tuples_train = path_tuples_randomised[0: num_train]
         path_tuples_valid = path_tuples_randomised[num_train: num_train + num_valid]
         path_tuples_test = path_tuples_randomised[num_train + num_valid:]
+        perc_test = 1 - (perc_train + perc_valid)
 
     file_ixs = np.array(range(len(ixs_randomize)))
     file_ixs_randomized = file_ixs[ixs_randomize]
@@ -259,8 +299,11 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
     file_ixs_test = file_ixs_randomized[num_train + num_valid:]
 
     dataset_tuples = {
+        'fpa_subj_split': fpa_subj_split,
+        'fpa_obj_split': fpa_obj_split,
         'perc_train': perc_train,
         'perc_valid': perc_valid,
+        'perc_test': perc_test,
         'all_seq': path_tuples,
         'ixs_random': ixs_randomize,
         'all_random': path_tuples_randomised,
@@ -273,6 +316,7 @@ def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
     }
     with open('/'.join([dataset_root_folder, split_filename]), 'wb') as handle:
         pickle.dump(dataset_tuples, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    print('Created split file: {}'.format([dataset_root_folder, split_filename]))
     return dataset_tuples
 
 

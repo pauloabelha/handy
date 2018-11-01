@@ -205,7 +205,8 @@ class FPADatasetPoseRegression(FPADataset):
     def __init__(self, root_folder, type, input_type, split_filename = '',
                  transform_color=None, transform_depth=None, img_res=None, crop_res=None,
                  for_autoencoding=False,
-                 fpa_subj_split=False):
+                 fpa_subj_split=False,
+                 fpa_obj_split=False):
         super(FPADatasetPoseRegression, self).__init__(root_folder, type,
                                                  input_type,
                                                  transform_color=transform_color,
@@ -214,18 +215,14 @@ class FPADatasetPoseRegression(FPADataset):
                                                  split_filename=split_filename,
                                                  for_autoencoding=for_autoencoding)
         self.fpa_subj_split = fpa_subj_split
+        self.fpa_obj_split = fpa_obj_split
         if split_filename == '':
-            if fpa_subj_split:
-                fpa_io.create_split_file(self.root_folder, self.video_folder,
+            fpa_io.create_split_file(self.root_folder, self.video_folder,
                                          perc_train=0.7, perc_valid=0.15,
                                          only_with_obj_pose=False,
-                                         fpa_subj=fpa_subj_split,
+                                         fpa_subj_split=fpa_subj_split,
+                                         fpa_obj_split=fpa_obj_split,
                                          split_filename='fpa_split_subj.p')
-            else:
-                fpa_io.create_split_file(self.root_folder, self.video_folder,
-                                         perc_train=0.7, perc_valid=0.15,
-                                         only_with_obj_pose=True,
-                                         split_filename=self.default_split_filename)
             self.split_filename = self.default_split_filename
         self.dataset_split = fpa_io.load_split_file(
                 self.root_folder, self.split_filename)
@@ -350,7 +347,8 @@ def DataLoaderPoseRegression(root_folder, type, input_type,
                              transform_color=None, transform_depth=None,
                              batch_size=4, img_res=None, split_filename='',
                              for_autoencoding=False,
-                             fpa_subj_split=False):
+                             fpa_subj_split=False,
+                             fpa_obj_split=False):
     dataset = FPADatasetPoseRegression(root_folder,
                                        type, input_type,
                                        transform_color=transform_color,
@@ -358,7 +356,8 @@ def DataLoaderPoseRegression(root_folder, type, input_type,
                                        img_res=img_res,
                                        split_filename=split_filename,
                                        for_autoencoding=for_autoencoding,
-                             fpa_subj_split=fpa_subj_split)
+                                       fpa_subj_split=fpa_subj_split,
+                                       fpa_obj_split=fpa_obj_split)
     return torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size,

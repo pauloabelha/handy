@@ -36,7 +36,8 @@ parser.add_argument('--gt_folder', dest='gt_folder', default='Hand_pose_annotati
 parser.add_argument('--num_joints', type=int, dest='num_joints', default=21, help='Number of joints')
 
 args = parser.parse_args()
-args.fpa_subj_split = True
+args.fpa_subj_split = False
+args.fpa_obj_split = True
 
 transform_color = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize(
@@ -52,7 +53,8 @@ train_loader = fpa_dataset.DataLoaderPoseRegression(root_folder=args.dataset_roo
                                               transform_depth=transform_depth,
                                               batch_size=args.batch_size,
                                               split_filename=args.split_filename,
-                                                    fpa_subj_split=args.fpa_subj_split)
+                                              fpa_subj_split=args.fpa_subj_split,
+                                              fpa_obj_split=args.fpa_obj_split)
 
 print('Length of dataset: {}'.format(len(train_loader.dataset)))
 
