@@ -69,6 +69,9 @@ class FPADataset(Dataset):
         self.input_type = input_type
         self.split_filename = split_filename
 
+    def get_img_title(self, idx):
+        subpath, _ = self.get_subpath_and_file_num(idx)
+        return subpath
 
     def get_subpath_and_file_num(self, idx):
         idx_split = self.dataset_split[self.type][idx]
@@ -142,6 +145,8 @@ class FPADataset(Dataset):
 
 class FPADatasetTracking(FPADataset):
 
+    pixel_bound = 10
+
     def __init__(self, root_folder, type, input_type,  transform_color=None,
                  transform_depth=None, img_res=None, crop_res=None, split_filename='',
                  for_autoencoding=False):
@@ -193,6 +198,9 @@ class FPADatasetTracking(FPADataset):
 
         corner_heatmaps = np.stack((corner_heatmap1, corner_heatmap2))
         corner_heatmaps = torch.from_numpy(corner_heatmaps).float()
+
+        depth_image = depth_image.reshape((1, 640, 480)).astype(float)
+        data_image = torch.from_numpy(depth_image).float()
         return data_image, corner_heatmaps
 
 

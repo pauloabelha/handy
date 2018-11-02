@@ -277,7 +277,7 @@ def plot_image_and_heatmap(heatmap, data, title=''):
     heatmap = heatmap.swapaxes(0, 1)
     plt.imshow(255 * heatmap, alpha=0.6, cmap='hot')
 
-def plot_bound_box_from_coords(x0, y0, x1, y1, color='blue', fig=None, linewidth=3):
+def plot_bound_box_from_coords(x0, y0, x1, y1, color='blue', fig=None, title='', linewidth=3):
     if fig is None:
         fig = plt.figure()
     if color == 'blue':
@@ -286,15 +286,17 @@ def plot_bound_box_from_coords(x0, y0, x1, y1, color='blue', fig=None, linewidth
     plt.plot((x0, x1), (y1, y1), 'k-', linewidth=linewidth, color=color)
     plt.plot((x1, x1), (y1, y0), 'k-', linewidth=linewidth, color=color)
     plt.plot((x1, x0), (y0, y0), 'k-', linewidth=linewidth, color=color)
+    plt.title(title)
     return fig
 
-def plot_bound_box(bound_box, color='blue', fig=None, linewidth=3):
+def plot_bound_box(bound_box, color='blue', fig=None, title='', linewidth=3):
     if fig is None:
         fig = plt.figure()
     plot_bound_box_from_coords(bound_box[0, 0], bound_box[0, 1],
                                bound_box[1, 0], bound_box[1, 1],
                                fig=fig, linewidth=linewidth,
-                               color=color)
+                               color=color,
+                               title=title)
     return fig
 
 def plot_histogram(values, n_bins=None):

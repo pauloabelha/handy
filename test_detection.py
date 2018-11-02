@@ -7,6 +7,7 @@ import trainer
 import visualize as vis
 import numpy as np
 from scipy.spatial.distance import cdist
+import io_image
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
 parser.add_argument('-r', dest='dataset_root_folder', required=True, help='Root folder for dataset')
@@ -64,6 +65,7 @@ def calculate_pixel_loss(out_heatmaps, label_heatmaps):
     output_bbox = np.zeros((2, 2))
     output_bbox[0, :] = np.unravel_index(np.argmax(out_heatmaps[0]), (640, 480))
     output_bbox[1, :] = np.unravel_index(np.argmax(out_heatmaps[1]), (640, 480))
+    output_bbox = output_bbox.astype(int)
 
     label_heatmaps_numpy = label_heatmaps.detach().cpu().numpy()[0, :, :, :]
     label_bbox = np.zeros((2, 2))
@@ -94,11 +96,18 @@ for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
         output[3].detach().cpu().numpy()[0, :, :, :], label_heatmaps)
     losses_pixel.append(loss_pixel)
 
-    fig = vis.plot_image(data.cpu().numpy()[0, 0, :, :])
-    vis.plot_bound_box(label_bbox, fig=fig, color='blue')
-    vis.plot_bound_box(out_bbox, fig=fig, color='red')
-    vis.show()
-    #del heatmaps
+    if batch_idx == 4:
+        depth_img = data.cpu().numpy()[0, 0, :, :]
+        depth_img_crop = depth_img[label_bbox[0, 0]:label_bbox[1, 0], label_bbox[0, 1]:label_bbox[1, 1]]
+        depth_img_crop = io_image.change_res_image(depth_img_crop, ((200, 200)))
+        vis.plot_image(depth_img_crop, title=train_loader.dataset.get_img_title(batch_idx))
+        vis.show()
+
+        fig = vis.plot_image(depth_img, title=train_loader.dataset.get_img_title(batch_idx))
+        #vis.plot_bound_box(label_bbox, fig=fig, color='blue')
+        #vis.plot_bound_box(out_bbox, fig=fig, color='red')
+        vis.show()
+        a = 0
 
     train_vars['total_loss'] = loss.item()
 
@@ -107,14 +116,14 @@ for batch_idx, (data, label_heatmaps) in enumerate(train_loader):
     print('\tMean loss (pixel): {}'.format(np.mean(losses_pixel)))
     print('\tStddev loss (pixel): {}'.format(np.std(losses_pixel)))
 
-    '''
-    if batch_idx % 1000 == 0:
-        losses_pixel_np = np.array(losses_pixel)
-        a = np.sum((losses_pixel_np < 5.0)) / len(losses_pixel)
-        b = np.sum((losses_pixel_np < 10.0)) / len(losses_pixel)
-        vis.plot_histogram(losses_pixel, n_bins=100)
-        vis.show()
-        a = 0
-    '''
+
+    #if batch_idx % 1000 == 0:
+    #    losses_pixel_np = np.array(losses_pixel)
+    #    a = np.sum((losses_pixel_np < 5.0)) / len(losses_pixel)
+    #    b = np.sum((losses_pixel_np < 10.0)) / len(losses_pixel)
+    #    vis.plot_histogram(losses_pixel, n_bins=100)
+    #    vis.show()
+    #    a = 0
+
 
 

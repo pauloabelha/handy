@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/fpa_dataset.py" description="        return len(self.dataset_split" line="134" />
-    <bookmark url="file://$PROJECT_DIR$/fpa_dataset.py" line="219" />
+    <bookmark url="file://$PROJECT_DIR$/fpa_dataset.py" description="        return len(self.dataset_split" line="137" />
+    <bookmark url="file://$PROJECT_DIR$/fpa_dataset.py" line="227" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99f320e7-acd6-46b0-b154-58c77e65ad74" name="Default Changelist" comment="">
@@ -52,36 +52,36 @@
     <session id="-819491902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="9" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.0" value="11" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="40" />
-          <entry key="py" value="20782" />
+          <entry key="dummy" value="45" />
+          <entry key="py" value="23432" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="41" />
-          <entry key="Python" value="20782" />
+          <entry key="PLAIN_TEXT" value="46" />
+          <entry key="Python" value="23432" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="164" />
+          <entry key="py" value="181" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="164" />
+          <entry key="Python" value="181" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -90,55 +90,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_io.py">
+        <entry file="file://$PROJECT_DIR$/skeleton.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="297" column="74" lean-forward="true" selection-start-line="297" selection-start-column="74" selection-end-line="297" selection-end-column="74" />
+            <state relative-caret-position="271">
+              <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+        <entry file="file://$PROJECT_DIR$/skeleton_fitter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="54" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
+        <entry file="file://$PROJECT_DIR$/skeleton_fpa_angle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="22" column="86" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="86" />
+            <state relative-caret-position="160">
+              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#22#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/create_fpa_split.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-              <folding>
-                <element signature="e#1#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="102" column="23" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -154,10 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>io_image</find>
-      <find>conv</find>
-      <find>heatmap</find>
-      <find>bound</find>
       <find>batch</find>
       <find>train_lo</find>
       <find>train_loader</find>
@@ -184,6 +159,10 @@
       <find>log_interval</find>
       <find>'Skeleton</find>
       <find>perc_train</find>
+      <find>plot_bound_box</find>
+      <find>label_bbox</find>
+      <find>hand_joints = s</find>
+      <find>bone_len</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
@@ -208,8 +187,6 @@
         <option value="$PROJECT_DIR$/train_autoencoder.py" />
         <option value="$PROJECT_DIR$/../VQ-VAE/main2.py" />
         <option value="$PROJECT_DIR$/train_fpa.py" />
-        <option value="$PROJECT_DIR$/test_detection.py" />
-        <option value="$PROJECT_DIR$/visualize.py" />
         <option value="$PROJECT_DIR$/track_from_trained.py" />
         <option value="$PROJECT_DIR$/baseline_pose_regression.py" />
         <option value="$PROJECT_DIR$/HALNet.py" />
@@ -226,10 +203,16 @@
         <option value="$PROJECT_DIR$/io_image.py" />
         <option value="$PROJECT_DIR$/trainer.py" />
         <option value="$PROJECT_DIR$/test_baseline_pose_regression.py" />
-        <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
-        <option value="$PROJECT_DIR$/create_fpa_split.py" />
         <option value="$PROJECT_DIR$/fpa_io.py" />
+        <option value="$PROJECT_DIR$/create_fpa_split.py" />
+        <option value="$PROJECT_DIR$/fpa_dataset.py" />
+        <option value="$PROJECT_DIR$/visualize.py" />
+        <option value="$PROJECT_DIR$/test_detection.py" />
+        <option value="$PROJECT_DIR$/skeleton_fitter.py" />
+        <option value="$PROJECT_DIR$/skeleton_angle.py" />
+        <option value="$PROJECT_DIR$/skeleton.py" />
+        <option value="$PROJECT_DIR$/skeleton_fpa_angle.py" />
       </list>
     </option>
   </component>
@@ -261,7 +244,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VQ-VAE" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
@@ -282,7 +265,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.train_baseline_pose_regression">
+  <component name="RunManager" selected="Python.skeleton_angle">
     <configuration name="create_fpa_split" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -304,7 +287,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="handmapping" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="skeleton_angle" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -316,7 +299,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/handmapping.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\handy\skeleton_fpa_angle.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -325,7 +308,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_baseline_pose_regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="skeleton_fitter" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -337,8 +320,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_baseline_pose_regression.py" />
-      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -c checkpoint_pose_subj.pth.tar --use-cuda --split-filename fpa_split_obj_pose.p" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/skeleton_fitter.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -346,7 +329,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_vqvae_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_detection" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -358,8 +341,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_vqvae_dataset.py" />
-      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --split-filename fpa_split_obj_pose.p" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_detection.py" />
+      <option name="PARAMETERS" value="-r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ -c fpa_detect_net_trained.pth.tar --split-filename fpa_split.p --use-cuda" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -380,7 +363,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
-      <option name="PARAMETERS" value="-e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --use-cuda --split-filename fpa_obj_split.p" />
+      <option name="PARAMETERS" value="-e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --use-cuda" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -389,19 +372,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test_baseline_pose_regression" />
-      <item itemvalue="Python.handmapping" />
-      <item itemvalue="Python.test_vqvae_dataset" />
       <item itemvalue="Python.train_baseline_pose_regression" />
       <item itemvalue="Python.create_fpa_split" />
+      <item itemvalue="Python.skeleton_fitter" />
+      <item itemvalue="Python.test_detection" />
+      <item itemvalue="Python.skeleton_angle" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.skeleton_angle" />
+        <item itemvalue="Python.test_detection" />
+        <item itemvalue="Python.skeleton_fitter" />
         <item itemvalue="Python.train_baseline_pose_regression" />
         <item itemvalue="Python.create_fpa_split" />
-        <item itemvalue="Python.test_baseline_pose_regression" />
-        <item itemvalue="Python.test_vqvae_dataset" />
-        <item itemvalue="Python.handmapping" />
       </list>
     </recent_temporary>
   </component>
@@ -420,6 +403,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969843" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -427,7 +411,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33632287" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39349777" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37107623" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -459,6 +443,16 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$USER_HOME$/muellericcv2017/trainer.py</url>
           <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_detection.py</url>
+          <line>109</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_detection.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -505,16 +499,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/envs/handy_env/lib/python3.7/site-packages/torch/nn/modules/rnn.py" />
-    <entry file="file://$USER_HOME$/anaconda3/envs/handy_env/lib/python3.7/site-packages/torch/nn/modules/module.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/muellericcv2017/trainer.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/magic.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/HALNet.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/train_halnet.py" />
@@ -672,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" selection-start-line="10" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/track_gt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
@@ -697,13 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-93">
           <caret line="158" column="44" selection-start-line="158" selection-start-column="44" selection-end-line="158" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="219" column="4" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -756,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/io_image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/site-packages/torch/utils/data/dataloader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -788,52 +751,105 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1040">
           <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_fpa_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="102" column="23" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
+        <state relative-caret-position="164">
+          <caret line="73" selection-start-line="73" selection-end-line="81" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+    <entry file="file://$PROJECT_DIR$/train_hand_detection_dexter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="54" selection-end-column="25" />
+        <state relative-caret-position="-87">
+          <caret line="98" column="45" lean-forward="true" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="294" column="30" selection-start-line="294" selection-start-column="30" selection-end-line="294" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/io_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="22" column="86" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="86" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_fpa_split.py">
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+        <state relative-caret-position="261">
+          <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1541157212319" expanded="true" signature="2338:2423" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fpa_io.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="297" column="74" lean-forward="true" selection-start-line="297" selection-start-column="74" selection-end-line="297" selection-end-column="74" />
+        <state relative-caret-position="181">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
+    <entry file="file://$PROJECT_DIR$/skeleton.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="22" column="86" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="86" />
+        <state relative-caret-position="271">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="33" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skeleton_fitter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skeleton_fpa_angle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
