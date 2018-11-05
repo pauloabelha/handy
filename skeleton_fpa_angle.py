@@ -9,7 +9,8 @@ subpath = 'Subject_1/charge_cell_phone/1/'
 frame = 0
 
 fpa_skeleton = read_fpa_skeleton(dataset_root_folder, subpath, frame)
-fpa_skeleton = fpa_skeleton - fpa_skeleton[0, :]
+#fpa_skeleton = fpa_skeleton - fpa_skeleton[0, :]
+print(fpa_skeleton)
 
 bone_lengths = get_fpa_bone_lengths(fpa_skeleton)
 
