@@ -127,21 +127,21 @@ continue_to_batch = True
 for epoch_idx in range(args.num_epochs - 1):
     epoch = epoch_idx + 1
     train_vars['epoch'] = epoch
-    if epoch < train_vars['continue_epoch']:
-        print('Continuing epoch: ({}/{})/{}'.format(epoch, train_vars['continue_epoch'], args.num_epochs))
+    if epoch < continue_epoch:
+        print('Continuing epoch: ({}/{})/{}'.format(epoch, continue_epoch, args.num_epochs))
         continue
     train_vars['curr_epoch_iter'] = epoch
     for batch_idx, (depth_img_torch, hand_obj_pose) in enumerate(train_loader):
         if continue_to_batch:
-            if batch_idx <= train_vars['continue_batch_idx']:
+            if batch_idx <= continue_batch_idx:
                 if batch_idx % 10 == 0:
-                    print('Continuing batch: ({}/{})/{}'.format(batch_idx, train_vars['continue_batch_idx'], len(train_loader)))
+                    print('Continuing batch: ({}/{})/{}'.format(batch_idx, continue_batch_idx, len(train_loader)))
                     continue
             else:
                 print('Arrived at continue batch. Log iteration: {}'.format(args.log_interval))
                 continue_to_batch = False
 
-        if epoch == continue_epoch and batch_idx < args.log_interval:
+        if epoch == train_vars['continue_epoch'] and batch_idx < args.log_interval:
             if batch_idx % (int(args.log_interval / 10)) == 0:
                 print('Pre-log batch iterations. Logging after them, at every {} batch iterations: {}/{}'.
                       format(args.log_interval, batch_idx, args.log_interval))
