@@ -145,6 +145,7 @@ class HALNet(nn.Module):
         self.joint_ixs = parse_model_param(params_dict, 'joint_ixs', default_value="Mandatory")
         self.use_cuda = parse_model_param(params_dict, 'use_cuda', default_value=False)
         self.num_joints = len(self.joint_ixs)
+        self.num_channels = params_dict['num_channels']
         self.cross_entropy = parse_model_param(params_dict, 'cross_entropy', default_value=True)
         # build network
         self.conv1 = cudafy(HALNetConvBlock(kernel_size=7, stride=1, filters=64,

@@ -8,7 +8,7 @@ import os
 from random import randint
 import datetime
 
-def load_checkpoint(filename, model_class, use_cuda=False, fpa_subj=False):
+def load_checkpoint(filename, model_class, use_cuda=False, fpa_subj=False, num_channels=1):
     torch_file = torch.load(filename, map_location=lambda storage, loc: storage)
     '''
     if use_cuda:
@@ -26,6 +26,7 @@ def load_checkpoint(filename, model_class, use_cuda=False, fpa_subj=False):
     params_dict['joint_ixs'] = range(2)
     params_dict['use_cuda'] = use_cuda
     params_dict['cross_entropy'] = True
+    params_dict['num_channels'] = num_channels
     if not use_cuda:
         params_dict['use_cuda'] = False
     if fpa_subj:

@@ -85,9 +85,13 @@ class FPADataset(Dataset):
                          file_num + '.' + self.depth_fileext
         return fpa_io.read_depth_img(depth_filepath)
 
-    def conv_depth_img_with_torch_transform(self, depth_img_numpy, transform):
-        depth_img_torch = depth_img_numpy.reshape((depth_img_numpy.shape[0],
-                                              depth_img_numpy.shape[1], 1)).astype(float)
+    def conv_depth_img_with_torch_transform(self, depth_img_numpy, transform, recon=False):
+        if recon:
+            depth_img_torch = depth_img_numpy.reshape((depth_img_numpy.shape[0],
+                                                       depth_img_numpy.shape[1], 2)).astype(float)
+        else:
+            depth_img_torch = depth_img_numpy.reshape((depth_img_numpy.shape[0],
+                                                  depth_img_numpy.shape[1], 1)).astype(float)
         depth_img_torch = transform(depth_img_torch).float()
         return depth_img_torch
 
@@ -321,6 +325,82 @@ class FPADatasetReconstruction(FPADataset):
 
         return depth_img_torch, depth_obj_img_torch
 
+class FPADatasetPoseRegressionFromVQVAE(FPADataset):
+
+    gen_folder = 'gen_objs/'
+    pixel_bound = 100
+
+    default_split_filename = 'fpa_split_obj_pose.p'
+
+    def __init__(self, root_folder, type, input_type, split_filename = '',
+                 transform_color=None, transform_depth=None, img_res=None, crop_res=None,
+                 for_autoencoding=False,
+                 fpa_subj_split=False,
+                 fpa_obj_split=False):
+        super(FPADatasetPoseRegressionFromVQVAE, self).__init__(root_folder, type,
+                                                 input_type,
+                                                 transform_color=transform_color,
+                                                 transform_depth=transform_depth,
+                                                 img_res=img_res,
+                                                 split_filename=split_filename,
+                                                 for_autoencoding=for_autoencoding)
+        self.fpa_subj_split = fpa_subj_split
+        self.fpa_obj_split = fpa_obj_split
+        if split_filename == '':
+            fpa_io.create_split_file(self.root_folder, self.video_folder,
+                                         perc_train=0.7, perc_valid=0.15,
+                                         only_with_obj_pose=False,
+                                         fpa_subj_split=fpa_subj_split,
+                                         fpa_obj_split=fpa_obj_split,
+                                         split_filename='fpa_split_subj.p')
+            self.split_filename = self.default_split_filename
+        self.dataset_split = fpa_io.load_split_file(
+                self.root_folder, self.split_filename)
+
+    def __getitem__(self, idx):
+        hand_joints = self.get_hand_joints(idx)
+        hand_root, hand_joints_rel = self.conv_hand_joints_to_rel(hand_joints)
+
+        if self.fpa_subj_split:
+            hand_obj_pose = hand_joints_rel
+        else:
+            obj_pose_rel = self.get_obj_pose(idx)
+            obj_pose_rel[0:3] = obj_pose_rel[0:3] - hand_root
+            hand_obj_pose = np.concatenate((hand_joints_rel, obj_pose_rel), 0)
+
+        hand_obj_pose = torch.from_numpy(hand_obj_pose).float()
+
+        subpath, file_num = self.get_subpath_and_file_num(idx)
+        depth_img_numpy = self.read_depth_img(subpath, file_num)
+        cropped_depth_img, crop_coords = self.get_cropped_depth_img(depth_img_numpy,
+                                                                    hand_joints)
+        cropped_depth_img = io_image.change_res_image(cropped_depth_img, new_res=(200, 200))
+
+        # read reconstructed image
+        img_recon_path = self.root_folder + self.gen_folder +\
+                         subpath + str(int(file_num)) + '_recon.npy'
+
+        depth_img_final = np.zeros((200, 200, 2))
+        recon = True
+        try:
+            depth_img_recon = np.load(img_recon_path)
+            #vis.plot_image(depth_img_recon)
+            #vis.show()
+            #vis.plot_image(cropped_depth_img)
+            #vis.show()
+            depth_img_final[:, :, 0] = cropped_depth_img
+            depth_img_final[:, :, 1] = depth_img_recon
+        except:
+            depth_img_final[:, :, 1] = cropped_depth_img
+
+        depth_img_torch = self.conv_depth_img_with_torch_transform(depth_img_final, self.transform_depth, recon=recon)
+
+        if self.type == "train":
+            return depth_img_torch, hand_obj_pose
+        else:
+            return depth_img_torch, hand_obj_pose, hand_root
+
+
 def DataLoaderReconstruction(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
                                  batch_size=4, img_res=None, split_filename='',
@@ -371,3 +451,22 @@ def DataLoaderPoseRegression(root_folder, type, input_type,
         batch_size=batch_size,
         shuffle=False)
 
+def DataLoaderPoseRegressionFromVQVAE(root_folder, type, input_type,
+                             transform_color=None, transform_depth=None,
+                             batch_size=4, img_res=None, split_filename='',
+                             for_autoencoding=False,
+                             fpa_subj_split=False,
+                             fpa_obj_split=False):
+    dataset = FPADatasetPoseRegressionFromVQVAE(root_folder,
+                                       type, input_type,
+                                       transform_color=transform_color,
+                                       transform_depth=transform_depth,
+                                       img_res=img_res,
+                                       split_filename=split_filename,
+                                       for_autoencoding=for_autoencoding,
+                                       fpa_subj_split=fpa_subj_split,
+                                       fpa_obj_split=fpa_obj_split)
+    return torch.utils.data.DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=False)
