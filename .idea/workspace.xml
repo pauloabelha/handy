@@ -65,24 +65,24 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="45" />
-          <entry key="py" value="24646" />
+          <entry key="py" value="24996" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="46" />
-          <entry key="Python" value="24646" />
+          <entry key="Python" value="24996" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="198" />
+          <entry key="py" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="198" />
+          <entry key="Python" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -90,20 +90,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="84" column="49" lean-forward="true" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
+            <state relative-caret-position="38">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            <state relative-caret-position="80">
+              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JORNet_light.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hand_detection_net.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -111,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="357" selection-start-line="357" selection-end-line="357" />
+            <state relative-caret-position="338">
+              <caret line="365" column="13" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
                 <marker date="1541533391083" expanded="true" signature="2338:2423" ph="..." />
@@ -824,23 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JORNet_light.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hand_detection_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="151" selection-start-line="151" selection-end-line="151" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_io.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -848,10 +849,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JORNet_light.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hand_detection_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="357" selection-start-line="357" selection-end-line="357" />
+        <state relative-caret-position="338">
+          <caret line="365" column="13" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
             <marker date="1541533391083" expanded="true" signature="2338:2423" ph="..." />
@@ -861,15 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="84" column="49" lean-forward="true" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="38">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
     </entry>
