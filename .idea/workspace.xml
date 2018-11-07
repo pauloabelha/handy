@@ -52,7 +52,7 @@
     <session id="-819491902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.0" value="14" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
@@ -65,24 +65,24 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="45" />
-          <entry key="py" value="24996" />
+          <entry key="py" value="25396" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="46" />
-          <entry key="Python" value="24996" />
+          <entry key="Python" value="25396" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="200" />
+          <entry key="py" value="208" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="200" />
+          <entry key="Python" value="208" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -90,60 +90,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="126" selection-start-line="126" selection-end-line="126" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trainer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JORNet_light.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="23" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hand_detection_net.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="365" column="13" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
+            <state relative-caret-position="264">
+              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1541533391083" expanded="true" signature="2338:2423" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_io.py">
+        <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="325" selection-start-line="325" selection-end-line="325" />
+            <state relative-caret-position="119">
+              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="100" selection-end-column="112" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_vqvae_pose_regression.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -159,7 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>video_fil</find>
       <find>calculate_pixel_loss</find>
       <find>close</find>
       <find>pose_folder</find>
@@ -189,6 +166,7 @@
       <find>fpa_subj_split</find>
       <find>exc</find>
       <find>params_</find>
+      <find>hand_joints_3d_error</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
@@ -240,14 +218,14 @@
         <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/trainer.py" />
         <option value="$PROJECT_DIR$/train_vqvae_pose_regression.py" />
+        <option value="$PROJECT_DIR$/test_vqvae_pose_regression.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="-7" />
+    <option name="width" value="1688" />
+    <option name="height" value="1017" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -357,7 +335,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_baseline_pose_regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_vqvae_pose_regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -369,8 +347,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
-      <option name="PARAMETERS" value="-e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --use-cuda" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_vqvae_pose_regression.py" />
+      <option name="PARAMETERS" value="-e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --use-cuda --split-filename fpa_subj_split.p -c checkpoint_pose_subj_vqvae.pth.tar" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -391,7 +369,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_vqvae_pose_regression.py" />
-      <option name="PARAMETERS" value="-e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --use-cuda --split-filename fpa_subj_split.p -c checkpoint_pose_subj_vqvae.pth.tar" />
+      <option name="PARAMETERS" value="-e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/ --use-cuda --split-filename fpa_subj_split.p" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -400,19 +378,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.train_baseline_pose_regression" />
       <item itemvalue="Python.skeleton_fitter" />
       <item itemvalue="Python.test_detection" />
       <item itemvalue="Python.skeleton_angle" />
       <item itemvalue="Python.train_vqvae_pose_regression" />
+      <item itemvalue="Python.test_vqvae_pose_regression" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.train_vqvae_pose_regression" />
+        <item itemvalue="Python.test_vqvae_pose_regression" />
         <item itemvalue="Python.skeleton_angle" />
         <item itemvalue="Python.test_detection" />
         <item itemvalue="Python.skeleton_fitter" />
-        <item itemvalue="Python.train_baseline_pose_regression" />
       </list>
     </recent_temporary>
   </component>
@@ -431,15 +409,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25512666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33632287" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3778027" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3497758" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37712345" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -527,7 +504,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/muellericcv2017/HALNet.py" />
     <entry file="file://$USER_HOME$/muellericcv2017/train_halnet.py" />
     <entry file="file://$PROJECT_DIR$/lstm_baseline_generic.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -821,27 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/site-packages/torch/utils/data/dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="313" selection-start-line="313" selection-end-line="313" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="316" lean-forward="true" selection-start-line="316" selection-end-line="316" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_io.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -870,10 +825,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/site-packages/torch/utils/data/dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="313" selection-start-line="313" selection-end-line="313" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="365" column="13" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
+        <state relative-caret-position="227">
+          <caret line="400" selection-start-line="400" selection-end-line="400" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
             <marker date="1541533391083" expanded="true" signature="2338:2423" ph="..." />
@@ -881,10 +860,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
+    <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        <state relative-caret-position="119">
+          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="100" selection-end-column="112" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_vqvae_pose_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
