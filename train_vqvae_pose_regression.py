@@ -128,14 +128,14 @@ continue_batch_idx = train_vars['batch_idx']
 for epoch_idx in range(args.num_epochs - 1):
     epoch = epoch_idx + 1
     train_vars['epoch'] = epoch
-    if epoch < continue_epoch:
-        print('Continuing epoch... {}/{}/{}'.format(epoch, continue_epoch, args.num_epochs))
+    if epoch <= continue_epoch:
+        print('Continuing epoch: ({}/{})/{}'.format(epoch, continue_epoch, args.num_epochs))
         continue
     train_vars['curr_epoch_iter'] = epoch
     for batch_idx, (depth_img_torch, hand_obj_pose) in enumerate(train_loader):
-        if batch_idx < continue_batch_idx:
+        if batch_idx <= continue_batch_idx:
             if batch_idx % 10 == 0:
-                print('Continuing batch... {}/{}/{}'.format(batch_idx, continue_batch_idx, len(train_loader)))
+                print('Continuing batch: ({}/{})/{}'.format(batch_idx, continue_batch_idx, len(train_loader)))
                 continue
         if epoch_idx == 0 and batch_idx < args.log_interval:
             if batch_idx % (int(args.log_interval / 10)) == 0:
