@@ -37,7 +37,7 @@ parser.add_argument('--batch-size', type=int, default=4, help='Batch size')
 parser.add_argument('--gt_folder', dest='gt_folder', default='Hand_pose_annotation_v1',
                     help='Folder with Subject groundtruth')
 parser.add_argument('--num_joints', type=int, dest='num_joints', default=21, help='Number of joints')
-parser.add_argument('-c', dest='checkpoint_filename', required=True, help='Checkpoint filename')
+parser.add_argument('-c', dest='checkpoint_filename', default='', help='Checkpoint filename')
 
 args = parser.parse_args()
 args.fpa_subj_split = True
@@ -78,8 +78,11 @@ if args.checkpoint_filename == '':
         'split_filename': args.split_filename,
         'fpa_subj_split': args.fpa_subj_split,
         'fpa_obj_split': args.fpa_obj_split,
-        'dataset_root_folder': args.dataset_root_folder
+        'dataset_root_folder': args.dataset_root_folder,
+        'epoch': 1,
+        'batch_idx': -1
     }
+    continue_to_batch = False
 else:
     print('Loading model from checkpoint: {}'.format(args.checkpoint_filename))
     model, _, train_vars, _ = trainer.load_checkpoint(args.checkpoint_filename, JORNet_light,
@@ -92,6 +95,7 @@ else:
     train_vars['fpa_subj_split'] = args.fpa_subj_split
     train_vars['fpa_obj_split'] = args.fpa_obj_split
     train_vars['dataset_root_folder'] = args.dataset_root_folder
+    continue_to_batch = True
 
 model.train()
 
@@ -105,8 +109,8 @@ train_loader = fpa_dataset.DataLoaderPoseRegressionFromVQVAE(root_folder=train_v
                                               fpa_subj_split=train_vars['fpa_subj_split'],
                                               fpa_obj_split=train_vars['fpa_obj_split'])
 
-train_vars['tot_iter']: len(train_loader)
-train_vars['num_batches']: len(train_loader)
+train_vars['tot_iter'] = len(train_loader)
+train_vars['num_batches'] = len(train_loader)
 
 print('Length of dataset: {}'.format(len(train_loader.dataset)))
 
@@ -122,8 +126,8 @@ for i in range(len(train_loader.dataset)):
 
 continue_epoch = train_vars['epoch']
 continue_batch_idx = train_vars['batch_idx']
-continue_to_batch = True
 
+print('Training started!')
 for epoch_idx in range(args.num_epochs - 1):
     epoch = epoch_idx + 1
     train_vars['epoch'] = epoch
@@ -141,7 +145,7 @@ for epoch_idx in range(args.num_epochs - 1):
                 print('Arrived at continue batch. Log iteration: {}'.format(args.log_interval))
                 continue_to_batch = False
 
-        if epoch == train_vars['continue_epoch'] and batch_idx < args.log_interval:
+        if epoch == continue_epoch and batch_idx < args.log_interval:
             if batch_idx % (int(args.log_interval / 10)) == 0:
                 print('Pre-log batch iterations. Logging after them, at every {} batch iterations: {}/{}'.
                       format(args.log_interval, batch_idx, args.log_interval))

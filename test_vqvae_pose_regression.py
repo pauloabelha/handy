@@ -45,7 +45,7 @@ parser.add_argument('--batch-size', type=int, default=4, help='Batch size')
 parser.add_argument('--gt_folder', dest='gt_folder', default='Hand_pose_annotation_v1',
                     help='Folder with Subject groundtruth')
 parser.add_argument('--num_joints', type=int, dest='num_joints', default=21, help='Number of joints')
-parser.add_argument('-c', dest='checkpoint_filename', help='Checkpoint filename')
+parser.add_argument('-c', dest='checkpoint_filename', required=True, help='Checkpoint filename')
 
 args = parser.parse_args()
 args.fpa_subj_split = True
