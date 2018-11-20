@@ -49,6 +49,7 @@ class FPADataset(Dataset):
     video_folder = 'Video_files/'
     hand_pose_folder = 'Hand_pose_annotation_v1/'
     obj_pose_folder = 'Object_6D_pose_annotation_v1/'
+    gen_obj_folder = 'gen_objs/'
     color_folder = 'color/'
     depth_folder = 'depth/'
     color_fileext = 'jpeg'
@@ -83,6 +84,12 @@ class FPADataset(Dataset):
         rgb_filepath = self.root_folder + self.video_folder + subpath + \
                          self.color_folder + 'color_' + \
                          file_num + '.' + self.color_fileext
+        return fpa_io.read_color_img(rgb_filepath)
+
+    def read_gen_obj_rgb_img(self, subpath, file_num):
+        rgb_filepath = self.root_folder + self.gen_obj_folder + subpath + \
+                       self.color_folder + str(int(file_num)) + '_color' + \
+                       '.' + self.color_fileext
         return fpa_io.read_color_img(rgb_filepath)
 
     def read_depth_img(self, subpath, file_num):
@@ -410,6 +417,10 @@ class FPADatasetObjRGBReconstruction(FPADataset):
 
     params_dict = {}
 
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
     def __init__(self, params_dict):
         super(FPADatasetObjRGBReconstruction, self).\
             __init__(params_dict['root_folder'],
@@ -431,8 +442,11 @@ class FPADatasetObjRGBReconstruction(FPADataset):
     def __getitem__(self, idx):
         subpath, file_num = self.get_subpath_and_file_num(idx)
         rgb_img = self.read_rgb_img(subpath, file_num)
-        
-        return (rgb_img, rgb_img)
+        rgb_img = self.transform(rgb_img)
+        gen_obj_rgb_img = self.read_gen_obj_rgb_img(subpath, file_num)
+        gen_obj_rgb_img = self.transform(gen_obj_rgb_img)
+
+        return (rgb_img, gen_obj_rgb_img)
 
 def DataLoaderReconstruction(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
