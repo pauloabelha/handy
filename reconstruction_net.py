@@ -17,11 +17,15 @@ class ReconstructNet(nn.Module):
 
         self.num_input_channels = params_dict['num_input_channels']
 
-        self.conv1 = NetBlockConvBatchRelu(kernel_size=4, stride=1, filters=64,
+        self.conv_sequence =\
+            NetBlocksSequenceConvBatchRelu(3, kernel_sizes=[4, 4, 4, 4],
+                                           strides=[1, 1, 1, 2],
+                                           filters=[64, 32, 16, 8],
                                            in_channels=self.num_input_channels)
+        self.flatten = NetBlocksFlatten()
 
     def forward(self, x):
-        x = self.conv1(x)
-
+        x = self.conv_sequence(x)
+        x = self.flatten(x)
         return x
         

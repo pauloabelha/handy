@@ -54,34 +54,36 @@
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="29060" />
+          <entry key="py" value="29775" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="29060" />
+          <entry key="Python" value="29775" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="227" />
+          <entry key="py" value="231" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="227" />
+          <entry key="Python" value="231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -90,10 +92,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/network_blocks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+              <folding>
+                <marker date="1542732630280" expanded="true" signature="643:1072" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="92" selection-start-line="92" selection-end-line="92" />
+            <state relative-caret-position="184">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -101,27 +124,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="446" column="56" selection-start-line="446" selection-start-column="56" selection-end-line="446" selection-end-column="56" />
+            <state relative-caret-position="244">
+              <caret line="450" column="37" lean-forward="true" selection-start-line="450" selection-start-column="37" selection-end-line="450" selection-end-column="37" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1542724782868" expanded="true" signature="2381:2466" ph="..." />
-                <marker date="1542724782868" expanded="true" signature="3005:3263" ph="..." />
-                <marker date="1542724782868" expanded="true" signature="18876:20337" ph="..." />
-                <marker date="1542724782868" expanded="true" signature="24070:24075" ph="..." />
+                <marker date="1542732016747" expanded="true" signature="2381:2466" ph="..." />
+                <marker date="1542732016747" expanded="true" signature="3005:3226" ph="..." />
+                <marker date="1542732016747" expanded="true" signature="18839:20585" ph="..." />
+                <marker date="1542732016747" expanded="true" signature="24318:24323" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_io.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-224">
-              <caret line="222" column="21" lean-forward="true" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -137,7 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>split</find>
       <find>last</find>
       <find>joints_uv</find>
       <find>_draw2dseg</find>
@@ -167,6 +180,7 @@
       <find>print_v</find>
       <find>get_subpath_and_file_num</find>
       <find>read_color_img</find>
+      <find>img_res</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
@@ -220,12 +234,12 @@
         <option value="$PROJECT_DIR$/test_vqvae_pose_regression.py" />
         <option value="$PROJECT_DIR$/train_vqvae_pose_regression.py" />
         <option value="$PROJECT_DIR$/HALNet.py" />
-        <option value="$PROJECT_DIR$/reconstruction_net.py" />
         <option value="$PROJECT_DIR$/train_reconstruction_net.py" />
-        <option value="$PROJECT_DIR$/network_blocks.py" />
         <option value="$PROJECT_DIR$/fpa_io.py" />
         <option value="$PROJECT_DIR$/train_net.py" />
         <option value="$PROJECT_DIR$/fpa_dataset.py" />
+        <option value="$PROJECT_DIR$/reconstruction_net.py" />
+        <option value="$PROJECT_DIR$/network_blocks.py" />
       </list>
     </option>
   </component>
@@ -242,6 +256,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,7 +268,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,7 +369,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
-      <option name="PARAMETERS" value="-e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 4}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (1080, 920)}&quot;" />
+      <option name="PARAMETERS" value="--use-cuda -e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 3}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -423,7 +437,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21860987" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28699553" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32623318" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -468,9 +482,19 @@
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/fpa_dataset.py</url>
-          <line>445</line>
-          <option name="timeStamp" value="119" />
+          <url>file://$PROJECT_DIR$/train_net.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/network_blocks.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/reconstruction_net.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -542,13 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-64">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -758,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/site-packages/torch/utils/data/dataloader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -800,34 +810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1542710585143" expanded="true" signature="181:183" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network_blocks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HALNet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1210">
           <caret line="123" column="49" lean-forward="true" selection-start-line="123" selection-start-column="49" selection-end-line="124" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,9 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,9 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="97" column="69" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -872,16 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_io.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-224">
@@ -889,16 +859,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1103">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="109" column="4" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="446" column="56" selection-start-line="446" selection-start-column="56" selection-end-line="446" selection-end-column="56" />
+        <state relative-caret-position="244">
+          <caret line="450" column="37" lean-forward="true" selection-start-line="450" selection-start-column="37" selection-end-line="450" selection-end-column="37" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1542724782868" expanded="true" signature="2381:2466" ph="..." />
-            <marker date="1542724782868" expanded="true" signature="3005:3263" ph="..." />
-            <marker date="1542724782868" expanded="true" signature="18876:20337" ph="..." />
-            <marker date="1542724782868" expanded="true" signature="24070:24075" ph="..." />
+            <marker date="1542732016747" expanded="true" signature="2381:2466" ph="..." />
+            <marker date="1542732016747" expanded="true" signature="3005:3226" ph="..." />
+            <marker date="1542732016747" expanded="true" signature="18839:20585" ph="..." />
+            <marker date="1542732016747" expanded="true" signature="24318:24323" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network_blocks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding>
+            <marker date="1542732630280" expanded="true" signature="643:1072" ph="..." />
           </folding>
         </state>
       </provider>

@@ -4,6 +4,7 @@ import ast
 import torch.optim as optim
 import time
 import datetime
+import torch
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
 parser.add_argument('--dataset-dict', required=True,
@@ -47,6 +48,7 @@ timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%
 log_print("Generated from train_ney.py in Handy repository"
           " (https://github.com/pauloabelha/handy.git)", args.log_filepath)
 log_print("Timestamp: " + str(timestamp), args.log_filepath)
+log_print("GPU: " + str(torch.cuda.get_device_name(0)), args.log_filepath)
 
 # Print passed arguments
 log_print("Arguments: " + str(args), args.log_filepath)
@@ -60,6 +62,9 @@ NetworkClass = getattr(net_module, net_class_str)
 net_params_dict = ast.literal_eval(args.net_dict)
 # inititalize network
 net_model = NetworkClass(net_params_dict)
+if args.use_cuda:
+    net_model.cuda()
+net_model.train()
 log_print("Network params dict: " + str(net_params_dict), args.log_filepath)
 log_print("Network loaded: ", args.log_filepath)
 log_print(net_model, args.log_filepath)
@@ -91,4 +96,13 @@ log_print("Optimizer loaded: " + str(optimizer), args.log_filepath)
 log_print("Training started", args.log_filepath)
 for epoch_idx in range(args.num_epochs):
     for batch_idx, (data, labels) in enumerate(train_loader):
-        log_print("Batch: " + str(batch_idx + 1), args.log_filepath)
+        if args.use_cuda:
+            data = data.cuda()
+            labels = labels.cuda()
+
+        output = net_model(data)
+
+
+        a = 0
+
+

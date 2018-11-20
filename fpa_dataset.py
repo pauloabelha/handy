@@ -88,8 +88,8 @@ class FPADataset(Dataset):
 
     def read_gen_obj_rgb_img(self, subpath, file_num):
         rgb_filepath = self.root_folder + self.gen_obj_folder + subpath + \
-                       self.color_folder + str(int(file_num)) + '_color' + \
-                       '.' + self.color_fileext
+                       str(int(file_num)) + '_colour' + \
+                       '.jpg'
         return fpa_io.read_color_img(rgb_filepath)
 
     def read_depth_img(self, subpath, file_num):
@@ -440,10 +440,15 @@ class FPADatasetObjRGBReconstruction(FPADataset):
         self.type = params_dict['type']
 
     def __getitem__(self, idx):
+        idx = 16
         subpath, file_num = self.get_subpath_and_file_num(idx)
         rgb_img = self.read_rgb_img(subpath, file_num)
+        rgb_img = io_image.change_res_image(rgb_img,
+                                            self.params_dict['img_res'])
         rgb_img = self.transform(rgb_img)
         gen_obj_rgb_img = self.read_gen_obj_rgb_img(subpath, file_num)
+        gen_obj_rgb_img = io_image.change_res_image(gen_obj_rgb_img,
+                                            self.params_dict['img_res'])
         gen_obj_rgb_img = self.transform(gen_obj_rgb_img)
 
         return (rgb_img, gen_obj_rgb_img)
