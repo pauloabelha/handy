@@ -101,6 +101,8 @@ for epoch_idx in range(args.num_epochs):
             labels = labels.cuda()
 
         output = net_model(data)
+        loss = net_model.loss(data, output)
+        log_print(loss.item(), args.log_filepath)
 
 
         a = 0
