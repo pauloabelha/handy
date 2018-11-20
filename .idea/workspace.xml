@@ -62,26 +62,26 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="27622" />
+          <entry key="py" value="27869" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="27622" />
+          <entry key="Python" value="27869" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="225" />
+          <entry key="py" value="226" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="225" />
+          <entry key="Python" value="226" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -91,14 +91,18 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log_net.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+            <state relative-caret-position="401">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -107,10 +111,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trainer.py">
+        <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
+            <state relative-caret-position="200">
+              <caret line="97" column="69" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="69" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,24 +125,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="474" column="9" lean-forward="true" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="9" />
+            <state relative-caret-position="481">
+              <caret line="474" column="13" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1542712879234" expanded="true" signature="2338:2423" ph="..." />
-                <marker date="1542712879234" expanded="true" signature="21918:21923" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-540">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <marker date="1542713927724" expanded="true" signature="2338:2423" ph="..." />
+                <marker date="1542713927724" expanded="true" signature="21918:21923" ph="..." />
               </folding>
             </state>
           </provider>
@@ -438,7 +433,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29820627" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27242154" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37668163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -858,28 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="474" column="9" lean-forward="true" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-            <marker date="1542712879234" expanded="true" signature="2338:2423" ph="..." />
-            <marker date="1542712879234" expanded="true" signature="21918:21923" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debugger.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-560">
@@ -894,13 +867,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="474" column="13" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1542713927724" expanded="true" signature="2338:2423" ph="..." />
+            <marker date="1542713927724" expanded="true" signature="21918:21923" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/log_net.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="97" column="69" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+        <state relative-caret-position="401">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

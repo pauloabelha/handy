@@ -1,4 +1,4 @@
-Training started
+Arguments: Namespace(batch_size=4, checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPARGBDReconstruction', dataset_root_folder='C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', log_filepath='log_net.txt', log_interval=100, lr=0.05, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 4}", num_epochs=20, split_filename='', use_cuda=False, weight_decay=0.005)
 Network params dict:
 {'num_input_channels': 4}
 Network:
@@ -10,4 +10,15 @@ ReconstructNet(
   )
 )
 Network loaded succesfully
-Could not load train loader (train_loader is None)
+Data loader: <function FPARGBDReconstruction at 0x0000027CC321C840>
+Dataset root folder: C:/Users/Administrator/Documents/Datasets/fpa_benchmark/
+Dataset batch size: 4
+Dataset length: 0
+Optimizer loaded: Adadelta (
+Parameter Group 0
+    eps: 1e-06
+    lr: 0.05
+    rho: 0.9
+    weight_decay: 0.005
+)
+Training started

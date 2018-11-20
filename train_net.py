@@ -1,6 +1,7 @@
 import argparse
 import importlib
 import ast
+import torch.optim as optim
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
 parser.add_argument('-r', dest='dataset_root_folder', required=True, help='Root folder for dataset')
@@ -41,7 +42,9 @@ def log_print(msg, log_filepath):
     print(msg)
 open(args.log_filepath, 'w').close()
 
-log_print("Training started", args.log_filepath)
+# Print passed arguments
+log_print("Arguments: " + str(args), args.log_filepath)
+
 # Network initialization block
 # import network class from its module and class name
 net_module_str, net_class_str = args.net.split('.')
@@ -65,12 +68,22 @@ DataLoader = getattr(data_loader_module, data_loader_function_str)
 train_loader = DataLoader(root_folder=args.dataset_root_folder,
                           batch_size=args.batch_size)
 if train_loader is None:
-    log_print("Could not load train loader (train_loader is None)", args.log_filepath)
+    log_print("Could not load train loader function (train_loader is None)", args.log_filepath)
     exit(1)
-log_print("Data loader:", args.log_filepath)
-log_print(DataLoader, args.log_filepath)
+log_print("Data loader: " + str(DataLoader), args.log_filepath)
 log_print("Dataset root folder: " + args.dataset_root_folder, args.log_filepath)
 log_print("Dataset batch size: " + str(args.batch_size), args.log_filepath)
 log_print("Dataset length: " + str(len(train_loader)), args.log_filepath)
 
+# Optimizer initialization block
+optimizer = optim.Adadelta(net_model.parameters(),
+                           rho=args.momentum,
+                           weight_decay=args.weight_decay,
+                           lr=args.lr)
+log_print("Optimizer loaded: " + str(optimizer), args.log_filepath)
 
+# Training
+log_print("Training started", args.log_filepath)
+for epoch_idx in range(args.num_epochs):
+    for batch_idx, (data, labels) in enumerate(train_loader):
+        log_print("Batch: " + str(batch_idx + 1), args.log_filepath)
