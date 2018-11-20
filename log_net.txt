@@ -1,7 +1,7 @@
 Generated from train_ney.py in Handy repository (https://github.com/pauloabelha/handy.git)
-Timestamp: 2018-11-20 17:46:04
+Timestamp: 2018-11-20 18:03:16
 GPU: GeForce GTX 1080 Ti
-Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_interval=100, lr=0.05, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, use_cuda=True, weight_decay=0.005)
+Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_interval=10, lr=0.05, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, use_cuda=True, weight_decay=0.005)
 Network params dict: {'num_input_channels': 3}
 Network loaded: 
 ReconstructNet(
@@ -57,7 +57,7 @@ ReconstructNet(
   )
 )
 Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270), 'type': 'train'}
-Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x00000260AFA7A840>
+Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x000002D4282152F0>
 Dataset length: 3763
 Optimizer loaded: Adadelta (
 Parameter Group 0
@@ -67,4 +67,10 @@ Parameter Group 0
     weight_decay: 0.005
 )
 Training started
-769172.625
+Training: Epoch 0, Batch 0, Loss 1.6030304431915283, Average (last 10) loss: 1.6030304431915283
+Training: Epoch 0, Batch 10, Loss 1.258374810218811, Average (last 10) loss: 1.391480839252472
+Training: Epoch 0, Batch 20, Loss 1.1197394132614136, Average (last 10) loss: 1.1769757509231566
+Training: Epoch 0, Batch 30, Loss 1.047978401184082, Average (last 10) loss: 1.0752068996429442
+Training: Epoch 0, Batch 40, Loss 1.0139724016189575, Average (last 10) loss: 1.0291820168495178
+Training: Epoch 0, Batch 50, Loss 0.9961559772491455, Average (last 10) loss: 1.0049881517887116
+Training: Epoch 0, Batch 60, Loss 0.9845443367958069, Average (last 10) loss: 0.9907182395458222

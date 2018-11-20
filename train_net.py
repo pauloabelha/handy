@@ -5,13 +5,15 @@ import torch.optim as optim
 import time
 import datetime
 import torch
+from torch.autograd import Variable
+import numpy as np
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
 parser.add_argument('--dataset-dict', required=True,
                     help='String representation of a dataset''s dictionary parameter"')
 parser.add_argument('-e', dest='num_epochs', type=int, required=True,
                     help='Total number of epochs to train')
-parser.add_argument('--log-interval', dest='log_interval', type=int, default=100,
+parser.add_argument('--log-interval', dest='log_interval', type=int, default=10,
                     help='Intervalwith which to log')
 parser.add_argument('-c', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
                     help='Checkpoint file path')
@@ -93,18 +95,36 @@ optimizer = optim.Adadelta(net_model.parameters(),
 log_print("Optimizer loaded: " + str(optimizer), args.log_filepath)
 
 # Training
+train_vars = {
+    'epoch_idx': 0,
+    'batch_idx': 0,
+    'losses': [],
+}
 log_print("Training started", args.log_filepath)
 for epoch_idx in range(args.num_epochs):
     for batch_idx, (data, labels) in enumerate(train_loader):
         if args.use_cuda:
             data = data.cuda()
             labels = labels.cuda()
-
+        data = Variable(data)
+        labels = Variable(labels)
+        # Clean optimizer
+        optimizer.zero_grad()
+        # Forward pass
         output = net_model(data)
-        loss = net_model.loss(data, output)
-        log_print(loss.item(), args.log_filepath)
+        # Calculate loss
+        loss = net_model.loss(output, labels)
+        train_vars['losses'].append(loss.item())
+        # Backprop
+        loss.backward()
+        optimizer.step()
+        # Log results
+        if batch_idx % args.log_interval == 0:
+            log_msg = "Training: Epoch {}, Batch {}, Loss {}, Average (last 10) loss: {}".format(
+                epoch_idx, batch_idx, train_vars['losses'][-1],
+            np.mean(train_vars['losses'][-10:]))
+            log_print(log_msg, args.log_filepath)
 
 
-        a = 0
 
 

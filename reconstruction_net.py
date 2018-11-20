@@ -1,6 +1,6 @@
 import torch.nn.functional as F
 from network_blocks import *
-
+from torch.autograd import Variable
 
 class ReconstructNet(nn.Module):
 
@@ -35,6 +35,6 @@ class ReconstructNet(nn.Module):
         x = x[:, :, 0:x_initial_shape[2], 0:x_initial_shape[3]]
         return x
 
-    def loss(self, x, recon_x):
-        self.losses['mse'] = F.mse_loss(x, recon_x)
+    def loss(self, output, label):
+        self.losses['mse'] = F.mse_loss(output, label)
         return self.losses['mse']

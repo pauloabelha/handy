@@ -104,6 +104,8 @@ for epoch_idx in range(args.num_epochs - 1):
         if args.use_cuda:
             data = data.cuda()
             label_heatmaps = label_heatmaps.cuda()
+
+
         # zero out torch gradients
         optimizer.zero_grad()
 
