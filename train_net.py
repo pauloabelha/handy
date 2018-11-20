@@ -71,6 +71,7 @@ data_loader_module = importlib.import_module(data_loader_module_str)
 DataLoader = getattr(data_loader_module, data_loader_function_str)
 # get network params dict from its string representation
 dataset_params_dict = ast.literal_eval(args.dataset_dict)
+dataset_params_dict['type'] = 'train'
 log_print("Dataset params dict: " + str(dataset_params_dict), args.log_filepath)
 train_loader = DataLoader(dataset_params_dict)
 if train_loader is None:

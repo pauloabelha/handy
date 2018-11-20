@@ -158,10 +158,11 @@ def create_split_file_old(dataset_root_folder, gt_folder, num_train_seq,
         pickle.dump(dataset_tuples, handle, protocol=pickle.HIGHEST_PROTOCOL)
     return dataset_tuples
 
-def create_split_file(dataset_root_folder, gt_folder, perc_train, perc_valid,
+def create_split_file(dataset_root_folder, perc_train, perc_valid,
+                      gt_folder='Video_files/',
                       split_filename='fpa_split_tracking.p',
                       only_with_obj_pose=False,
-                           fpa_subj_split=False,
+                      fpa_subj_split=False,
                       fpa_obj_split=False):
     if fpa_subj_split and fpa_obj_split:
         raise 1

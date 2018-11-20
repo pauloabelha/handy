@@ -62,26 +62,26 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="28536" />
+          <entry key="py" value="28859" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="28536" />
+          <entry key="Python" value="28859" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="226" />
+          <entry key="py" value="227" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="226" />
+          <entry key="Python" value="227" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -90,19 +90,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log_net.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+            <state relative-caret-position="384">
+              <caret line="92" selection-start-line="92" selection-end-line="92" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -110,17 +101,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="412" lean-forward="true" selection-start-line="412" selection-end-line="412" />
+            <state relative-caret-position="269">
+              <caret line="425" column="79" selection-start-line="425" selection-start-column="79" selection-end-line="425" selection-end-column="79" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1542721979407" expanded="true" signature="2348:2433" ph="..." />
-                <marker date="1542721979407" expanded="true" signature="18241:18615" ph="..." />
-                <marker date="1542721979407" expanded="true" signature="22342:22347" ph="..." />
+                <marker date="1542724148052" expanded="true" signature="2348:2433" ph="..." />
+                <marker date="1542724148052" expanded="true" signature="18535:19723" ph="..." />
+                <marker date="1542724148052" expanded="true" signature="23456:23461" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fpa_io.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -136,8 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>model</find>
-      <find>train_loade</find>
       <find>split</find>
       <find>last</find>
       <find>joints_uv</find>
@@ -166,6 +164,8 @@
       <find>SoftmaxLogProbability2D</find>
       <find>make_bilinear_weights</find>
       <find>print_v</find>
+      <find>get_subpath_and_file_num</find>
+      <find>read_color_img</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
@@ -207,7 +207,6 @@
         <option value="$PROJECT_DIR$/io_image.py" />
         <option value="$PROJECT_DIR$/test_baseline_pose_regression.py" />
         <option value="$PROJECT_DIR$/train_baseline_pose_regression.py" />
-        <option value="$PROJECT_DIR$/fpa_io.py" />
         <option value="$PROJECT_DIR$/create_fpa_split.py" />
         <option value="$PROJECT_DIR$/visualize.py" />
         <option value="$PROJECT_DIR$/test_detection.py" />
@@ -223,8 +222,9 @@
         <option value="$PROJECT_DIR$/reconstruction_net.py" />
         <option value="$PROJECT_DIR$/train_reconstruction_net.py" />
         <option value="$PROJECT_DIR$/network_blocks.py" />
-        <option value="$PROJECT_DIR$/fpa_dataset.py" />
+        <option value="$PROJECT_DIR$/fpa_io.py" />
         <option value="$PROJECT_DIR$/train_net.py" />
+        <option value="$PROJECT_DIR$/fpa_dataset.py" />
       </list>
     </option>
   </component>
@@ -354,7 +354,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
-      <option name="PARAMETERS" value="-e 10 --data-loader fpa_dataset.FPALoaderRGBDReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 4}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': '', 'img_res': (1080, 920)}&quot;" />
+      <option name="PARAMETERS" value="-e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 4}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (1080, 920)}&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -422,8 +422,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33632287" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37668163" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33632287" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37668163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -465,6 +465,11 @@
           <url>file://$PROJECT_DIR$/test_detection.py</url>
           <line>105</line>
           <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/fpa_dataset.py</url>
+          <line>437</line>
+          <option name="timeStamp" value="113" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -738,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="325" selection-start-line="325" selection-end-line="325" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JORNet_light.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -866,19 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="412" lean-forward="true" selection-start-line="412" selection-end-line="412" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-            <marker date="1542721979407" expanded="true" signature="2348:2433" ph="..." />
-            <marker date="1542721979407" expanded="true" signature="18241:18615" ph="..." />
-            <marker date="1542721979407" expanded="true" signature="22342:22347" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log_net.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -888,10 +873,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        <state relative-caret-position="384">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="160" column="4" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="425" column="79" selection-start-line="425" selection-start-column="79" selection-end-line="425" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1542724148052" expanded="true" signature="2348:2433" ph="..." />
+            <marker date="1542724148052" expanded="true" signature="18535:19723" ph="..." />
+            <marker date="1542724148052" expanded="true" signature="23456:23461" ph="..." />
           </folding>
         </state>
       </provider>

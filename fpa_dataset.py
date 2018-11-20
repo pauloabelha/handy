@@ -79,6 +79,12 @@ class FPADataset(Dataset):
         file_num = idx_split[1]
         return subpath, file_num
 
+    def read_rgb_img(self, subpath, file_num):
+        rgb_filepath = self.root_folder + self.video_folder + subpath + \
+                         self.color_folder + 'color_' + \
+                         file_num + '.' + self.color_fileext
+        return fpa_io.read_color_img(rgb_filepath)
+
     def read_depth_img(self, subpath, file_num):
         depth_filepath = self.root_folder + self.video_folder + subpath + \
                          self.depth_folder + 'depth_' + \
@@ -400,21 +406,33 @@ class FPADatasetPoseRegressionFromVQVAE(FPADataset):
         else:
             return depth_img_torch, hand_obj_pose, hand_root
 
-class FPADatasetRGBDReconstruction(FPADataset):
+class FPADatasetObjRGBReconstruction(FPADataset):
 
     params_dict = {}
 
     def __init__(self, params_dict):
-        super(FPADatasetRGBDReconstruction, self).\
+        super(FPADatasetObjRGBReconstruction, self).\
             __init__(params_dict['root_folder'],
                      split_filename=params_dict['split_filename'],
                      img_res=params_dict['img_res'])
         self.params_dict = params_dict
-
-
+        # create or load dataset split
+        if params_dict['split_filename'] == '':
+            fpa_io.create_split_file(params_dict['dataset_root_folder'],
+                                     perc_train=0.8, perc_valid=0.,
+                                     only_with_obj_pose=True,
+                                     fpa_subj_split=False,
+                                     fpa_obj_split=False,
+                                     split_filename=params_dict['split_filename'])
+        self.dataset_split = fpa_io.load_split_file(
+                self.root_folder, self.split_filename)
+        self.type = params_dict['type']
 
     def __getitem__(self, idx):
-        return 0
+        subpath, file_num = self.get_subpath_and_file_num(idx)
+        rgb_img = self.read_rgb_img(subpath, file_num)
+        
+        return (rgb_img, rgb_img)
 
 def DataLoaderReconstruction(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
@@ -486,8 +504,8 @@ def DataLoaderPoseRegressionFromVQVAE(root_folder, type, input_type,
         batch_size=batch_size,
         shuffle=False)
 
-def FPALoaderRGBDReconstruction(params_dict):
-    dataset = FPADatasetRGBDReconstruction(params_dict)
+def FPADataLoaderObjRGBReconstruction(params_dict):
+    dataset = FPADatasetObjRGBReconstruction(params_dict)
     return torch.utils.data.DataLoader(
         dataset,
         batch_size=params_dict['batch_size'],
