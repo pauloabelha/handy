@@ -470,3 +470,6 @@ def DataLoaderPoseRegressionFromVQVAE(root_folder, type, input_type,
         dataset,
         batch_size=batch_size,
         shuffle=False)
+
+def FPARGBDReconstruction(root_folder, batch_size):
+    a = 0

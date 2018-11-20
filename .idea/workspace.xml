@@ -48,37 +48,40 @@
     <session id="-819491902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
-          <entry key="project.open.time.0" value="14" />
+          <entry key="project.closed" value="20" />
+          <entry key="project.open.time.0" value="15" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="45" />
-          <entry key="py" value="25516" />
+          <entry key="dummy" value="57" />
+          <entry key="py" value="27622" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="46" />
-          <entry key="Python" value="25516" />
+          <entry key="PLAIN_TEXT" value="58" />
+          <entry key="Python" value="27622" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="210" />
+          <entry key="py" value="225" />
+          <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="210" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -86,25 +89,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="138" column="29" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log_net.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="37" />
+            <state relative-caret-position="338">
+              <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,31 +109,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="281" selection-start-line="281" selection-end-line="281" />
+            <state relative-caret-position="213">
+              <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_baseline_pose_regression.py">
+        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="100" selection-end-column="112" />
+            <state relative-caret-position="458">
+              <caret line="474" column="9" lean-forward="true" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="9" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
+                <marker date="1542712879234" expanded="true" signature="2338:2423" ph="..." />
+                <marker date="1542712879234" expanded="true" signature="21918:21923" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_vqvae_pose_regression.py">
+        <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="47" column="62" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="62" />
+            <state relative-caret-position="-540">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,11 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pose_folder</find>
-      <find>read_ac</find>
-      <find>get_depth_img_with_torch_transform</find>
-      <find>conv_hand_joints_to_rel</find>
-      <find>img_res</find>
       <find>model</find>
       <find>train_loade</find>
       <find>split</find>
@@ -184,10 +177,18 @@
       <find>hand_joints_3d_error</find>
       <find>-c</find>
       <find>num_ba</find>
+      <find>HALNetConvBlock</find>
+      <find>ConvBatchBLock</find>
+      <find>SoftmaxLogProbability2D</find>
+      <find>make_bilinear_weights</find>
+      <find>print_v</find>
     </findStrings>
     <replaceStrings>
       <replace>split_filename</replace>
       <replace>test_loade</replace>
+      <replace>ConvBatchBLock</replace>
+      <replace>NetBLockConvBatchRelu</replace>
+      <replace>NetBlockSoftmaxLogProbability2D</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -209,7 +210,6 @@
         <option value="$PROJECT_DIR$/train_fpa.py" />
         <option value="$PROJECT_DIR$/track_from_trained.py" />
         <option value="$PROJECT_DIR$/baseline_pose_regression.py" />
-        <option value="$PROJECT_DIR$/HALNet.py" />
         <option value="$PROJECT_DIR$/JORNet.py" />
         <option value="$PROJECT_DIR$/eulerangles.py" />
         <option value="$PROJECT_DIR$/losses.py" />
@@ -232,10 +232,15 @@
         <option value="$PROJECT_DIR$/skeleton.py" />
         <option value="$PROJECT_DIR$/skeleton_fpa_angle.py" />
         <option value="$PROJECT_DIR$/hand_detection_net.py" />
-        <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/trainer.py" />
         <option value="$PROJECT_DIR$/test_vqvae_pose_regression.py" />
         <option value="$PROJECT_DIR$/train_vqvae_pose_regression.py" />
+        <option value="$PROJECT_DIR$/HALNet.py" />
+        <option value="$PROJECT_DIR$/reconstruction_net.py" />
+        <option value="$PROJECT_DIR$/train_reconstruction_net.py" />
+        <option value="$PROJECT_DIR$/network_blocks.py" />
+        <option value="$PROJECT_DIR$/fpa_dataset.py" />
+        <option value="$PROJECT_DIR$/train_net.py" />
       </list>
     </option>
   </component>
@@ -288,7 +293,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.train_vqvae_pose_regression">
+  <component name="RunManager" selected="Python.train_net">
     <configuration name="skeleton_angle" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -302,27 +307,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\handy\skeleton_fpa_angle.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="skeleton_fitter" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="handy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/skeleton_fitter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -373,6 +357,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train_net" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="handy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
+      <option name="PARAMETERS" value="--data-loader fpa_dataset.FPARGBDReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 4}&quot; -e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train_vqvae_pose_regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="handy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -395,19 +400,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.skeleton_fitter" />
       <item itemvalue="Python.test_detection" />
       <item itemvalue="Python.skeleton_angle" />
       <item itemvalue="Python.train_vqvae_pose_regression" />
       <item itemvalue="Python.test_vqvae_pose_regression" />
+      <item itemvalue="Python.train_net" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.train_net" />
         <item itemvalue="Python.train_vqvae_pose_regression" />
         <item itemvalue="Python.test_vqvae_pose_regression" />
         <item itemvalue="Python.skeleton_angle" />
         <item itemvalue="Python.test_detection" />
-        <item itemvalue="Python.skeleton_fitter" />
       </list>
     </recent_temporary>
   </component>
@@ -426,14 +431,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25512666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36659193" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37712345" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29820627" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37668163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -521,35 +527,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/muellericcv2017/train_halnet.py" />
-    <entry file="file://$PROJECT_DIR$/lstm_baseline_generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_baseline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="65" column="72" selection-start-line="65" selection-start-column="72" selection-end-line="65" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../VQ-VAE/ycb_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="96" column="70" lean-forward="true" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/site-packages/PIL/Image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
@@ -648,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HALNet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="146" column="23" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/deeplearning_env/Lib/site-packages/torch/nn/functional.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -708,20 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="39" column="81" selection-start-line="39" selection-start-column="81" selection-end-line="39" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_autoencoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -833,14 +789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+    <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="400" selection-start-line="400" selection-end-line="400" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-            <marker date="1541533391083" expanded="true" signature="2338:2423" ph="..." />
-          </folding>
+        <state relative-caret-position="460">
+          <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -848,32 +800,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="100" selection-end-column="112" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_vqvae_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
+        <state relative-caret-position="760">
           <caret line="47" column="62" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_autoencoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1542710585143" expanded="true" signature="181:183" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trainer.py">
+    <entry file="file://$PROJECT_DIR$/network_blocks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="281" selection-start-line="281" selection-end-line="281" />
+        <state relative-caret-position="60">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HALNet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1210">
+          <caret line="123" column="49" lean-forward="true" selection-start-line="123" selection-start-column="49" selection-end-line="124" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_baseline_pose_regression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
+        <state relative-caret-position="561">
           <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="37" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -881,12 +858,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_vqvae_pose_regression.py">
+    <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="138" column="29" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
+        <state relative-caret-position="-540">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="474" column="9" lean-forward="true" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1542712879234" expanded="true" signature="2338:2423" ph="..." />
+            <marker date="1542712879234" expanded="true" signature="21918:21923" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debugger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-560">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log_net.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="67" column="65" selection-start-line="67" selection-start-column="65" selection-end-line="67" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
