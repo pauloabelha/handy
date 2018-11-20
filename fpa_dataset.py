@@ -57,7 +57,7 @@ class FPADataset(Dataset):
     for_autoencoding = False
     input_type = ""
 
-    def __init__(self, root_folder, type, input_type, transform_color=None,
+    def __init__(self, root_folder, type=None, input_type=None, transform_color=None,
                  transform_depth=None, img_res=None, crop_res=None, split_filename='',
                  for_autoencoding=False):
         self.root_folder = root_folder
@@ -400,6 +400,21 @@ class FPADatasetPoseRegressionFromVQVAE(FPADataset):
         else:
             return depth_img_torch, hand_obj_pose, hand_root
 
+class FPADatasetRGBDReconstruction(FPADataset):
+
+    params_dict = {}
+
+    def __init__(self, params_dict):
+        super(FPADatasetRGBDReconstruction, self).\
+            __init__(params_dict['root_folder'],
+                     split_filename=params_dict['split_filename'],
+                     img_res=params_dict['img_res'])
+        self.params_dict = params_dict
+
+
+
+    def __getitem__(self, idx):
+        return 0
 
 def DataLoaderReconstruction(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
@@ -471,5 +486,9 @@ def DataLoaderPoseRegressionFromVQVAE(root_folder, type, input_type,
         batch_size=batch_size,
         shuffle=False)
 
-def FPARGBDReconstruction(root_folder, batch_size):
-    return []
+def FPALoaderRGBDReconstruction(params_dict):
+    dataset = FPADatasetRGBDReconstruction(params_dict)
+    return torch.utils.data.DataLoader(
+        dataset,
+        batch_size=params_dict['batch_size'],
+        shuffle=False)

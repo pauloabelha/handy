@@ -1,7 +1,8 @@
-Arguments: Namespace(batch_size=4, checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPARGBDReconstruction', dataset_root_folder='C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', log_filepath='log_net.txt', log_interval=100, lr=0.05, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 4}", num_epochs=20, split_filename='', use_cuda=False, weight_decay=0.005)
-Network params dict:
-{'num_input_channels': 4}
-Network:
+Generated from train_ney.py in Handy repository (https://github.com/pauloabelha/handy.git)
+Timestamp: 2018-11-20 13:57:05
+Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPALoaderRGBDReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': '', 'img_res': (1080, 920)}", log_filepath='log_net.txt', log_interval=100, lr=0.05, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 4}", num_epochs=10, use_cuda=False, weight_decay=0.005)
+Network params dict: {'num_input_channels': 4}
+Network loaded: 
 ReconstructNet(
   (conv1): Sequential(
     (0): Conv2d(4, 64, kernel_size=(4, 4), stride=(1, 1))
@@ -9,10 +10,8 @@ ReconstructNet(
     (2): ReLU()
   )
 )
-Network loaded succesfully
-Data loader: <function FPARGBDReconstruction at 0x0000027CC321C840>
-Dataset root folder: C:/Users/Administrator/Documents/Datasets/fpa_benchmark/
-Dataset batch size: 4
+Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': '', 'img_res': (1080, 920)}
+Data loader loaded: <function FPALoaderRGBDReconstruction at 0x000001B30E230950>
 Dataset length: 0
 Optimizer loaded: Adadelta (
 Parameter Group 0

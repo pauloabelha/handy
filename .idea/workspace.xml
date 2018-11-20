@@ -62,14 +62,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="27869" />
+          <entry key="py" value="28536" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="27869" />
+          <entry key="Python" value="28536" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -92,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log_net.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+            <state relative-caret-position="80">
+              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -101,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="280">
+              <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -111,26 +111,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="97" column="69" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="69" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="474" column="13" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
+            <state relative-caret-position="229">
+              <caret line="412" lean-forward="true" selection-start-line="412" selection-end-line="412" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1542713927724" expanded="true" signature="2338:2423" ph="..." />
-                <marker date="1542713927724" expanded="true" signature="21918:21923" ph="..." />
+                <marker date="1542721979407" expanded="true" signature="2348:2433" ph="..." />
+                <marker date="1542721979407" expanded="true" signature="18241:18615" ph="..." />
+                <marker date="1542721979407" expanded="true" signature="22342:22347" ph="..." />
               </folding>
             </state>
           </provider>
@@ -365,7 +354,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
-      <option name="PARAMETERS" value="--data-loader fpa_dataset.FPARGBDReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 4}&quot; -e 20 -r $PROJECT_DIR$/../../Datasets/fpa_benchmark/" />
+      <option name="PARAMETERS" value="-e 10 --data-loader fpa_dataset.FPALoaderRGBDReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 4}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': '', 'img_res': (1080, 920)}&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -433,7 +422,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27242154" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33632287" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37668163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -867,25 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="474" column="13" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-            <marker date="1542713927724" expanded="true" signature="2338:2423" ph="..." />
-            <marker date="1542713927724" expanded="true" signature="21918:21923" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log_net.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train_hand_detection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -896,10 +866,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="412" lean-forward="true" selection-start-line="412" selection-end-line="412" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1542721979407" expanded="true" signature="2348:2433" ph="..." />
+            <marker date="1542721979407" expanded="true" signature="18241:18615" ph="..." />
+            <marker date="1542721979407" expanded="true" signature="22342:22347" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log_net.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/train_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="280">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
