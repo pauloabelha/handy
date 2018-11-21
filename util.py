@@ -2,6 +2,27 @@ from os import listdir
 from os.path import isfile, join
 import time
 
+# https://discuss.pytorch.org/t/simple-way-to-inverse-transform-normalization/4821/2
+class UnNormalize(object):
+    def __init__(self, mean, std, img=False):
+        self.mean = mean
+        self.std = std
+        self.img = img
+
+    def __call__(self, tensor):
+        """
+        Args:
+            tensor (Tensor): Tensor image of size (C, H, W) to be normalized.
+        Returns:
+            Tensor: Normalized image.
+        """
+        for t, m, s in zip(tensor, self.mean, self.std):
+            t.mul_(s).add_(m)
+            # The normalize code -> t.sub_(m).div_(s)
+            if self.img:
+                t.mul_(255)
+        return tensor
+
 def cudafy(object, use_cuda):
     if use_cuda:
         return object.cuda()

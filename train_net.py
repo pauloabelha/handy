@@ -7,12 +7,19 @@ import datetime
 import torch
 from torch.autograd import Variable
 import numpy as np
+import io_image
 
 parser = argparse.ArgumentParser(description='Train a hand-tracking deep neural network')
 parser.add_argument('--dataset-dict', required=True,
                     help='String representation of a dataset''s dictionary parameter"')
+parser.add_argument('--log-root-folder', default='',
+                    help='Root folder for logging results')
+parser.add_argument('--log-img-prefix', default='log_img_',
+                    help='Prefix for logging images')
 parser.add_argument('-e', dest='num_epochs', type=int, required=True,
                     help='Total number of epochs to train')
+parser.add_argument('--max-log-images', type=int, default=4,
+                    help='Max number of images to log')
 parser.add_argument('--log-interval', dest='log_interval', type=int, default=10,
                     help='Intervalwith which to log')
 parser.add_argument('-c', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
@@ -36,6 +43,45 @@ parser.add_argument('--data-loader', required=True,
                     help='Data loader module and function name.'
                          'Example: "fpa_dataset.FPARGBDReconstruction"')
 args = parser.parse_args()
+
+# Return three lists of images for data, label and output (for reconstruction)
+def get_imgs_to_save(data, labels, output, max_log_images):
+    data_imgs = []
+    labels_imgs = []
+    output_imgs = []
+    num_log_images = min(max_log_images, data.shape[0])
+    for i in range(num_log_images):
+        data_imgs.append(train_loader.dataset.inv_transform_RGB_img(
+            data[0].detach().cpu()))
+        labels_imgs.append(train_loader.dataset.inv_transform_RGB_img(
+            labels[0].detach().cpu()))
+        output_imgs.append(train_loader.dataset.inv_transform_RGB_img(
+            output[0].detach().cpu()))
+    return data_imgs, labels_imgs, output_imgs
+
+# Save images to file
+def save_imgs_to_file(list_imgs, img_filepath):
+    grid_res_x = 0
+    grid_res_y = 0
+    num_rows = len(list_imgs)
+    num_cols = len(list_imgs[0])
+    for i in range(num_rows):
+        grid_res_x += list_imgs[i][0].shape[0]
+    for j in range(num_cols):
+        grid_res_y += list_imgs[0][j].shape[1]
+    grid_num_channels = list_imgs[0][0].shape[2]
+    grid = np.zeros((grid_res_x, grid_res_y, grid_num_channels))
+    for i in range(num_rows):
+        for j in range(num_cols):
+            x_curr_res = list_imgs[i][j].shape[0]
+            y_curr_res = list_imgs[i][j].shape[1]
+            x_start = i * x_curr_res
+            x_end = x_start + x_curr_res
+            y_start = j * y_curr_res
+            y_end = y_start + y_curr_res
+            grid[x_start:x_end, y_start:y_end, :] = list_imgs[i][j]
+    io_image.save_image(grid, img_filepath)
+
 
 # Start log file
 def log_print(msg, log_filepath):
@@ -118,12 +164,26 @@ for epoch_idx in range(args.num_epochs):
         # Backprop
         loss.backward()
         optimizer.step()
-        # Log results
+        # Log image results for the first batch (at every epoch,
+        # so we can compare progress)
+        if batch_idx == 0:
+            data_imgs, labels_imgs, output_imgs = \
+                get_imgs_to_save(data, labels, output, args.max_log_images)
+            img_filepath = args.log_root_folder + args.log_img_prefix +\
+                           str(epoch_idx) + '_0.png'
+            save_imgs_to_file([data_imgs, labels_imgs, output_imgs], img_filepath)
+        # Log current results
         if batch_idx % args.log_interval == 0:
+            # Log message
             log_msg = "Training: Epoch {}, Batch {}, Loss {}, Average (last 10) loss: {}".format(
                 epoch_idx, batch_idx, train_vars['losses'][-1],
             np.mean(train_vars['losses'][-10:]))
             log_print(log_msg, args.log_filepath)
+            # Log reconstructed images
+            data_imgs, labels_imgs, output_imgs = \
+                get_imgs_to_save(data, labels, output, args.max_log_images)
+            img_filepath = args.log_root_folder + args.log_img_prefix + 'curr.png'
+            save_imgs_to_file([data_imgs, labels_imgs, output_imgs], img_filepath)
 
 
 

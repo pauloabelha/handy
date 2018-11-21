@@ -9,37 +9,8 @@ import converter as conv
 from torchvision import transforms
 import torch.nn.functional as F
 from torch.autograd import Variable
+from util import UnNormalize
 
-
-class FPADataset(Dataset):
-    gt_folder = 'Hand_pose_annotation_v1'
-    video_files_folder = 'video_files'
-    color_folder = 'color'
-    depth_folder = 'depth'
-    dataset_tuples = None
-
-    def __init__(self, root_folder, type, transform=None, img_res=None, split_filename=''):
-        self.root_folder = root_folder
-        self.transform = transform
-        self.img_res = img_res
-        self.split_filename = split_filename
-        self.type = type
-
-        if self.split_filename == '':
-            fpa_io.create_split_file(self.root_folder,
-                                     self.gt_folder,
-                                     num_train_seq=2,
-                                     actions=None)
-        else:
-            self.dataset_tuples = fpa_io.load_split_file(
-                self.root_folder, self.split_filename)
-
-    def __getitem__(self, idx):
-        data_tuple = self.dataset_tuples[self.type][idx]
-        return data_tuple
-
-    def __len__(self):
-        return len(self.dataset_tuples[self.type])
 
 class FPADataset(Dataset):
     pixel_bound = 100
@@ -58,6 +29,7 @@ class FPADataset(Dataset):
     for_autoencoding = False
     input_type = ""
 
+
     def __init__(self, root_folder, type=None, input_type=None, transform_color=None,
                  transform_depth=None, img_res=None, crop_res=None, split_filename='',
                  for_autoencoding=False):
@@ -69,6 +41,7 @@ class FPADataset(Dataset):
         self.for_autoencoding = for_autoencoding
         self.input_type = input_type
         self.split_filename = split_filename
+
 
     def get_img_title(self, idx):
         subpath, _ = self.get_subpath_and_file_num(idx)
@@ -438,6 +411,15 @@ class FPADatasetObjRGBReconstruction(FPADataset):
         self.dataset_split = fpa_io.load_split_file(
                 self.root_folder, self.split_filename)
         self.type = params_dict['type']
+        self.unnormalize = UnNormalize(self.transform.transforms[-1].mean,
+                                       self.transform.transforms[-1].std,
+                                       img=True)
+
+    def inv_transform_RGB_img(self, img):
+        self.unnormalize(img)
+        img = img.numpy().swapaxes(0, 1).swapaxes(1, 2).swapaxes(0, 1)
+        return img
+
 
     def __getitem__(self, idx):
         idx = 16

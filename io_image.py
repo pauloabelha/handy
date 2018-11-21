@@ -2,6 +2,8 @@ from scipy import misc
 import numpy as np
 import converter as conv
 
+def save_image(image, filepath):
+    misc.imsave(filepath, image)
 
 def change_res_image(image, new_res):
     image = misc.imresize(image, new_res)

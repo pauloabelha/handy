@@ -1,7 +1,7 @@
 Generated from train_ney.py in Handy repository (https://github.com/pauloabelha/handy.git)
-Timestamp: 2018-11-20 18:03:16
+Timestamp: 2018-11-21 11:43:04
 GPU: GeForce GTX 1080 Ti
-Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_interval=10, lr=0.05, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, use_cuda=True, weight_decay=0.005)
+Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=10, log_root_folder='', lr=0.05, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, use_cuda=True, weight_decay=0.005)
 Network params dict: {'num_input_channels': 3}
 Network loaded: 
 ReconstructNet(
@@ -57,7 +57,7 @@ ReconstructNet(
   )
 )
 Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270), 'type': 'train'}
-Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x000002D4282152F0>
+Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x0000020538AAB510>
 Dataset length: 3763
 Optimizer loaded: Adadelta (
 Parameter Group 0
@@ -67,10 +67,17 @@ Parameter Group 0
     weight_decay: 0.005
 )
 Training started
-Training: Epoch 0, Batch 0, Loss 1.6030304431915283, Average (last 10) loss: 1.6030304431915283
-Training: Epoch 0, Batch 10, Loss 1.258374810218811, Average (last 10) loss: 1.391480839252472
-Training: Epoch 0, Batch 20, Loss 1.1197394132614136, Average (last 10) loss: 1.1769757509231566
-Training: Epoch 0, Batch 30, Loss 1.047978401184082, Average (last 10) loss: 1.0752068996429442
-Training: Epoch 0, Batch 40, Loss 1.0139724016189575, Average (last 10) loss: 1.0291820168495178
-Training: Epoch 0, Batch 50, Loss 0.9961559772491455, Average (last 10) loss: 1.0049881517887116
-Training: Epoch 0, Batch 60, Loss 0.9845443367958069, Average (last 10) loss: 0.9907182395458222
+Training: Epoch 0, Batch 0, Loss 1.6773934364318848, Average (last 10) loss: 1.6773934364318848
+Training: Epoch 0, Batch 10, Loss 1.2424427270889282, Average (last 10) loss: 1.4654612779617309
+Training: Epoch 0, Batch 20, Loss 1.061906337738037, Average (last 10) loss: 1.1145246028900146
+Training: Epoch 0, Batch 30, Loss 1.0194625854492188, Average (last 10) loss: 1.0354887247085571
+Training: Epoch 0, Batch 40, Loss 0.9993841648101807, Average (last 10) loss: 1.0073011994361878
+Training: Epoch 0, Batch 50, Loss 0.9853389263153076, Average (last 10) loss: 0.9912834346294404
+Training: Epoch 0, Batch 60, Loss 0.9748380184173584, Average (last 10) loss: 0.9794058680534363
+Training: Epoch 0, Batch 70, Loss 0.9667431116104126, Average (last 10) loss: 0.9701920449733734
+Training: Epoch 0, Batch 80, Loss 0.9602358341217041, Average (last 10) loss: 0.9630708515644073
+Training: Epoch 0, Batch 90, Loss 0.9548172950744629, Average (last 10) loss: 0.9573385357856751
+Training: Epoch 0, Batch 100, Loss 0.9502590298652649, Average (last 10) loss: 0.9523233354091645
+Training: Epoch 0, Batch 110, Loss 0.9461705684661865, Average (last 10) loss: 0.9480522096157074
+Training: Epoch 0, Batch 120, Loss 0.9430001974105835, Average (last 10) loss: 0.9444183528423309
+Training: Epoch 0, Batch 130, Loss 0.9403296113014221, Average (last 10) loss: 0.9415359318256378
