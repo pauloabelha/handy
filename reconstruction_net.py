@@ -12,18 +12,33 @@ class ReconstructNet(nn.Module):
 
         self.num_input_channels = params_dict['num_input_channels']
 
+        self.num_layers_encoding = 5
+        self.kernel_size = 3
+        self.stride = 1
+        self.out_channel_first = 32
+        self.out_channels = [0] * self.num_layers_encoding
+        for i in range(self.num_layers_encoding):
+            self.out_channels[i] = int(self.out_channel_first / 2**i)
+        self.kernel_sizes = [self.kernel_size] * self.num_layers_encoding
+        self.strides = [self.stride] * self.num_layers_encoding
+
+
         self.conv_sequence =\
-            NetBlocksSequenceConvBatchRelu(4, kernel_sizes=[4, 4, 4, 4],
-                                           strides=[1, 1, 1, 1],
-                                           out_channels=[32, 16, 8, 4],
+            NetBlocksSequenceConvBatchRelu(num_blocks=self.num_layers_encoding,
+                                           kernel_sizes=self.kernel_sizes,
+                                           strides=self.strides,
+                                           out_channels=self.out_channels,
                                            in_channels=self.num_input_channels)
         self.flatten = NetBlocksFlatten()
+        self.kernel_sizes.append(self.kernel_size)
+        self.strides.append(self.stride)
+        self.out_channels = self.out_channels[::-1] + [self.num_input_channels]
         self.deconv_sequence = \
-            NetBlocksSequenceDeconvBatchRelu(5, kernel_sizes=[4, 4, 4, 4, 4],
-                                           strides=[1, 1, 1, 1, 1],
-                                           out_channels=[4, 8, 16, 32, 3],
-                                           in_channels=4,
-                                             paddings=[0, 0, 11, 0, 0])
+            NetBlocksSequenceDeconvBatchRelu(num_blocks=self.num_layers_encoding + 1,
+                                             kernel_sizes=self.kernel_sizes,
+                                             strides=self.strides,
+                                             out_channels=self.out_channels,
+                                             in_channels=self.out_channels[0])
 
     def forward(self, x):
         x_initial_shape = x.shape

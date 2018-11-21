@@ -64,26 +64,26 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="33859" />
+          <entry key="py" value="34410" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="33859" />
+          <entry key="Python" value="34410" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="246" />
+          <entry key="py" value="249" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="246" />
+          <entry key="Python" value="249" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -92,32 +92,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
+        <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="419" column="69" selection-start-line="419" selection-start-column="69" selection-end-line="419" selection-end-column="69" />
+            <state relative-caret-position="328">
+              <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
-                <marker date="1542800331101" expanded="true" signature="1350:1356" ph="..." />
-                <marker date="1542800331101" expanded="true" signature="1385:1470" ph="..." />
-                <marker date="1542800331101" expanded="true" signature="2009:2230" ph="..." />
-                <marker date="1542800331101" expanded="true" signature="17843:19951" ph="..." />
-                <marker date="1542800331101" expanded="true" signature="19178:19305" ph="..." />
-                <marker date="1542800331101" expanded="true" signature="19300:19305" ph="..." />
-                <marker date="1542800331101" expanded="true" signature="23684:23689" ph="..." />
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1542804097803" expanded="true" signature="3190:3893" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/train_net.py">
+        <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="175" column="46" lean-forward="true" selection-start-line="175" selection-start-column="46" selection-end-line="175" selection-end-column="46" />
+            <state relative-caret-position="95">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1542800494036" expanded="true" signature="3189:3892" ph="..." />
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network_blocks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="38" column="60" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="60" />
+              <folding>
+                <marker date="1542734551598" expanded="true" signature="1589:2509" ph="..." />
               </folding>
             </state>
           </provider>
@@ -219,11 +224,11 @@
         <option value="$PROJECT_DIR$/fpa_io.py" />
         <option value="$PROJECT_DIR$/network_blocks.py" />
         <option value="$PROJECT_DIR$/train_hand_detection.py" />
-        <option value="$PROJECT_DIR$/reconstruction_net.py" />
         <option value="$PROJECT_DIR$/util.py" />
         <option value="$PROJECT_DIR$/io_image.py" />
         <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/train_net.py" />
+        <option value="$PROJECT_DIR$/reconstruction_net.py" />
       </list>
     </option>
   </component>
@@ -422,8 +427,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28699553" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49939686" weight="0.35650223" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30605382" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49939686" weight="0.29596412" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -787,16 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_blocks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding>
-            <marker date="1542734551598" expanded="true" signature="1589:2509" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/losses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -822,16 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-943">
           <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,11 +871,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="175" column="46" lean-forward="true" selection-start-line="175" selection-start-column="46" selection-end-line="175" selection-end-column="46" />
+        <state relative-caret-position="328">
+          <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1542800494036" expanded="true" signature="3189:3892" ph="..." />
+            <marker date="1542804097803" expanded="true" signature="3190:3893" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network_blocks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="60" />
+          <folding>
+            <marker date="1542734551598" expanded="true" signature="1589:2509" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>

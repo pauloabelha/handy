@@ -20,7 +20,7 @@ parser.add_argument('-e', dest='num_epochs', type=int, required=True,
                     help='Total number of epochs to train')
 parser.add_argument('--max-log-images', type=int, default=4,
                     help='Max number of images to log')
-parser.add_argument('--log-interval', dest='log_interval', type=int, default=10,
+parser.add_argument('--log-interval', dest='log_interval', type=int, default=100,
                     help='Intervalwith which to log')
 parser.add_argument('-c', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
                     help='Checkpoint file path')
@@ -175,9 +175,11 @@ for epoch_idx in range(args.num_epochs):
         # Log current results
         if batch_idx % args.log_interval == 0:
             # Log message
-            log_msg = "Training: Epoch {}, Batch {}, Loss {}, Average (last 10) loss: {}".format(
-                epoch_idx, batch_idx, train_vars['losses'][-1],
-            np.mean(train_vars['losses'][-10:]))
+            log_msg = "Training: Epoch {}/{}, Batch {}/{}, Loss {}," \
+                      "Average (last 10) loss: {}".format(
+                epoch_idx, args.num_epochs-1, batch_idx, len(train_loader)-1,
+                train_vars['losses'][-1],
+                np.mean(train_vars['losses'][-10:]))
             log_print(log_msg, args.log_filepath)
             # Log reconstructed images
             data_imgs, labels_imgs, output_imgs = \
