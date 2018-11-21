@@ -1,73 +1,69 @@
 Generated from train_ney.py in Handy repository (https://github.com/pauloabelha/handy.git)
-Timestamp: 2018-11-21 13:04:06
+Timestamp: 2018-11-21 14:04:59
+Device: cuda:0
 GPU: GeForce GTX 1080 Ti
-Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=100, log_root_folder='', lr=0.05, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, use_cuda=True, weight_decay=0.005)
+Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=100, log_root_folder='', lr=0.05, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, weight_decay=0.005)
 Network params dict: {'num_input_channels': 3}
 Network loaded: 
 ReconstructNet(
   (conv_sequence): Sequential(
     (0): Sequential(
-      (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1))
-      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8))
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
     (1): Sequential(
+      (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1))
+      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+    (2): Sequential(
       (0): Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
-    (2): Sequential(
+    (3): Sequential(
       (0): Conv2d(16, 8, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
-    (3): Sequential(
+    (4): Sequential(
       (0): Conv2d(8, 4, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(4, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-      (2): ReLU()
-    )
-    (4): Sequential(
-      (0): Conv2d(4, 2, kernel_size=(3, 3), stride=(1, 1))
-      (1): BatchNorm2d(2, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
   )
   (flatten): NetBlocksFlatten()
   (deconv_sequence): Sequential(
     (0): Sequential(
-      (0): ConvTranspose2d(2, 2, kernel_size=(3, 3), stride=(1, 1))
-      (1): BatchNorm2d(2, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-      (2): ReLU()
-    )
-    (1): Sequential(
-      (0): Conv2d(2, 4, kernel_size=(3, 3), stride=(1, 1))
-      (1): BatchNorm2d(4, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-      (2): ReLU()
-    )
-    (2): Sequential(
-      (0): Conv2d(4, 8, kernel_size=(3, 3), stride=(1, 1))
+      (0): ConvTranspose2d(4, 8, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
-    (3): Sequential(
+    (1): Sequential(
       (0): Conv2d(8, 16, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
-    (4): Sequential(
+    (2): Sequential(
       (0): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
-    (5): Sequential(
-      (0): Conv2d(32, 3, kernel_size=(3, 3), stride=(1, 1))
+    (3): Sequential(
+      (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+    (4): Sequential(
+      (0): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1))
       (1): BatchNorm2d(3, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
       (2): ReLU()
     )
   )
 )
 Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270), 'type': 'train'}
-Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x000001BC4481EF28>
+Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x0000023479B1D158>
 Dataset length: 3763
 Optimizer loaded: Adadelta (
 Parameter Group 0
@@ -77,3 +73,4 @@ Parameter Group 0
     weight_decay: 0.005
 )
 Training started
+Training: Epoch 0/9, Batch 0/3762, Loss 1.4889856576919556, Average (last 10) loss: 1.4889856576919556, Log Interval 100

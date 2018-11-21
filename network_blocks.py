@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch
 
-def NetBlockConvBatchRelu(kernel_size, stride, out_channels, in_channels,
+def NetBlockConvBatchRelu(in_channels, out_channels, kernel_size, stride,
                           padding=0):
     return nn.Sequential(
             nn.Conv2d(in_channels=in_channels, out_channels=out_channels,
@@ -11,23 +11,23 @@ def NetBlockConvBatchRelu(kernel_size, stride, out_channels, in_channels,
             nn.ReLU()
         )
 
-def NetBlocksSequenceConvBatchRelu(num_blocks, kernel_sizes, strides,
-                                   out_channels, in_channels, paddings=0):
+def NetBlocksSequenceConvBatchRelu(num_blocks, in_channels, out_channels,
+                                   kernel_sizes, strides, paddings=0):
     if paddings == 0:
         paddings = [0] * num_blocks
     conv_sequence = []
-    conv_sequence.append(NetBlockConvBatchRelu(kernel_sizes[0], strides[0],
-                                               out_channels[0], in_channels,
+    conv_sequence.append(NetBlockConvBatchRelu(in_channels, out_channels[0],
+                                               kernel_sizes[0], strides[0],
                                                padding=paddings[0]))
     for i in range(num_blocks - 1):
-        conv_sequence.append(NetBlockConvBatchRelu(kernel_sizes[i+1], strides[i+1],
-                                                   out_channels[i+1], out_channels[i],
-                                              paddings[i+1]))
+        conv_sequence.append(NetBlockConvBatchRelu(out_channels[i], out_channels[i+1],
+                                                   kernel_sizes[i+1], strides[i+1],
+                                                   paddings[i+1]))
     conv_sequence = nn.Sequential(*conv_sequence)
     return conv_sequence
 
-def NetBlocksDeconvBatchRelu(kernel_size, stride, in_channels, out_channels,
-                             padding=0):
+def NetBlocksDeconvBatchRelu(in_channels, out_channels, kernel_size, stride,
+                          padding=0):
     return nn.Sequential(
         nn.ConvTranspose2d(in_channels, out_channels, kernel_size=kernel_size,
                            stride=stride, padding=padding),
@@ -35,18 +35,18 @@ def NetBlocksDeconvBatchRelu(kernel_size, stride, in_channels, out_channels,
         nn.ReLU()
     )
 
-def NetBlocksSequenceDeconvBatchRelu(num_blocks, kernel_sizes, strides,
-                                   out_channels, in_channels, paddings=0):
+def NetBlocksSequenceDeconvBatchRelu(num_blocks, in_channels, out_channels,
+                                   kernel_sizes, strides, paddings=0):
     if paddings == 0:
         paddings = [0] * num_blocks
     deconv_sequence = []
-    deconv_sequence.append(NetBlocksDeconvBatchRelu(kernel_sizes[0], strides[0],
-                                               out_channels[0], in_channels,
+    deconv_sequence.append(NetBlocksDeconvBatchRelu(in_channels, out_channels[0],
+                                               kernel_sizes[0], strides[0],
                                                padding=paddings[0]))
     for i in range(num_blocks-1):
-        deconv_sequence.append(NetBlockConvBatchRelu(kernel_sizes[i+1], strides[i+1],
-                                                   out_channels[i+1], out_channels[i],
-                                              paddings[i+1]))
+        deconv_sequence.append(NetBlockConvBatchRelu(out_channels[i], out_channels[i+1],
+                                                   kernel_sizes[i+1], strides[i+1],
+                                                   paddings[i+1]))
     deconv_sequence = nn.Sequential(*deconv_sequence)
     return deconv_sequence
 

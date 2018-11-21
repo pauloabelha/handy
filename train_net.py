@@ -24,8 +24,6 @@ parser.add_argument('--log-interval', dest='log_interval', type=int, default=100
                     help='Intervalwith which to log')
 parser.add_argument('-c', dest='checkpoint_filepath', default='lstm_baseline.pth.tar',
                     help='Checkpoint file path')
-parser.add_argument('--use-cuda', dest='use_cuda', action='store_true', default=False,
-                    help='Whether to use cuda for training')
 parser.add_argument('-o', dest='log_filepath', default='log_net.txt',
                     help='Output file for logging')
 parser.add_argument('--momentum', dest='momentum', type=float, default=0.9,
@@ -43,6 +41,8 @@ parser.add_argument('--data-loader', required=True,
                     help='Data loader module and function name.'
                          'Example: "fpa_dataset.FPARGBDReconstruction"')
 args = parser.parse_args()
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Return three lists of images for data, label and output (for reconstruction)
 def get_imgs_to_save(data, labels, output, max_log_images):
@@ -96,6 +96,7 @@ timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%
 log_print("Generated from train_ney.py in Handy repository"
           " (https://github.com/pauloabelha/handy.git)", args.log_filepath)
 log_print("Timestamp: " + str(timestamp), args.log_filepath)
+log_print("Device: " + str(device), args.log_filepath)
 log_print("GPU: " + str(torch.cuda.get_device_name(0)), args.log_filepath)
 
 # Print passed arguments
@@ -110,8 +111,7 @@ NetworkClass = getattr(net_module, net_class_str)
 net_params_dict = ast.literal_eval(args.net_dict)
 # inititalize network
 net_model = NetworkClass(net_params_dict)
-if args.use_cuda:
-    net_model.cuda()
+net_model.to(device)
 net_model.train()
 log_print("Network params dict: " + str(net_params_dict), args.log_filepath)
 log_print("Network loaded: ", args.log_filepath)
@@ -149,9 +149,7 @@ train_vars = {
 log_print("Training started", args.log_filepath)
 for epoch_idx in range(args.num_epochs):
     for batch_idx, (data, labels) in enumerate(train_loader):
-        if args.use_cuda:
-            data = data.cuda()
-            labels = labels.cuda()
+        data, labels = data.to(device), labels.to(device)
         data = Variable(data)
         labels = Variable(labels)
         # Clean optimizer
@@ -175,11 +173,11 @@ for epoch_idx in range(args.num_epochs):
         # Log current results
         if batch_idx % args.log_interval == 0:
             # Log message
-            log_msg = "Training: Epoch {}/{}, Batch {}/{}, Loss {}," \
-                      "Average (last 10) loss: {}".format(
+            log_msg = "Training: Epoch {}/{}, Batch {}/{}, Loss {}, " \
+                      "Average (last 10) loss: {}, Log Interval {}".format(
                 epoch_idx, args.num_epochs-1, batch_idx, len(train_loader)-1,
                 train_vars['losses'][-1],
-                np.mean(train_vars['losses'][-10:]))
+                np.mean(train_vars['losses'][-10:]), args.log_interval)
             log_print(log_msg, args.log_filepath)
             # Log reconstructed images
             data_imgs, labels_imgs, output_imgs = \
