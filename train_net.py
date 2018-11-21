@@ -147,6 +147,7 @@ train_vars = {
     'losses': [],
 }
 log_print("Training started", args.log_filepath)
+curr_avg_loss = 0
 for epoch_idx in range(args.num_epochs):
     for batch_idx, (data, labels) in enumerate(train_loader):
         data, labels = data.to(device), labels.to(device)
@@ -173,11 +174,13 @@ for epoch_idx in range(args.num_epochs):
         # Log current results
         if batch_idx % args.log_interval == 0:
             # Log message
+            prev_avg_loss = curr_avg_loss
+            curr_avg_loss = np.mean(train_vars['losses'][-10:])
             log_msg = "Training: Epoch {}/{}, Batch {}/{}, Current loss {}, " \
-                      "Average (last 10) loss: {}, Log Interval {}".format(
+                      "Average (last 10) loss: {}, Diff (avg loss) {}, Log Interval {}".format(
                 epoch_idx, args.num_epochs-1, batch_idx, len(train_loader)-1,
                 train_vars['losses'][-1],
-                np.mean(train_vars['losses'][-10:]), args.log_interval)
+                curr_avg_loss, curr_avg_loss-prev_avg_loss, args.log_interval)
             log_print(log_msg, args.log_filepath)
             # Log reconstructed images
             data_imgs, labels_imgs, output_imgs = \

@@ -16,7 +16,7 @@ class ReconstructNet(nn.Module):
         self.num_layers_encoding = 5
         self.kernel_size = 3
         self.stride = 1
-        self.out_channels = [64, 32, 16, 8, 4]
+        self.out_channels = [32, 32, 32, 32, 32]
         self.paddings = [8, 0, 0, 0, 0]
         self.kernel_sizes = [self.kernel_size] * self.num_layers_encoding
         self.strides = [self.stride] * self.num_layers_encoding

@@ -64,14 +64,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="35446" />
+          <entry key="py" value="35533" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="35446" />
+          <entry key="Python" value="35533" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -94,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+            <state relative-caret-position="340">
+              <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -106,11 +106,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="142" column="10" lean-forward="true" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+            <state relative-caret-position="406">
+              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1542816055410" expanded="true" signature="3115:3818" ph="..." />
+                <marker date="1542818815835" expanded="true" signature="3115:3818" ph="..." />
               </folding>
             </state>
           </provider>
@@ -215,8 +215,8 @@
         <option value="$PROJECT_DIR$/io_image.py" />
         <option value="$PROJECT_DIR$/network_blocks.py" />
         <option value="$PROJECT_DIR$/fpa_dataset.py" />
-        <option value="$PROJECT_DIR$/train_net.py" />
         <option value="$PROJECT_DIR$/reconstruction_net.py" />
+        <option value="$PROJECT_DIR$/train_net.py" />
       </list>
     </option>
   </component>
@@ -347,7 +347,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
-      <option name="PARAMETERS" value="--log-interval 10 -e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 3}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 16, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}&quot;" />
+      <option name="PARAMETERS" value="--log-interval 10 -e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 3}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -408,7 +408,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25512666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -865,8 +864,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        <state relative-caret-position="340">
+          <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -875,11 +874,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="142" column="10" lean-forward="true" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+        <state relative-caret-position="406">
+          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1542816055410" expanded="true" signature="3115:3818" ph="..." />
+            <marker date="1542818815835" expanded="true" signature="3115:3818" ph="..." />
           </folding>
         </state>
       </provider>
