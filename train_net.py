@@ -173,7 +173,7 @@ for epoch_idx in range(args.num_epochs):
         # Log current results
         if batch_idx % args.log_interval == 0:
             # Log message
-            log_msg = "Training: Epoch {}/{}, Batch {}/{}, Loss {}, " \
+            log_msg = "Training: Epoch {}/{}, Batch {}/{}, Current loss {}, " \
                       "Average (last 10) loss: {}, Log Interval {}".format(
                 epoch_idx, args.num_epochs-1, batch_idx, len(train_loader)-1,
                 train_vars['losses'][-1],

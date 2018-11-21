@@ -1,6 +1,7 @@
 import torch.nn.functional as F
 from network_blocks import *
-from torch.autograd import Variable
+import numpy as np
+from torch.nn import init
 
 class ReconstructNet(nn.Module):
 
@@ -40,6 +41,8 @@ class ReconstructNet(nn.Module):
                                              kernel_sizes=self.kernel_sizes,
                                              strides=self.strides)
 
+        self.init_weights()
+
     def forward(self, x):
         x_initial_shape = x.shape
         x = self.conv_sequence(x)
@@ -53,3 +56,8 @@ class ReconstructNet(nn.Module):
     def loss(self, output, label):
         self.losses['mse'] = F.mse_loss(output, label)
         return self.losses['mse']
+
+    def init_weights(self):
+        for module in self.conv_sequence.modules():
+            if isinstance(module, nn.modules.conv.Conv2d):
+                nn.init.xavier_uniform_(module.weight)

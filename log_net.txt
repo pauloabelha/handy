@@ -1,8 +1,8 @@
 Generated from train_ney.py in Handy repository (https://github.com/pauloabelha/handy.git)
-Timestamp: 2018-11-21 14:04:59
+Timestamp: 2018-11-21 16:20:35
 Device: cuda:0
 GPU: GeForce GTX 1080 Ti
-Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=100, log_root_folder='', lr=0.05, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, weight_decay=0.005)
+Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 16, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=10, log_root_folder='', lr=0.05, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, weight_decay=0.005)
 Network params dict: {'num_input_channels': 3}
 Network loaded: 
 ReconstructNet(
@@ -62,9 +62,9 @@ ReconstructNet(
     )
   )
 )
-Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 4, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270), 'type': 'train'}
-Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x0000023479B1D158>
-Dataset length: 3763
+Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 16, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (480, 270), 'type': 'train'}
+Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x000001BAE5F7D268>
+Dataset length: 941
 Optimizer loaded: Adadelta (
 Parameter Group 0
     eps: 1e-06
@@ -73,4 +73,22 @@ Parameter Group 0
     weight_decay: 0.005
 )
 Training started
-Training: Epoch 0/9, Batch 0/3762, Loss 1.4889856576919556, Average (last 10) loss: 1.4889856576919556, Log Interval 100
+Training: Epoch 0/9, Batch 0/940, Current loss 1.538791298866272, Average (last 10) loss: 1.538791298866272, Log Interval 10
+Training: Epoch 0/9, Batch 10/940, Current loss 1.277719259262085, Average (last 10) loss: 1.3737297296524047, Log Interval 10
+Training: Epoch 0/9, Batch 20/940, Current loss 1.1719704866409302, Average (last 10) loss: 1.2146394371986389, Log Interval 10
+Training: Epoch 0/9, Batch 30/940, Current loss 1.111066460609436, Average (last 10) loss: 1.136102557182312, Log Interval 10
+Training: Epoch 0/9, Batch 40/940, Current loss 1.0680862665176392, Average (last 10) loss: 1.086410939693451, Log Interval 10
+Training: Epoch 0/9, Batch 50/940, Current loss 1.0317738056182861, Average (last 10) loss: 1.046473789215088, Log Interval 10
+Training: Epoch 0/9, Batch 60/940, Current loss 1.0091851949691772, Average (last 10) loss: 1.017461359500885, Log Interval 10
+Training: Epoch 0/9, Batch 70/940, Current loss 0.9936151504516602, Average (last 10) loss: 0.9984358727931977, Log Interval 10
+Training: Epoch 0/9, Batch 80/940, Current loss 0.9805918335914612, Average (last 10) loss: 0.9846878707408905, Log Interval 10
+Training: Epoch 0/9, Batch 90/940, Current loss 0.9699331521987915, Average (last 10) loss: 0.9732355237007141, Log Interval 10
+Training: Epoch 0/9, Batch 100/940, Current loss 0.962220311164856, Average (last 10) loss: 0.9642747581005097, Log Interval 10
+Training: Epoch 0/9, Batch 110/940, Current loss 0.9565905332565308, Average (last 10) loss: 0.9580428600311279, Log Interval 10
+Training: Epoch 0/9, Batch 120/940, Current loss 0.9520444869995117, Average (last 10) loss: 0.9533021628856659, Log Interval 10
+Training: Epoch 0/9, Batch 130/940, Current loss 0.9482223987579346, Average (last 10) loss: 0.9495112597942352, Log Interval 10
+Training: Epoch 0/9, Batch 140/940, Current loss 0.9448683261871338, Average (last 10) loss: 0.9463297903537751, Log Interval 10
+Training: Epoch 0/9, Batch 150/940, Current loss 0.9419030547142029, Average (last 10) loss: 0.9435392081737518, Log Interval 10
+Training: Epoch 0/9, Batch 160/940, Current loss 0.9391842484474182, Average (last 10) loss: 0.9408914506435394, Log Interval 10
+Training: Epoch 0/9, Batch 170/940, Current loss 0.9374233484268188, Average (last 10) loss: 0.938491415977478, Log Interval 10
+Training: Epoch 0/9, Batch 180/940, Current loss 0.9358235001564026, Average (last 10) loss: 0.9366227805614471, Log Interval 10

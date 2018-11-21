@@ -423,12 +423,14 @@ class FPADatasetObjRGBReconstruction(FPADataset):
 
     def __getitem__(self, idx):
         idx = 16
+        # Read images
         subpath, file_num = self.get_subpath_and_file_num(idx)
         rgb_img = self.read_rgb_img(subpath, file_num)
+        gen_obj_rgb_img = self.read_gen_obj_rgb_img(subpath, file_num)
+        # Transform images for pytorch
         rgb_img = io_image.change_res_image(rgb_img,
                                             self.params_dict['img_res'])
         rgb_img = self.transform(rgb_img)
-        gen_obj_rgb_img = self.read_gen_obj_rgb_img(subpath, file_num)
         gen_obj_rgb_img = io_image.change_res_image(gen_obj_rgb_img,
                                             self.params_dict['img_res'])
         gen_obj_rgb_img = self.transform(gen_obj_rgb_img)
