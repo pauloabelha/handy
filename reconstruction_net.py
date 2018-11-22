@@ -13,11 +13,11 @@ class ReconstructNet(nn.Module):
 
         self.num_input_channels = params_dict['num_input_channels']
 
-        self.num_layers_encoding = 5
+        self.num_layers_encoding = 8
         self.kernel_size = 3
         self.stride = 1
-        self.out_channels = [32, 32, 32, 32, 32]
-        self.paddings = [8, 0, 0, 0, 0]
+        self.out_channels = [32] * self.num_layers_encoding
+        self.paddings = [18] + ([0]*(self.num_layers_encoding-1))
         self.kernel_sizes = [self.kernel_size] * self.num_layers_encoding
         self.strides = [self.stride] * self.num_layers_encoding
 
@@ -55,6 +55,13 @@ class ReconstructNet(nn.Module):
 
     def loss(self, output, label):
         self.losses['mse'] = F.mse_loss(output, label)
+        #self.losses['mse'] = 0
+        #for i in range(output.shape[0]):
+        #    diff = torch.abs(output[i, :, :, :] - label[i, :, :, :])
+        #    loss_batch_mse = torch.sum(diff)
+        #    loss_batch_mse /= diff.numel()
+        #    self.losses['mse'] += loss_batch_mse
+        #self.losses['mse'] /= output.shape[0]
         return self.losses['mse']
 
     def init_weights(self):

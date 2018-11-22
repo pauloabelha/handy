@@ -435,7 +435,7 @@ class FPADatasetObjRGBReconstruction(FPADataset):
                                             self.params_dict['img_res'])
         gen_obj_rgb_img = self.transform(gen_obj_rgb_img)
 
-        return (rgb_img, gen_obj_rgb_img)
+        return (rgb_img, rgb_img)
 
 def DataLoaderReconstruction(root_folder, type, input_type,
                                  transform_color=None, transform_depth=None,
