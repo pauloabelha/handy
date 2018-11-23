@@ -64,14 +64,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="57" />
-          <entry key="py" value="35844" />
+          <entry key="py" value="35859" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="35844" />
+          <entry key="Python" value="35859" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
-              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -106,17 +106,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="429" column="38" selection-start-line="429" selection-start-column="38" selection-end-line="429" selection-end-column="38" />
+            <state relative-caret-position="360">
+              <caret line="430" column="40" selection-start-line="430" selection-start-column="40" selection-end-line="430" selection-end-column="40" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1542883703472" expanded="true" signature="1350:1356" ph="..." />
-                <marker date="1542883703472" expanded="true" signature="1385:1470" ph="..." />
-                <marker date="1542883703472" expanded="true" signature="2009:2230" ph="..." />
-                <marker date="1542883703472" expanded="true" signature="17843:20004" ph="..." />
-                <marker date="1542883703472" expanded="true" signature="19178:19305" ph="..." />
-                <marker date="1542883703472" expanded="true" signature="19300:19305" ph="..." />
-                <marker date="1542883703472" expanded="true" signature="23737:23742" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="1350:1356" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="1385:1470" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="2009:2230" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="17843:20009" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="19178:19305" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="19300:19305" ph="..." />
+                <marker date="1542895091180" expanded="true" signature="23742:23747" ph="..." />
               </folding>
             </state>
           </provider>
@@ -125,11 +125,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+            <state relative-caret-position="548">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1542885281882" expanded="true" signature="3114:3817" ph="..." />
+                <marker date="1542895190200" expanded="true" signature="3115:3818" ph="..." />
               </folding>
             </state>
           </provider>
@@ -233,8 +233,8 @@
         <option value="$PROJECT_DIR$/util.py" />
         <option value="$PROJECT_DIR$/io_image.py" />
         <option value="$PROJECT_DIR$/network_blocks.py" />
-        <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/reconstruction_net.py" />
+        <option value="$PROJECT_DIR$/fpa_dataset.py" />
         <option value="$PROJECT_DIR$/train_net.py" />
       </list>
     </option>
@@ -366,7 +366,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
-      <option name="PARAMETERS" value="--log-interval 10 -e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 3}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 2, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (240, 135)}&quot;" />
+      <option name="PARAMETERS" value="--log-interval 10 -e 10 --data-loader fpa_dataset.FPADataLoaderObjRGBReconstruction --net reconstruction_net.ReconstructNet --net-dict &quot;{'num_input_channels': 3}&quot; --dataset-dict &quot;{'root_folder': '$PROJECT_DIR$/../../Datasets/fpa_benchmark/', 'batch_size': 16, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (240, 135)}&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -427,14 +427,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25512666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31390134" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34641257" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49939686" weight="0.32847533" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -867,17 +866,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fpa_dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="429" column="38" selection-start-line="429" selection-start-column="38" selection-end-line="429" selection-end-column="38" />
+        <state relative-caret-position="360">
+          <caret line="430" column="40" selection-start-line="430" selection-start-column="40" selection-end-line="430" selection-end-column="40" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1542883703472" expanded="true" signature="1350:1356" ph="..." />
-            <marker date="1542883703472" expanded="true" signature="1385:1470" ph="..." />
-            <marker date="1542883703472" expanded="true" signature="2009:2230" ph="..." />
-            <marker date="1542883703472" expanded="true" signature="17843:20004" ph="..." />
-            <marker date="1542883703472" expanded="true" signature="19178:19305" ph="..." />
-            <marker date="1542883703472" expanded="true" signature="19300:19305" ph="..." />
-            <marker date="1542883703472" expanded="true" signature="23737:23742" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="1350:1356" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="1385:1470" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="2009:2230" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="17843:20009" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="19178:19305" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="19300:19305" ph="..." />
+            <marker date="1542895091180" expanded="true" signature="23742:23747" ph="..." />
           </folding>
         </state>
       </provider>
@@ -885,7 +884,7 @@
     <entry file="file://$PROJECT_DIR$/reconstruction_net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -894,11 +893,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+        <state relative-caret-position="548">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1542885281882" expanded="true" signature="3114:3817" ph="..." />
+            <marker date="1542895190200" expanded="true" signature="3115:3818" ph="..." />
           </folding>
         </state>
       </provider>

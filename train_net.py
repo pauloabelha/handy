@@ -52,11 +52,11 @@ def get_imgs_to_save(data, labels, output, max_log_images):
     num_log_images = min(max_log_images, data.shape[0])
     for i in range(num_log_images):
         data_imgs.append(train_loader.dataset.inv_transform_RGB_img(
-            data[0].detach().cpu()))
+            data[i].detach().cpu()))
         labels_imgs.append(train_loader.dataset.inv_transform_RGB_img(
-            labels[0].detach().cpu()))
+            labels[i].detach().cpu()))
         output_imgs.append(train_loader.dataset.inv_transform_RGB_img(
-            output[0].detach().cpu()))
+            output[i].detach().cpu()))
     return data_imgs, labels_imgs, output_imgs
 
 # Save images to file

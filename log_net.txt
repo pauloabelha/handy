@@ -1,8 +1,8 @@
 Generated from train_ney.py in Handy repository (https://github.com/pauloabelha/handy.git)
-Timestamp: 2018-11-22 11:15:03
+Timestamp: 2018-11-22 14:02:43
 Device: cuda:0
 GPU: GeForce GTX 1080 Ti
-Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 2, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (240, 135)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=10, log_root_folder='', lr=1.0, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, weight_decay=0.005)
+Arguments: Namespace(checkpoint_filepath='lstm_baseline.pth.tar', data_loader='fpa_dataset.FPADataLoaderObjRGBReconstruction', dataset_dict="{'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 16, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (240, 135)}", log_filepath='log_net.txt', log_img_prefix='log_img_', log_interval=10, log_root_folder='', lr=0.05, max_log_images=4, momentum=0.9, net='reconstruction_net.ReconstructNet', net_dict="{'num_input_channels': 3}", num_epochs=10, weight_decay=0.005)
 Network params dict: {'num_input_channels': 3}
 Network loaded: 
 ReconstructNet(
@@ -92,25 +92,119 @@ ReconstructNet(
     )
   )
 )
-Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 2, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (240, 135), 'type': 'train'}
-Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x0000023AF129D1E0>
-Dataset length: 7525
+Dataset params dict: {'root_folder': 'C:/Users/Administrator/Documents/Datasets/fpa_benchmark/', 'batch_size': 16, 'split_filename': 'fpa_split_obj_pose.p', 'img_res': (240, 135), 'type': 'train'}
+Data loader loaded: <function FPADataLoaderObjRGBReconstruction at 0x000002C1D25DD1E0>
+Dataset length: 941
 Optimizer loaded: Adadelta (
 Parameter Group 0
     eps: 1e-06
-    lr: 1.0
+    lr: 0.05
     rho: 0.9
     weight_decay: 0.005
 )
 Training started
-Training: Epoch 0/9, Batch 0/7524, Current loss 0.38445693254470825, Average (last 10) loss: 0.38445693254470825, Diff (avg loss) 0.38445693254470825, Log Interval 10
-Training: Epoch 0/9, Batch 10/7524, Current loss 0.18367484211921692, Average (last 10) loss: 0.20037524849176408, Diff (avg loss) -0.18408168405294417, Log Interval 10
-Training: Epoch 0/9, Batch 20/7524, Current loss 0.16741766035556793, Average (last 10) loss: 0.16634260565042497, Diff (avg loss) -0.03403264284133911, Log Interval 10
-Training: Epoch 0/9, Batch 30/7524, Current loss 0.16152328252792358, Average (last 10) loss: 0.16273096650838853, Diff (avg loss) -0.003611639142036438, Log Interval 10
-Training: Epoch 0/9, Batch 40/7524, Current loss 0.16124342381954193, Average (last 10) loss: 0.1611943930387497, Diff (avg loss) -0.0015365734696388411, Log Interval 10
-Training: Epoch 0/9, Batch 50/7524, Current loss 0.16115710139274597, Average (last 10) loss: 0.15973712205886842, Diff (avg loss) -0.00145727097988127, Log Interval 10
-Training: Epoch 0/9, Batch 60/7524, Current loss 0.1580069214105606, Average (last 10) loss: 0.15943171381950377, Diff (avg loss) -0.00030540823936464623, Log Interval 10
-Training: Epoch 0/9, Batch 70/7524, Current loss 0.1576385796070099, Average (last 10) loss: 0.15901750028133393, Diff (avg loss) -0.00041421353816983864, Log Interval 10
-Training: Epoch 0/9, Batch 80/7524, Current loss 0.15998996794223785, Average (last 10) loss: 0.15905135422945021, Diff (avg loss) 3.3853948116280286e-05, Log Interval 10
-Training: Epoch 0/9, Batch 90/7524, Current loss 0.15714512765407562, Average (last 10) loss: 0.15878646671772004, Diff (avg loss) -0.00026488751173017744, Log Interval 10
-Training: Epoch 0/9, Batch 100/7524, Current loss 0.15575316548347473, Average (last 10) loss: 0.15619215220212937, Diff (avg loss) -0.0025943145155906677, Log Interval 10
+Training: Epoch 0/9, Batch 0/940, Current loss 0.5081017017364502, Average (last 10) loss: 0.5081017017364502, Diff (avg loss) 0.5081017017364502, Log Interval 10
+Training: Epoch 0/9, Batch 10/940, Current loss 0.24217119812965393, Average (last 10) loss: 0.3194850027561188, Diff (avg loss) -0.1886166989803314, Log Interval 10
+Training: Epoch 0/9, Batch 20/940, Current loss 0.1955753117799759, Average (last 10) loss: 0.21375409960746766, Diff (avg loss) -0.10573090314865113, Log Interval 10
+Training: Epoch 0/9, Batch 30/940, Current loss 0.19219407439231873, Average (last 10) loss: 0.19592090398073198, Diff (avg loss) -0.017833195626735687, Log Interval 10
+Training: Epoch 0/9, Batch 40/940, Current loss 0.18264202773571014, Average (last 10) loss: 0.1851173982024193, Diff (avg loss) -0.010803505778312683, Log Interval 10
+Training: Epoch 0/9, Batch 50/940, Current loss 0.17327070236206055, Average (last 10) loss: 0.18138626515865325, Diff (avg loss) -0.003731133043766044, Log Interval 10
+Training: Epoch 0/9, Batch 60/940, Current loss 0.16725151240825653, Average (last 10) loss: 0.17958431392908097, Diff (avg loss) -0.001801951229572274, Log Interval 10
+Training: Epoch 0/9, Batch 70/940, Current loss 0.18114474415779114, Average (last 10) loss: 0.18358164876699448, Diff (avg loss) 0.003997334837913508, Log Interval 10
+Training: Epoch 0/9, Batch 80/940, Current loss 0.16248998045921326, Average (last 10) loss: 0.17219823151826857, Diff (avg loss) -0.011383417248725908, Log Interval 10
+Training: Epoch 0/9, Batch 90/940, Current loss 0.18570931255817413, Average (last 10) loss: 0.17219603806734085, Diff (avg loss) -2.1934509277232728e-06, Log Interval 10
+Training: Epoch 0/9, Batch 100/940, Current loss 0.17405158281326294, Average (last 10) loss: 0.1727444440126419, Diff (avg loss) 0.0005484059453010615, Log Interval 10
+Training: Epoch 0/9, Batch 110/940, Current loss 0.16687898337841034, Average (last 10) loss: 0.17844735980033874, Diff (avg loss) 0.005702915787696827, Log Interval 10
+Training: Epoch 0/9, Batch 120/940, Current loss 0.16214150190353394, Average (last 10) loss: 0.16976729333400725, Diff (avg loss) -0.008680066466331487, Log Interval 10
+Training: Epoch 0/9, Batch 130/940, Current loss 0.17434801161289215, Average (last 10) loss: 0.17199506163597106, Diff (avg loss) 0.002227768301963806, Log Interval 10
+Training: Epoch 0/9, Batch 140/940, Current loss 0.1872430443763733, Average (last 10) loss: 0.17315533757209778, Diff (avg loss) 0.00116027593612672, Log Interval 10
+Training: Epoch 0/9, Batch 150/940, Current loss 0.18114624917507172, Average (last 10) loss: 0.17239764630794524, Diff (avg loss) -0.000757691264152538, Log Interval 10
+Training: Epoch 0/9, Batch 160/940, Current loss 0.1826239377260208, Average (last 10) loss: 0.17769466191530228, Diff (avg loss) 0.005297015607357042, Log Interval 10
+Training: Epoch 0/9, Batch 170/940, Current loss 0.18217113614082336, Average (last 10) loss: 0.17525164932012557, Diff (avg loss) -0.002443012595176708, Log Interval 10
+Training: Epoch 0/9, Batch 180/940, Current loss 0.17698398232460022, Average (last 10) loss: 0.17562495470046996, Diff (avg loss) 0.0003733053803443853, Log Interval 10
+Training: Epoch 0/9, Batch 190/940, Current loss 0.164589524269104, Average (last 10) loss: 0.1706803932785988, Diff (avg loss) -0.004944561421871163, Log Interval 10
+Training: Epoch 0/9, Batch 200/940, Current loss 0.16797219216823578, Average (last 10) loss: 0.16942139714956284, Diff (avg loss) -0.0012589961290359608, Log Interval 10
+Training: Epoch 0/9, Batch 210/940, Current loss 0.16733984649181366, Average (last 10) loss: 0.1732175588607788, Diff (avg loss) 0.0037961617112159673, Log Interval 10
+Training: Epoch 0/9, Batch 220/940, Current loss 0.17972341179847717, Average (last 10) loss: 0.17368772476911545, Diff (avg loss) 0.0004701659083366505, Log Interval 10
+Training: Epoch 0/9, Batch 230/940, Current loss 0.15323764085769653, Average (last 10) loss: 0.16989296078681945, Diff (avg loss) -0.003794763982296001, Log Interval 10
+Training: Epoch 0/9, Batch 240/940, Current loss 0.175369992852211, Average (last 10) loss: 0.17381642907857894, Diff (avg loss) 0.003923468291759491, Log Interval 10
+Training: Epoch 0/9, Batch 250/940, Current loss 0.16573266685009003, Average (last 10) loss: 0.17891796827316284, Diff (avg loss) 0.005101539194583893, Log Interval 10
+Training: Epoch 0/9, Batch 260/940, Current loss 0.16308759152889252, Average (last 10) loss: 0.17101315706968306, Diff (avg loss) -0.007904811203479772, Log Interval 10
+Training: Epoch 0/9, Batch 270/940, Current loss 0.16286402940750122, Average (last 10) loss: 0.16822966188192368, Diff (avg loss) -0.0027834951877593883, Log Interval 10
+Training: Epoch 0/9, Batch 280/940, Current loss 0.17078378796577454, Average (last 10) loss: 0.17790081351995468, Diff (avg loss) 0.009671151638031006, Log Interval 10
+Training: Epoch 0/9, Batch 290/940, Current loss 0.17836318910121918, Average (last 10) loss: 0.17243776917457582, Diff (avg loss) -0.005463044345378865, Log Interval 10
+Training: Epoch 0/9, Batch 300/940, Current loss 0.17411378026008606, Average (last 10) loss: 0.17292424142360688, Diff (avg loss) 0.00048647224903106134, Log Interval 10
+Training: Epoch 0/9, Batch 310/940, Current loss 0.1760571449995041, Average (last 10) loss: 0.1780446231365204, Diff (avg loss) 0.005120381712913513, Log Interval 10
+Training: Epoch 0/9, Batch 320/940, Current loss 0.17603474855422974, Average (last 10) loss: 0.17765795141458512, Diff (avg loss) -0.00038667172193526667, Log Interval 10
+Training: Epoch 0/9, Batch 330/940, Current loss 0.18106383085250854, Average (last 10) loss: 0.17534277588129044, Diff (avg loss) -0.002315175533294689, Log Interval 10
+Training: Epoch 0/9, Batch 340/940, Current loss 0.15926752984523773, Average (last 10) loss: 0.17533421516418457, Diff (avg loss) -8.560717105865479e-06, Log Interval 10
+Training: Epoch 0/9, Batch 350/940, Current loss 0.18069827556610107, Average (last 10) loss: 0.17457326203584672, Diff (avg loss) -0.000760953128337849, Log Interval 10
+Training: Epoch 0/9, Batch 360/940, Current loss 0.17119760811328888, Average (last 10) loss: 0.1757377415895462, Diff (avg loss) 0.0011644795536994712, Log Interval 10
+Training: Epoch 0/9, Batch 370/940, Current loss 0.17651845514774323, Average (last 10) loss: 0.17027961760759353, Diff (avg loss) -0.005458123981952667, Log Interval 10
+Training: Epoch 0/9, Batch 380/940, Current loss 0.18997053802013397, Average (last 10) loss: 0.1743035688996315, Diff (avg loss) 0.004023951292037975, Log Interval 10
+Training: Epoch 0/9, Batch 390/940, Current loss 0.17310339212417603, Average (last 10) loss: 0.17166343331336975, Diff (avg loss) -0.0026401355862617493, Log Interval 10
+Training: Epoch 0/9, Batch 400/940, Current loss 0.17592275142669678, Average (last 10) loss: 0.17079663425683975, Diff (avg loss) -0.0008667990565300043, Log Interval 10
+Training: Epoch 0/9, Batch 410/940, Current loss 0.1803705245256424, Average (last 10) loss: 0.1713133692741394, Diff (avg loss) 0.0005167350172996521, Log Interval 10
+Training: Epoch 0/9, Batch 420/940, Current loss 0.1880096197128296, Average (last 10) loss: 0.1715022251009941, Diff (avg loss) 0.00018885582685471136, Log Interval 10
+Training: Epoch 0/9, Batch 430/940, Current loss 0.17907266318798065, Average (last 10) loss: 0.17171519696712495, Diff (avg loss) 0.00021297186613083996, Log Interval 10
+Training: Epoch 0/9, Batch 440/940, Current loss 0.18478918075561523, Average (last 10) loss: 0.17175921350717543, Diff (avg loss) 4.401654005048439e-05, Log Interval 10
+Training: Epoch 0/9, Batch 450/940, Current loss 0.1879161298274994, Average (last 10) loss: 0.17390727251768112, Diff (avg loss) 0.0021480590105056874, Log Interval 10
+Training: Epoch 0/9, Batch 460/940, Current loss 0.16545931994915009, Average (last 10) loss: 0.17113464027643205, Diff (avg loss) -0.0027726322412490734, Log Interval 10
+Training: Epoch 0/9, Batch 470/940, Current loss 0.17415043711662292, Average (last 10) loss: 0.16830200105905532, Diff (avg loss) -0.0028326392173767256, Log Interval 10
+Training: Epoch 0/9, Batch 480/940, Current loss 0.18323491513729095, Average (last 10) loss: 0.17238908410072326, Diff (avg loss) 0.004087083041667938, Log Interval 10
+Training: Epoch 0/9, Batch 490/940, Current loss 0.16820544004440308, Average (last 10) loss: 0.17415651977062224, Diff (avg loss) 0.0017674356698989813, Log Interval 10
+Training: Epoch 0/9, Batch 500/940, Current loss 0.17163370549678802, Average (last 10) loss: 0.17291481494903566, Diff (avg loss) -0.0012417048215865867, Log Interval 10
+Training: Epoch 0/9, Batch 510/940, Current loss 0.18402335047721863, Average (last 10) loss: 0.17514237016439438, Diff (avg loss) 0.002227555215358723, Log Interval 10
+Training: Epoch 0/9, Batch 520/940, Current loss 0.18279209733009338, Average (last 10) loss: 0.1688845306634903, Diff (avg loss) -0.006257839500904083, Log Interval 10
+Training: Epoch 0/9, Batch 530/940, Current loss 0.16903184354305267, Average (last 10) loss: 0.1666539043188095, Diff (avg loss) -0.0022306263446807972, Log Interval 10
+Training: Epoch 0/9, Batch 540/940, Current loss 0.17072348296642303, Average (last 10) loss: 0.16724020540714263, Diff (avg loss) 0.0005863010883331299, Log Interval 10
+Training: Epoch 0/9, Batch 550/940, Current loss 0.17606167495250702, Average (last 10) loss: 0.17516150325536728, Diff (avg loss) 0.007921297848224651, Log Interval 10
+Training: Epoch 0/9, Batch 560/940, Current loss 0.1695827841758728, Average (last 10) loss: 0.1738540381193161, Diff (avg loss) -0.001307465136051178, Log Interval 10
+Training: Epoch 0/9, Batch 570/940, Current loss 0.16399182379245758, Average (last 10) loss: 0.16668231189250945, Diff (avg loss) -0.007171726226806646, Log Interval 10
+Training: Epoch 0/9, Batch 580/940, Current loss 0.17785967886447906, Average (last 10) loss: 0.17587742060422898, Diff (avg loss) 0.009195108711719524, Log Interval 10
+Training: Epoch 0/9, Batch 590/940, Current loss 0.17383262515068054, Average (last 10) loss: 0.17338185757398605, Diff (avg loss) -0.0024955630302429255, Log Interval 10
+Training: Epoch 0/9, Batch 600/940, Current loss 0.17075519263744354, Average (last 10) loss: 0.1799224868416786, Diff (avg loss) 0.006540629267692555, Log Interval 10
+Training: Epoch 0/9, Batch 610/940, Current loss 0.16526417434215546, Average (last 10) loss: 0.16953587681055068, Diff (avg loss) -0.010386610031127924, Log Interval 10
+Training: Epoch 0/9, Batch 620/940, Current loss 0.1685364991426468, Average (last 10) loss: 0.17254434674978256, Diff (avg loss) 0.0030084699392318726, Log Interval 10
+Training: Epoch 0/9, Batch 630/940, Current loss 0.16818709671497345, Average (last 10) loss: 0.17400578111410142, Diff (avg loss) 0.0014614343643188643, Log Interval 10
+Training: Epoch 0/9, Batch 640/940, Current loss 0.16904263198375702, Average (last 10) loss: 0.17017063051462172, Diff (avg loss) -0.0038351505994796975, Log Interval 10
+Training: Epoch 0/9, Batch 650/940, Current loss 0.18675720691680908, Average (last 10) loss: 0.17284176647663116, Diff (avg loss) 0.0026711359620094355, Log Interval 10
+Training: Epoch 0/9, Batch 660/940, Current loss 0.1817605197429657, Average (last 10) loss: 0.17200865596532822, Diff (avg loss) -0.0008331105113029424, Log Interval 10
+Training: Epoch 0/9, Batch 670/940, Current loss 0.1699955016374588, Average (last 10) loss: 0.16661880761384965, Diff (avg loss) -0.005389848351478571, Log Interval 10
+Training: Epoch 0/9, Batch 680/940, Current loss 0.17418812215328217, Average (last 10) loss: 0.16677831411361693, Diff (avg loss) 0.0001595064997672868, Log Interval 10
+Training: Epoch 0/9, Batch 690/940, Current loss 0.16211572289466858, Average (last 10) loss: 0.16803097277879714, Diff (avg loss) 0.0012526586651802063, Log Interval 10
+Training: Epoch 0/9, Batch 700/940, Current loss 0.17981396615505219, Average (last 10) loss: 0.17178753167390823, Diff (avg loss) 0.0037565588951110895, Log Interval 10
+Training: Epoch 0/9, Batch 710/940, Current loss 0.1791224628686905, Average (last 10) loss: 0.17309610247612, Diff (avg loss) 0.0013085708022117781, Log Interval 10
+Training: Epoch 0/9, Batch 720/940, Current loss 0.1496439129114151, Average (last 10) loss: 0.1730802536010742, Diff (avg loss) -1.584887504579857e-05, Log Interval 10
+Training: Epoch 0/9, Batch 730/940, Current loss 0.17553670704364777, Average (last 10) loss: 0.16970668137073516, Diff (avg loss) -0.0033735722303390447, Log Interval 10
+Training: Epoch 0/9, Batch 740/940, Current loss 0.16224056482315063, Average (last 10) loss: 0.17185032218694687, Diff (avg loss) 0.0021436408162117115, Log Interval 10
+Training: Epoch 0/9, Batch 750/940, Current loss 0.1504606306552887, Average (last 10) loss: 0.16811630874872208, Diff (avg loss) -0.003734013438224798, Log Interval 10
+Training: Epoch 0/9, Batch 760/940, Current loss 0.17682456970214844, Average (last 10) loss: 0.17073381692171097, Diff (avg loss) 0.0026175081729888916, Log Interval 10
+Training: Epoch 0/9, Batch 770/940, Current loss 0.16305680572986603, Average (last 10) loss: 0.17050619423389435, Diff (avg loss) -0.00022762268781661987, Log Interval 10
+Training: Epoch 0/9, Batch 780/940, Current loss 0.16977660357952118, Average (last 10) loss: 0.17335995137691498, Diff (avg loss) 0.0028537571430206354, Log Interval 10
+Training: Epoch 0/9, Batch 790/940, Current loss 0.16863888502120972, Average (last 10) loss: 0.1685015842318535, Diff (avg loss) -0.004858367145061493, Log Interval 10
+Training: Epoch 0/9, Batch 800/940, Current loss 0.17536751925945282, Average (last 10) loss: 0.17009901702404023, Diff (avg loss) 0.0015974327921867426, Log Interval 10
+Training: Epoch 0/9, Batch 810/940, Current loss 0.173191636800766, Average (last 10) loss: 0.17174474745988846, Diff (avg loss) 0.0016457304358482305, Log Interval 10
+Training: Epoch 0/9, Batch 820/940, Current loss 0.17497560381889343, Average (last 10) loss: 0.1676512748003006, Diff (avg loss) -0.004093472659587871, Log Interval 10
+Training: Epoch 0/9, Batch 830/940, Current loss 0.17590266466140747, Average (last 10) loss: 0.17464999109506607, Diff (avg loss) 0.006998716294765478, Log Interval 10
+Training: Epoch 0/9, Batch 840/940, Current loss 0.18282634019851685, Average (last 10) loss: 0.1685534179210663, Diff (avg loss) -0.006096573173999781, Log Interval 10
+Training: Epoch 0/9, Batch 850/940, Current loss 0.17563842236995697, Average (last 10) loss: 0.17147243171930313, Diff (avg loss) 0.002919013798236836, Log Interval 10
+Training: Epoch 0/9, Batch 860/940, Current loss 0.16228190064430237, Average (last 10) loss: 0.16850552409887315, Diff (avg loss) -0.002966907620429976, Log Interval 10
+Training: Epoch 0/9, Batch 870/940, Current loss 0.17888040840625763, Average (last 10) loss: 0.17282710075378419, Diff (avg loss) 0.004321576654911036, Log Interval 10
+Training: Epoch 0/9, Batch 880/940, Current loss 0.1754193753004074, Average (last 10) loss: 0.17349134534597396, Diff (avg loss) 0.0006642445921897777, Log Interval 10
+Training: Epoch 0/9, Batch 890/940, Current loss 0.17261584103107452, Average (last 10) loss: 0.1737841010093689, Diff (avg loss) 0.000292755663394928, Log Interval 10
+Training: Epoch 0/9, Batch 900/940, Current loss 0.1619534194469452, Average (last 10) loss: 0.16999001652002335, Diff (avg loss) -0.0037940844893455394, Log Interval 10
+Training: Epoch 0/9, Batch 910/940, Current loss 0.17808730900287628, Average (last 10) loss: 0.1711763322353363, Diff (avg loss) 0.0011863157153129411, Log Interval 10
+Training: Epoch 0/9, Batch 920/940, Current loss 0.16344431042671204, Average (last 10) loss: 0.17823879420757294, Diff (avg loss) 0.007062461972236644, Log Interval 10
+Training: Epoch 0/9, Batch 930/940, Current loss 0.1700952649116516, Average (last 10) loss: 0.16960714012384415, Diff (avg loss) -0.00863165408372879, Log Interval 10
+Training: Epoch 0/9, Batch 940/940, Current loss 0.17957228422164917, Average (last 10) loss: 0.17134940773248672, Diff (avg loss) 0.0017422676086425726, Log Interval 10
+Training: Epoch 1/9, Batch 0/940, Current loss 0.16843175888061523, Average (last 10) loss: 0.17145785987377166, Diff (avg loss) 0.00010845214128493708, Log Interval 10
+Training: Epoch 1/9, Batch 10/940, Current loss 0.1719517856836319, Average (last 10) loss: 0.1651094764471054, Diff (avg loss) -0.006348383426666243, Log Interval 10
+Training: Epoch 1/9, Batch 20/940, Current loss 0.16708213090896606, Average (last 10) loss: 0.16678578406572342, Diff (avg loss) 0.001676307618618006, Log Interval 10
+Training: Epoch 1/9, Batch 30/940, Current loss 0.17470356822013855, Average (last 10) loss: 0.17222980856895448, Diff (avg loss) 0.00544402450323106, Log Interval 10
+Training: Epoch 1/9, Batch 40/940, Current loss 0.1696900874376297, Average (last 10) loss: 0.17030552327632903, Diff (avg loss) -0.0019242852926254495, Log Interval 10
+Training: Epoch 1/9, Batch 50/940, Current loss 0.16558142006397247, Average (last 10) loss: 0.1716009184718132, Diff (avg loss) 0.0012953951954841614, Log Interval 10
+Training: Epoch 1/9, Batch 60/940, Current loss 0.1609937697649002, Average (last 10) loss: 0.17151685655117035, Diff (avg loss) -8.406192064283613e-05, Log Interval 10
+Training: Epoch 1/9, Batch 70/940, Current loss 0.17534705996513367, Average (last 10) loss: 0.1769600495696068, Diff (avg loss) 0.005443193018436432, Log Interval 10
+Training: Epoch 1/9, Batch 80/940, Current loss 0.15712495148181915, Average (last 10) loss: 0.16649257987737656, Diff (avg loss) -0.010467469692230225, Log Interval 10
+Training: Epoch 1/9, Batch 90/940, Current loss 0.180834099650383, Average (last 10) loss: 0.16709390431642532, Diff (avg loss) 0.000601324439048756, Log Interval 10
